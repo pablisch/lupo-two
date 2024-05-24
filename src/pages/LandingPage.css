@@ -1,0 +1,129 @@
+.landing-page {
+  background-color: var(--blue-grey-900);
+  text-align: center;
+  min-height: 100vh;
+}
+
+.landing-nav {
+  margin: 0 0 5px;
+  padding: 2px;
+}
+
+.landing-nav h2 {
+  color: var(--white-000);
+  margin: 10px;
+  padding: 0;
+  font-size: 2.5rem;
+}
+
+.to-trains-logo {
+  height: 40vmin;
+  margin: 10px auto 30px;
+  height: 400px;
+}
+
+@keyframes to-trains-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .to-trains-logo {
+    animation: to-trains-logo-spin infinite 20s linear;
+  }
+}
+
+.landing-header {
+  background-color: var(--white-000);
+  max-height: 450px;
+  font-size: calc(10px + 2vmin);
+  margin: 0 auto;
+}
+
+.landing-blurb {
+  background-color: var(--blue-grey-900);
+}
+
+.blub {
+  padding: 20px 40px;
+}
+
+.landing-blurb .top-blurb {
+  padding-top: 40px;
+}
+.landing-blurb .mid-blurb {
+  padding: 10px;
+}
+
+.landing-blurb p {
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 5px;
+  padding: 20px 200px;
+}
+
+.break-line {
+  height: 10px;
+  width: 100%;
+}
+
+.blue-break-line {
+  background-color: var(--blue-500);
+}
+
+.white-break-line {
+  height: 5px;
+  background-color: var(--white-000);
+}
+
+@media (max-width: 900px) {
+  .landing-page .app-nav h2 {
+    font-size: 2rem;
+  }
+  .landing-page-logo {
+    height: 50vmin;
+    margin: 10px auto;
+  }
+  .landing-page p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .landing-page .app-nav h2 {
+    font-size: 1rem;
+  }
+  .to-trains-logo {
+    height: 60vmin;
+    margin: 0 auto;
+  }
+  .mid-blurb,
+  .bottom-blurb {
+    display: none;
+  }
+  .landing-blurb .top-blurb {
+    padding-bottom: 1000px;
+  }
+}
+
+@media (max-width: 500px) {
+  .to-trains-logo {
+    height: 70vmin;
+  }
+  .landing-page p {
+    font-size: 0.7rem;
+  }
+  .landing-blurb .top-blurb {
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 300px) {
+  .to-trains-logo {
+    margin: -10px auto;
+  }
+}

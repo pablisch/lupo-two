@@ -1,0 +1,33 @@
+@import url(https://fonts.googleapis.com/css?family=Hammersmith+One); 
+@import url(https://fonts.googleapis.com/css2?family=VT323); 
+
+:root {
+  --purple-600: #3b1ec9;
+  --blue-500: #042ed7;
+
+  --cerulean-900: #213547;
+
+  --white-000: #fff;
+
+  --blue-grey-900: #313a4a;
+  --black-1000: #000;
+
+  
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Hammersmith One','VT323', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
