@@ -1,6 +1,6 @@
 import './Navbar.css'
 import { Link } from "react-router-dom";
-import fadeAllStations from '../../fadeAllStations';
+import fadeAllStations from '../../utils/fadeAllStations';
 
 const Navbar = ({stop, setTapInVisible}) => {
   const navigateAway = () => {
@@ -18,10 +18,10 @@ const Navbar = ({stop, setTapInVisible}) => {
     <nav>
       <div className="nav-container">
         <div className="nav-logo">
-          <img src="./underground2.png" alt="" className="luso-logo" />
+          <img src="./images/underground.png" alt="" className="luso-logo" />
           <h2 id="long-title">LONDON UNDERGROUND PHONY ORCHESTRA</h2>
           <h2 id="short-title">LUPO</h2>
-          <img src="./underground2.png" alt="" className="luso-logo second-logo" />
+          <img src="./images/underground.png" alt="" className="luso-logo second-logo" />
         </div>
         <div className="nav-links">
           {/data/.test(window.location.href) && <div onClick={fadeStationsWhenReturningToMap} className="map-link link-btn"><Link to="/sounds-of-the-underground">Map</Link></div>}

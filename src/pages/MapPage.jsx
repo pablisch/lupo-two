@@ -1,9 +1,9 @@
-import React from 'react'
+import Navbar from '../features/Navbar/Navbar';
 
 const MapPage = () => {
   return (
     <div>
-      LUPO
+      <Navbar />
     </div>
   )
 }
