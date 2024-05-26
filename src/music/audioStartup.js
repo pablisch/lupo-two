@@ -305,6 +305,13 @@ const audioStartup = async (instrumentSet) => {
     tubeDrumSamplers[`tubeDrumSampler${i}`] = sampler;
   }
 
+  for (let i = 1; i < 13; i++) {
+    const sampler = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+    sampler.maxVolume = -6;
+    sampler.volume.value = sampler.maxVolume;
+    marimbaSamplers[`marimbaSampler${i}`] = sampler;
+  }
+
   const celloMarcSampler = new Tone.Sampler({
     urls: {
       A2: 'cello_marc_a2.mp3',
