@@ -1,10 +1,11 @@
 // import { ReactComponent as Map } from '../../assets/Tube.svg?component';
-import Map from '../../assets/Map';
+// import Map from '../../assets/Map';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import './TubeMap.css';
 import fadeAllStations from '../../utils/fadeAllStations';
 import { useEffect } from 'react';
 import ErrorBoundary from '../../components/ErrorBoundary';
+import TubeSvg from './TubeSvg';
 
 const TubeMap = () => {
   useEffect(() => { fadeAllStations() }, []);
@@ -32,8 +33,8 @@ const TubeMap = () => {
             position: "absolute"
             }}>
             <ErrorBoundary>
-              
-              <Map />
+              <TubeSvg />
+              {/* <Map /> */}
             </ErrorBoundary>
           </TransformComponent>
         </TransformWrapper>
