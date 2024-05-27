@@ -14,11 +14,11 @@ const minVelocity = 0.8;
 function App() {
   const [isSoundOn, setIsSoundOn] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  // const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true);
-  // const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
-  // const [visualData, setVisualData] = useState([]);
-  // const [arrivalFlareEffectsToggle, setarrivalFlareEffectsToggle] = useState(true);
-  // const [specialServiceToggle, setSpecialServiceToggle] = useState(true);
+  const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true);
+  const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
+  const [visualData, setVisualData] = useState([]);
+  const [arrivalFlareEffectsToggle, setarrivalFlareEffectsToggle] = useState(true);
+  const [specialServiceToggle, setSpecialServiceToggle] = useState(true);
   
   const [instruments, setInstruments] = useState([]);
   const [currentInstrument, setCurrentInstrument] = useState('orchestra');

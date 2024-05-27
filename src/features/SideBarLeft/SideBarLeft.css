@@ -1,0 +1,242 @@
+.sidebar-left {
+  z-index: 200;
+}
+
+#soundon {
+  width: 100%;
+  margin: 5px auto 20px;
+  padding: 5px 0;
+  background-color: #e48d6a;
+  color: #000;
+  font-size: 1.3rem;
+  border: 1px solid #999;
+  border-radius: 2px;
+  cursor: pointer;
+}
+:root {
+  --service-1: #eefaaf;
+  --service-2: #b2e63a;
+} 
+
+#soundon:disabled {
+  background-color: var(--service-2);
+  cursor: not-allowed;
+}
+
+@keyframes colorTransition {
+  0% {
+    background-color: var(--service-1);
+  }
+  50% {
+    background-color: var(--service-2); /* slightly different color */
+  }
+  100% {
+    background-color: var(--service-1);
+  }
+}
+
+.mute-icon {
+  height: 25px;
+}
+
+.mute {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px 4px;
+  background: #fff;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 1s ease, opacity 3s ease;
+}
+
+.open {
+  height: auto;
+  opacity: 1;
+}
+
+#mute {
+  margin-bottom: 15px;
+}
+
+.instrumentButton {
+  width: 100%;
+  height: 28px;
+  margin: 0 auto 5px;
+  color: #222;
+  font-size: 1.2rem;
+  border: 1.5px solid #555;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(214, 216, 213);
+}
+
+.instrumentButton:disabled {
+  background-color: var(--service-1);
+  color: #000;
+  cursor: not-allowed;
+  animation: colorTransition 2s infinite alternate; 
+}
+
+.specialServiceButton {
+  font-size: 1rem;
+}
+
+.redButton {
+  background-color: rgb(124, 124, 124);
+  color: #fff;
+}
+
+.greenButton {
+  background-color: rgb(214, 216, 213);
+  color: #222;
+}
+
+.arrival-effects {
+  font-size: 1rem;
+}
+
+.btn-temp-left {
+  width: 100%;
+  margin: 0 auto 10px;
+  background-color: #fff;
+  color: #444;
+  font-size: 1.1rem;
+  border: 1px solid #555;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.btn-line {
+  width: 100%;
+  margin: 1px auto;
+  background-color: #fff;
+  color: #fff;
+  font-size: 1.4rem;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+}
+
+.btn-bakerloo {
+  background-color: rgb(160, 112, 34);
+  margin-top: 10px;
+}
+
+.btn-central {
+  background-color: rgb(220, 36, 31);
+}
+
+.btn-circle {
+  background-color: rgb(255, 211, 41);
+}
+
+.btn-district {
+  background-color: rgb(0, 125, 50);
+}
+
+.btn-hammersmithcity {
+  background-color: rgb(244, 169, 190);
+  /* font-size: 0.9rem; */
+  /* font-weight: bold; */
+}
+
+.btn-jubilee {
+  background-color: rgb(161, 165, 167);
+}
+
+.btn-metropolitan {
+  background-color: rgb(117, 16, 86);
+}
+
+.btn-northern {
+  background-color: rgb(0, 0, 0);
+}
+
+.btn-piccadilly {
+  background-color: rgb(0, 25, 168);
+}
+
+.btn-victoria {
+  background-color: rgb(0, 152, 216);
+}
+
+.btn-waterloocity {
+  background-color: rgb(106, 187, 170);
+  font-size: 1.2rem;
+}
+
+.underline-bakerloo {
+  /* min-height: 5px; */
+  background: rgb(160, 112, 34);
+  /* margin-bottom: 3px; */
+}
+
+@media (max-width: 650px) {
+  .btn-line {
+    width: 100%;
+    margin: 1px auto;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    height: 22px;
+  }
+  .btn-waterloocity {
+    font-size: 0.8rem;
+  }
+  .instrumentButton {
+    height: 22px;
+    font-size: 1rem;
+  }
+  #soundon {
+    height: auto;
+    font-size: 0.9rem;
+    margin: 5px auto 10px;
+    padding: 3px 0;
+  }
+  .specialServiceButton, .arrival-effects {
+    height: 22px;
+    font-size: 0.7rem;
+    text-align: center;
+  }
+  #mute {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 550px) {
+  .btn-line {
+    width: 100%;
+    margin: 1px auto;
+    font-size: 0.7rem;
+    border: none;
+    cursor: pointer;
+    height: 17px;
+  }
+  .btn-waterloocity {
+    font-size: 0.4rem;
+  }
+  .btn-temp-left {
+    font-size: 0.8rem;
+  }
+  #mute {
+    margin-bottom: 6px;
+  }
+  .instrumentButton {
+    height: 18px;
+    font-size: 0.5rem;
+    margin: 0 auto 3px;
+  }
+  #soundon {
+    height: auto;
+    font-size: 0.6rem;
+    margin: 3px auto 5px;
+    padding: 3px 0;
+  }
+  .specialServiceButton, .arrival-effects {
+    height: 18px;
+    font-size: 0.4rem;
+    text-align: center;
+  }
+}
