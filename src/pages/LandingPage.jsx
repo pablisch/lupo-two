@@ -1,21 +1,17 @@
 import { Link } from "react-router-dom";
 import './LandingPage.css';
 
-const Landing = ({ renderCount, soundOn, setIsSoundOn }) => {
-
-  const handleSoundPrep = () => {
-    if (!soundOn) setIsSoundOn(true);
-  }
+const Landing = ({ initialSoundSetup }) => {
 
   return (
-    <div onClick={handleSoundPrep} className="landing-page">
+    <div onClick={initialSoundSetup} className="landing-page">
       <nav className="landing-nav">
         <h2>LONDON UNDERGROUND PHONY ORCHESTRA</h2>
       </nav>
       <div className="break-line white-break-line"></div>
       <div className="break-line blue-break-line"></div>
       <header className="landing-header">
-          <Link onClick={handleSoundPrep} to="/sounds-of-the-underground">
+          <Link to="/sounds-of-the-underground">
             <img src="./images/to-trains.png" className="to-trains-logo" alt="logo"/>
           </Link>
       </header>

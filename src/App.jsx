@@ -45,6 +45,13 @@ function App() {
     if (!samplers) setSamplers(samplersObject);
   }
 
+  const initialSoundSetup = () => {
+    console.log('initialSoundSetup')
+    setIsSoundOn(true);
+    loadInstrumentSet(currentInstrument);
+  }
+    
+
   const start = () => {
     setTimeout(() => {
       soundOn();
@@ -180,15 +187,16 @@ function App() {
     setMuted(() => !muted);
   }
 
-  useEffect(() => {
-    if (isSoundOn) loadInstrumentSet(currentInstrument);
-  }, [isSoundOn]);
+  // I THINK THAT THIS IS NO LONGER NEEDED DUE TO THE USE OF INITIALSOUNDSETUP IN ITS PLACE
+  // useEffect(() => {
+  //   if (isSoundOn) loadInstrumentSet(currentInstrument);
+  // }, [isSoundOn]);
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LandingPage setIsSoundOn={setIsSoundOn} />} />
+          <Route path="/" element={<LandingPage initialSoundSetup={initialSoundSetup} />} />
           <Route path="/sounds-of-the-underground" element={<MapPage />} />
         </Routes>
       </BrowserRouter>
