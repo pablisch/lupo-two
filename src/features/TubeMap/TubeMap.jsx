@@ -4,8 +4,8 @@ import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import './TubeMap.css';
 import fadeAllStations from '../../utils/fadeAllStations';
 import { useEffect } from 'react';
-import ErrorBoundary from '../../components/ErrorBoundary';
 import TubeSvg from './TubeSvg';
+import TubeCheck from './TubeCheck';
 
 const TubeMap = () => {
   useEffect(() => { fadeAllStations() }, []);
@@ -13,29 +13,27 @@ const TubeMap = () => {
   return (
     <main>
       <div className="map-wrapper">
-        <TransformWrapper
-          disablePadding={false}
+      <TransformWrapper
+          disablePadding={true}
           initialScale={1.7}
-          initialPositionX={0}
-          initialPositionY={0}
+          initialPositionX={-370}
+          initialPositionY={-320}
         >
           <TransformComponent wrapperStyle={{
             width: "100%",
             height: "100%",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
           }}
           contentStyle={{
             width: "100%",
             height: "100%",
-            transformOrigin: "center",
             position: "absolute"
-            }}>
-            <ErrorBoundary>
-              <TubeSvg />
+          }}>
+            <TubeSvg />
+              {/* <TubeCheck /> */}
               {/* <Map /> */}
-            </ErrorBoundary>
           </TransformComponent>
         </TransformWrapper>
       </div>
