@@ -1,7 +1,7 @@
 import allStations from '../data/stations-old';
 
 const fadeAllStations = () => {
-  console.log('fade all stations')
+  // console.log('fade all stations')
   allStations.forEach((line) => {
     line.forEach((station) => {
       document.getElementById(station

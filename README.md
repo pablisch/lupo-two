@@ -26,16 +26,38 @@ For the time being, I will create all samplers at the beginning and keep them in
 
 ### Audio setup
 
+**NOTE:** IN this current version of LUPO, the audio setup has been separated from the fetching if TfL data.
+
 Due to browser restrictions, audio can only be played after a user interaction. In the orginal app, there was a landing page and then, once on the main page, the user would need to click on the `tap-in` button to start the audio context. Unfortunately, theis meant that none of the background working, e.g. setting up the instrument samplers, could be done prior to the main page loading.
 
 In this version, the audio setup begins as soon as any part of the landing page is clicked. If any part of the landing page is clicked before the link to the main page, then all the audio setup will have been done by the time the main page is loaded.
 
+_LandingPage.jsx_
 ```javascript
-const handleSoundPrep = () => {
-  if (!soundOn) setIsSoundOn(true);
+<div onClick={initialSoundSetup} className="landing-page">
+```
+_App.jsx_
+```javascript
+const initialSoundSetup = () => {
+  setAudioContext(true);
 }
+```
+`initialSoundSetup` is a function in `App.jsx` that is called when the landing page is clicked. It sets `audioContext` to `true` which in turns sets of a `useEffect` in `App.jsx` that sets up the audio context.
 
-<div onClick={handleSoundPrep} className="landing-page">
+```javascript
+useEffect(() => {
+  if (audioContext) loadInstrumentSet(currentInstrument);
+}, [audioContext]);
 ```
 
-`soundOn` is a bit of a throwback from the original app and it may be removed in the future. Currently, it is tied into different parts of the app in conditional rendering so I have retained it.
+`loadInstrumentSet` is a function in `App.jsx` that calls the `audioStartup` function in `audioStartup.js` and sets `instruments` to the returned `awaitedInstruments` value. The function currently returns an object containing `awaitedInstruments` and `samplersObject` (all of the samples in a JS object).
+
+```javascript
+const loadInstrumentSet = async (instrumentSet) => {
+  const awaitedInstruments = await audioStartup(instrumentSet);
+  setInstruments(awaitedInstruments);
+}
+```
+
+### Initial TfL Data Fetch
+

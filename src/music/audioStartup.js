@@ -2,7 +2,7 @@ import getNoteAssignFunctions from './note-assignments/getNoteAssignFunctions';
 import createSamplers from './samplerSetup';
 
 const audioStartup = async (instrumentSet, samplers) => {
-  console.log('Samplers:', samplers);
+  // console.log('Samplers:', samplers);
 
   const samplersObject = samplers || (await createSamplers(instrumentSet));
 
@@ -35,7 +35,7 @@ const audioStartup = async (instrumentSet, samplers) => {
 
   let instruments = {};
 
-  console.log(`instrumentSet is ${instrumentSet}`);
+  // console.log(`instrumentSet is ${instrumentSet}`);
 
   if (instrumentSet === 'orchestra') {
     instruments = {
