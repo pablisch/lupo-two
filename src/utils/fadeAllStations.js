@@ -1,4 +1,4 @@
-import allStations from '../data/stations';
+import allStations from '../data/stations-old';
 
 const fadeAllStations = () => {
   console.log('fade all stations')

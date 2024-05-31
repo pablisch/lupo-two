@@ -1,32 +1,4 @@
-const Bakerloo = [
-  "HarrowWealdstone",
-  "Kenton",
-  "SouthKenton",
-  "NorthWembley",
-  "WembleyCentral",
-  "StonebridgePark",
-  "Harlesden",
-  "WillesdenJunction",
-  "KensalGreen",
-  "QueensPark",
-  "KilburnPark",
-  "MaidaVale",
-  "WarwickAvenue",
-  "Paddington",
-  "EdgwareRoadBakerloo",
-  "Marylebone",
-  "BakerStreet",
-  "RegentsPark",
-  "OxfordCircus",
-  "PiccadillyCircus",
-  "CharingCross",
-  "Embankment",
-  "Waterloo",
-  "LambethNorth",
-  "ElephantCastle"
-] // 25
-
-const Central = [
+const central = [
   "WestRuislip",
   "RuislipGardens",
   "SouthRuislip",
@@ -38,7 +10,7 @@ const Central = [
   "WestActon",
   "EastActon",
   "WhiteCity",
-  "ShepherdsBush",
+  "ShepherdsBush(Central)",
   "HollandPark",
   "NottingHillGate",
   "Queensway",
@@ -77,8 +49,35 @@ const Central = [
   "Wanstead"
 ]; // 48
 
-const Circle = [
-  "Hammersmith",
+const bakerloo = [
+  "Harrow&Wealdstone",
+  "Kenton",
+  "SouthKenton",
+  "NorthWembley",
+  "WembleyCentral",
+  "StonebridgePark",
+  "Harlesden",
+  "WillesdenJunction",
+  "KensalGreen",
+  "Queen'sPark",
+  "KilburnPark",
+  "MaidaVale",
+  "WarwickAvenue",
+  "Paddington",
+  "EdgwareRoadB",
+  "Marylebone",
+  "BakerStreet",
+  "Regent'sPark",
+  "OxfordCircus",
+  "PiccadillyCircus",
+  "CharingCross",
+  "Embankment",
+  "Waterloo",
+  "LambethNorth",
+  "Elephant&Castle"
+] // 24
+const circle = [
+  "Hammersmith(H&CLine)",
   "GoldhawkRoad",
   "ShepherdsBushMarket",
   "WoodLane",
@@ -86,8 +85,9 @@ const Circle = [
   "LadbrokeGrove",
   "WestbournePark",
   "RoyalOak",
-  "Paddington",  
-  "EdgwareRoad",
+  "Paddington(H&CLine)-Underground",
+  "Paddington",
+  "EdgwareRoad(CircleLine)",
   "BakerStreet",
   "GreatPortlandStreet",
   "EustonSquare",
@@ -106,16 +106,16 @@ const Circle = [
   "Embankment",
   "Westminster",
   "StJamessPark",
-  "VictoriaStation",
+  "VictoriaSt",
   "SloaneSquare",
   "SouthKensington",
   "GloucesterRoad",
   "HighStreetKensington",
   "NottingHillGate",
   "Bayswater"
-]; // 36
+]; // 35
 
-const District = [
+const district = [
   "ActonTown",
   "AldgateEast",
   "Bromley-by-Bow",
@@ -136,14 +136,14 @@ const District = [
   "Embankment",
   "ElmPark",
   "EastPutney",
-  "EdgwareRoad",
+  "EdgwareRoad(CircleLine)",
   "FulhamBroadway",
   "Gunnersbury",
   "GloucesterRoad",
   "Hornchurch",
-  "Hammersmith",
+  "Hammersmith(Dist&PiccLine)",
   "HighStreetKensington",
-  "KensingtonOlympia",
+  "Kensington(Olympia)",
   "KewGardens",
   "MileEnd",
   "Monument",
@@ -168,7 +168,7 @@ const District = [
   "UptonPark",
   "Upminster",
   "Upney",
-  "VictoriaStation",
+  "VictoriaSt",
   "WestBrompton",
   "WestHam",
   "Wimbledon",
@@ -176,9 +176,8 @@ const District = [
   "WestKensington",
   "Whitechapel",
   "Westminster"
-] // 60
-
-const HammersmithCity = [
+]
+const hammersmithcity = [
   "AldgateEast",
   "Bromley-by-Bow",
   "Barbican",
@@ -186,19 +185,19 @@ const HammersmithCity = [
   "BakerStreet",
   "BowRoad",
   "EastHam",
-  "EdgwareRoad",
+  "EdgwareRoad(CircleLine)",
   "EustonSquare",
   "Farringdon",
   "GoldhawkRoad",
   "GreatPortlandStreet",
-  "Hammersmith",
+  "Hammersmith(H&CLine)",
   "KingsCrossStPancras",
   "LadbrokeGrove",
   "LatimerRoad",
   "LiverpoolStreet",
   "MileEnd",
   "Moorgate",
-  "Paddington",
+  "Paddington(H&CLine)-Underground",
   "Plaistow",
   "RoyalOak",
   "ShepherdsBushMarket",
@@ -208,9 +207,8 @@ const HammersmithCity = [
   "WoodLane",
   "Whitechapel",
   "WestbournePark"
-] // 29
-
-const Jubilee = [
+]
+const jubilee = [
   "Bermondsey",
   "BondStreet",
   "BakerStreet",
@@ -238,14 +236,13 @@ const Jubilee = [
   "Waterloo",
   "Westminster",
   "WembleyPark"
-] // 27
-
-const Metropolitan = [
+]
+const metropolitan = [
   "Aldgate",
   "Amersham",
   "Barbican",
   "BakerStreet",
-  "ChalfontLatimer",
+  "Chalfont&Latimer",
   "Chesham",
   "Croxley",
   "Chorleywood",
@@ -276,9 +273,8 @@ const Metropolitan = [
   "WestHarrow",
   "WillesdenGreen",
   "WembleyPark"
-] // 35
-
-const Northern = [
+]
+const northern = [
   "Archway",
   "Angel",
   "Balham",
@@ -295,7 +291,7 @@ const Northern = [
   "ClaphamSouth",
   "ColliersWood",
   "CamdenTown",
-  "ElephantCastle",
+  "Elephant&Castle",
   "EastFinchley",
   "Edgware",
   "Embankment",
@@ -320,7 +316,7 @@ const Northern = [
   "Oval",
   "Stockwell",
   "SouthWimbledon",
-  "TotteridgeWhetstone",
+  "Totteridge&Whetstone",
   "TootingBec",
   "TootingBroadway",
   "TottenhamCourtRoad",
@@ -329,9 +325,8 @@ const Northern = [
   "Waterloo",
   "WoodsidePark",
   "WarrenStreet"
-] // 50
-
-const Piccadilly = [
+]
+const piccadilly = [
   "ActonTown",
   "Alperton",
   "ArnosGrove",
@@ -354,8 +349,8 @@ const Piccadilly = [
   "HydeParkCorner",
   "HeathrowTerminal4",
   "HeathrowTerminal5",
-  "HeathrowTerminals123",
-  "Hammersmith",
+  "HeathrowTerminals2&3",
+  "Hammersmith(Dist&PiccLine)",
   "HounslowCentral",
   "HounslowEast",
   "HounslowWest",
@@ -385,62 +380,36 @@ const Piccadilly = [
   "TurnpikeLane",
   "Uxbridge",
   "WoodGreen"
-] // 53
-
-const Victoria = [
+]
+const victoria = [
   "BlackhorseRoad",
   "Brixton",
   "Euston",
   "FinsburyPark",
   "GreenPark",
-  "HighburyIslington",
+  "Highbury&Islington",
   "KingsCrossStPancras",
   "OxfordCircus",
   "Pimlico",
   "Stockwell",
   "SevenSisters",
   "TottenhamHale",
-  "VictoriaStation",
+  "VictoriaSt",
   "Vauxhall",
   "WarrenStreet",
   "WalthamstowCentral"
-] // 16
-
-const WaterlooCity = [
+]
+const waterloocity = [
   "Bank",
   "Waterloo"
-] // 2
-
-// const allStations = [
-//   central, bakerloo, circle, district, hammersmithcity, jubilee, metropolitan, northern, piccadilly, victoria, waterloocity
-// ]
+]
 
 const allStations = [
-  Bakerloo,
-  Central,
-  Circle,
-  District,
-  HammersmithCity,
-  Jubilee,
-  Metropolitan,
-  Northern,
-  Piccadilly,
-  Victoria,
-  WaterlooCity
+  central, bakerloo, circle, district, hammersmithcity, jubilee, metropolitan, northern, piccadilly, victoria, waterloocity
 ]
 
 export const allStationsObject = {
-  Bakerloo,
-  Central,
-  Circle,
-  District,
-  HammersmithCity,
-  Jubilee,
-  Metropolitan,
-  Northern,
-  Piccadilly,
-  Victoria,
-  WaterlooCity
+  central, bakerloo, circle, district, hammersmithcity, jubilee, metropolitan, northern, piccadilly, victoria, waterloocity
 }
 
 export default allStations;

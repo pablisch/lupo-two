@@ -6,12 +6,25 @@ const MapPage = () => {
   return (
     <div>
       <Navbar />
-      <div className="container bars-and-map">
-        {/* <SideBarLeft arrivalFlareEffectsToggle={arrivalFlareEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick} handleSpecialServiceToggle={handleSpecialServiceToggle} specialServiceToggle={specialServiceToggle} /> */}
+      <div className='container bars-and-map'>
+        <SideBarLeft
+          // arrivalFlareEffectsToggle={arrivalFlareEffectsToggle}
+          // handleArrivalEffectToggle={handleArrivalEffectToggle}
+          // currentInstrument={currentInstrument}
+          // restart={restart}
+          // soundOn={soundOn}
+          // isPlaying={isPlaying}
+          // instruments={instruments}
+          // changeCurrentInstrument={changeCurrentInstrument}
+          // muted={muted}
+          // handleMuteButtonClick={handleMuteButtonClick}
+          // handleSpecialServiceToggle={handleSpecialServiceToggle}
+          // specialServiceToggle={specialServiceToggle}
+        />
         <TubeMap />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MapPage
+export default MapPage;
