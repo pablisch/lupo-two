@@ -48,7 +48,7 @@ function App() {
   const initialSoundSetup = () => {
     console.log('initialSoundSetup')
     setIsSoundOn(true);
-    loadInstrumentSet(currentInstrument);
+    // loadInstrumentSet(currentInstrument);
   }
     
 
@@ -188,9 +188,9 @@ function App() {
   }
 
   // I THINK THAT THIS IS NO LONGER NEEDED DUE TO THE USE OF INITIALSOUNDSETUP IN ITS PLACE
-  // useEffect(() => {
-  //   if (isSoundOn) loadInstrumentSet(currentInstrument);
-  // }, [isSoundOn]);
+  useEffect(() => {
+    if (isSoundOn) loadInstrumentSet(currentInstrument);
+  }, [isSoundOn]);
 
   return (
     <div className="App">
