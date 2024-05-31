@@ -118,7 +118,7 @@ const Circle = [
 const District = [
   "ActonTown",
   "AldgateEast",
-  "Bromley-by-Bow",
+  "BromleybyBow",
   "Becontree",
   "Blackfriars",
   "Barking",
@@ -180,7 +180,7 @@ const District = [
 
 const HammersmithCity = [
   "AldgateEast",
-  "Bromley-by-Bow",
+  "BromleybyBow",
   "Barbican",
   "Barking",
   "BakerStreet",
@@ -255,7 +255,7 @@ const Metropolitan = [
   "FinchleyRoad",
   "GreatPortlandStreet",
   "Hillingdon",
-  "Harrow-on-the-Hill",
+  "HarrowontheHill",
   "Ickenham",
   "KingsCrossStPancras",
   "LiverpoolStreet",

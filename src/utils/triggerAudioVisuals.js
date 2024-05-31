@@ -5,9 +5,12 @@ import * as Tone from 'tone'; // added this to get the Tone.now() function
 const flashElement = (elementId) => {
   // const element = document.getElementById(elementId.replace(/ *\([^)]*\) */g, ""));
   const element = document.getElementById(elementId);
+
+  // 👇🏻 ONLY FOR DEBUGGING 👇🏻
   if (!element) {
     console.log(elementId, "not found");
   }
+
   element.style.animation = 'full-fade-in 1s forwards';
   setTimeout(() => {
     element.style.animation = 'full-fade-out 1s forwards';
@@ -27,7 +30,7 @@ const triggerAudioVisuals = (
   arrivals
 ) => {
   quantisedTubeData.forEach((train) => {
-    console.log(train.stationName, train.lineName);
+    // console.log(train.stationName, train.lineName);
     const note = instruments.noteAssignFunctions[train.lineName](
       train.stationName
     );

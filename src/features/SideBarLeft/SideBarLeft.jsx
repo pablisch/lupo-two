@@ -14,7 +14,7 @@ const SideBarLeft = ({
   muted,
   handleMuteButtonClick,
   handleSpecialServiceToggle,
-  specialServiceToggle,
+  specialService,
 }) => {
   const [linesToggled, setlinesToggled] = useState(
     // Populates an object with each line name and the property false
@@ -53,10 +53,10 @@ const SideBarLeft = ({
       <br />
       <button
         className={`specialServiceButton instrumentButton ${
-          specialServiceToggle ? 'redButton' : 'greenButton'
+          specialService ? 'redButton' : 'greenButton'
         }`}
         onClick={() => handleSpecialServiceToggle()}>
-        {specialServiceToggle ? 'Normal Service' : 'Special Service'}
+        {specialService ? 'Normal Service' : 'Special Service'}
       </button>
       <button
         className={`instrumentButton arrival-effects ${

@@ -89,21 +89,18 @@ function processDataClumps(array, dataBlockDuration) {
 }
 
 // remove whitespace, apostrophes, and "Underground Station" from stationName and lineName
-function abridgeData (tubeData) {
+function abridgeData(tubeData) {
   if (tubeData.length > 0) {
-    const abridgedData = tubeData.map(obj => {
+    const abridgedData = tubeData.map((obj) => {
       return {
-        lineName: obj.lineName.replace(/\s/g, '').replace(/'/g, '').replace(/&/g, ''),
+        lineName: obj.lineName.replace(/[\s&]/g, ''),
         timeToStation: obj.timeToStation,
         stationName: obj.stationName
-            .replace(/\s|\.''/g, '')
-            .replace(/\./g, '')
-            .replace(/'/g, '')
-            .replace(/UndergroundStation/g, '')
-            .replace(/&/g, '_')
-            .replace(/BatterseaPowerStation/g, 'MorningtonCrescent')
-            .replace(/NineElms/g, 'Vauxhall')
-            .replace(/Victoria/g, 'VictoriaSt'),
+          .replace(/\([^)]*\) *|Underground|Station|[\s'".-]/g, '')
+          .replace(/&/g, '_')
+          .replace(/BatterseaPowerStation/g, 'MorningtonCrescent')
+          .replace(/NineElms/g, 'Vauxhall')
+          .replace(/Victoria/g, 'VictoriaSt'),
       };
     });
     return abridgedData;

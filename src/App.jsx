@@ -27,7 +27,7 @@ const App = () => {
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
   const [visualData, setVisualData] = useState([]);
   const [flareEffects, setFlareEffects] = useState(true);
-  const [specialServiceToggle, setSpecialServiceToggle] = useState(true);
+  const [specialService, setSpecialService] = useState(false);
 
   const [instruments, setInstruments] = useState([]);
   const [currentInstrument, setCurrentInstrument] = useState('orchestra');
@@ -160,7 +160,7 @@ const App = () => {
 
     if (instruments) {
       // console.log('instruments:', instruments);
-      if (specialServiceToggle) {
+      if (specialService) {
         fetchSpecialServiceData();
         mainLooper = setInterval(
           fetchSpecialServiceData,
@@ -191,10 +191,10 @@ const App = () => {
     restart();
   };
 
-  // handleSpecialServiceToggle to toggle the value of specialServiceToggle
+  // handleSpecialServiceToggle to toggle the value of specialService
   const handleSpecialServiceToggle = () => {
-    console.log('specialServiceToggle: ' + specialServiceToggle);
-    setSpecialServiceToggle((current) => !current);
+    console.log('specialService: ' + specialService);
+    setSpecialService((current) => !current);
     restart();
   };
 
@@ -240,8 +240,15 @@ const App = () => {
               <LandingPage handleInitialSoundSetup={handleInitialSoundSetup} />
             }
           />
-          <Route path='/sounds-of-the-underground' element={<MapPage muted={muted}
-        handleMuteButtonClick={handleMuteButtonClick} />} />
+          <Route
+            path='/sounds-of-the-underground'
+            element={
+              <MapPage
+                muted={muted}
+                handleMuteButtonClick={handleMuteButtonClick}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
