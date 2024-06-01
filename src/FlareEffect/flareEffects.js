@@ -1,9 +1,7 @@
 // Get location of element and create two circle elements at that location with css effects
 export const createFlare = (elementId, flareEffects) => {
+  console.log('flareEffects:', flareEffects, "staion:", elementId);
 
-  if (flareEffects === true) {
-    
-  
     const element = document.getElementById(elementId.replace(/ *\([^)]*\) */g, ""));
     const rect = element.getBoundingClientRect();
 
@@ -33,7 +31,6 @@ export const createFlare = (elementId, flareEffects) => {
 
     // Append the circle element to the parent container
     const container = document.querySelector("#root");
-    // const container = document.querySelector("#Everything");
     container.appendChild(flare);
 
     const randomAfterShockEffect = Math.floor(Math.random() * 6) + 1;
@@ -44,7 +41,6 @@ export const createFlare = (elementId, flareEffects) => {
       afterShock = document.createElement("div");
       afterShock.style.width = "5px";
       afterShock.style.height = "5px";
-      // afterShock.style.backgroundColor = "rgba(255, 0, 0, 0.4";
       afterShock.style.borderRadius = "50%";
       afterShock.style.position = "absolute";
       afterShock.style.transform = "translate(-50%, -50%) scale(1)";
@@ -64,7 +60,6 @@ export const createFlare = (elementId, flareEffects) => {
       afterShock.remove();
     }
     , 6000);
-  }
 };
 
 // Apply css effects to the circle elements that exist in the svg already

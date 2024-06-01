@@ -3,13 +3,12 @@ import TIMEOUTS from './timeouts';
 import * as Tone from 'tone'; // added this to get the Tone.now() function
 
 const flashElement = (elementId) => {
-  // const element = document.getElementById(elementId.replace(/ *\([^)]*\) */g, ""));
   const element = document.getElementById(elementId);
 
-  // 👇🏻 ONLY FOR DEBUGGING 👇🏻
-  if (!element) {
-    console.log(elementId, "not found");
-  }
+  // // 👇🏻 ONLY FOR DEBUGGING 👇🏻
+  // if (!element) {
+  //   console.log(elementId, "not found");
+  // }
 
   element.style.animation = 'full-fade-in 1s forwards';
   setTimeout(() => {
@@ -22,6 +21,9 @@ const getRandomVelocity = () => {
   const minVelocity = 0.8;
   return Math.round((Math.random() * minVelocity + minVelocity) * 10) / 10; // result is 1dp
 };
+
+// 💡 THE VALUE OF FLARE_EFFECTS IS PASSED INTO THE TIMEOUT FUNCTION WHICH MAY RESULT IN IT BEING OUT OF DATE BY THE TIME THE FUNCTION IS EXECUTED.
+// 💡 WOULD HAVE A GLOBAL CONTEXT PRODUCE A DIFFERENT RESULT?
 
 const triggerAudioVisuals = (
   quantisedTubeData,
@@ -49,9 +51,7 @@ const triggerAudioVisuals = (
       if (arrivals.length > 10) {
         arrivals.shift();
       }
-      // if (flareEffects) {
-        createFlare(train.stationName, flareEffects);
-      // }
+      if (flareEffects) createFlare(train.stationName, flareEffects);
     }, train.timeToStation * 1000);
   });
 };
