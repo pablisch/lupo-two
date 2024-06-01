@@ -96,11 +96,10 @@ function abridgeData(tubeData) {
         lineName: obj.lineName.replace(/[\s&]/g, ''),
         timeToStation: obj.timeToStation,
         stationName: obj.stationName
-          .replace(/\([^)]*\) *|Underground|Station|[\s'".-]/g, '')
-          .replace(/&/g, '_')
-          .replace(/BatterseaPowerStation/g, 'MorningtonCrescent')
+          .replace(/\([^)]*\) *|Underground|Station|[\s&'".-]/g, '')
+          .replace(/BatterseaPower/g, 'MorningtonCrescent')
           .replace(/NineElms/g, 'Vauxhall')
-          .replace(/Victoria/g, 'VictoriaSt'),
+          // .replace(/Victoria/g, 'VictoriaSt'),
       };
     });
     return abridgedData;

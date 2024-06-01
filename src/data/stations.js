@@ -106,7 +106,7 @@ const Circle = [
   "Embankment",
   "Westminster",
   "StJamessPark",
-  "VictoriaStation",
+  "Victoria",
   "SloaneSquare",
   "SouthKensington",
   "GloucesterRoad",
@@ -143,7 +143,7 @@ const District = [
   "Hornchurch",
   "Hammersmith",
   "HighStreetKensington",
-  "KensingtonOlympia",
+  "Kensington",
   "KewGardens",
   "MileEnd",
   "Monument",
@@ -168,7 +168,7 @@ const District = [
   "UptonPark",
   "Upminster",
   "Upney",
-  "VictoriaStation",
+  "Victoria",
   "WestBrompton",
   "WestHam",
   "Wimbledon",
@@ -354,7 +354,7 @@ const Piccadilly = [
   "HydeParkCorner",
   "HeathrowTerminal4",
   "HeathrowTerminal5",
-  "HeathrowTerminals123",
+  "HeathrowTerminals23",
   "Hammersmith",
   "HounslowCentral",
   "HounslowEast",
@@ -400,7 +400,7 @@ const Victoria = [
   "Stockwell",
   "SevenSisters",
   "TottenhamHale",
-  "VictoriaStation",
+  "Victoria",
   "Vauxhall",
   "WarrenStreet",
   "WalthamstowCentral"
@@ -416,6 +416,20 @@ const WaterlooCity = [
 // ]
 
 const allStations = [
+  Bakerloo,
+  Central,
+  Circle,
+  District,
+  HammersmithCity,
+  Jubilee,
+  Metropolitan,
+  Northern,
+  Piccadilly,
+  Victoria,
+  WaterlooCity
+]
+
+export const someStations = [
   Bakerloo,
   Central,
   Circle,

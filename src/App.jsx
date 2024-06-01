@@ -32,7 +32,7 @@ const App = () => {
   const [instruments, setInstruments] = useState([]);
   const [currentInstrument, setCurrentInstrument] = useState('orchestra');
   const [samplers, setSamplers] = useState(null);
-  const [muted, setMuted] = useState(false);
+  const [muted, setMuted] = useState(true);
 
   const loadInstrumentSet = async (instrumentSet) => {
     console.log('loadInstrumentSet function called in App.jsx');

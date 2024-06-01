@@ -6,6 +6,9 @@ import fadeAllStations from '../../utils/fadeAllStations';
 import { useEffect } from 'react';
 import TubeSvg from './TubeSvg';
 import TubeCheck from './TubeCheck';
+import TubeEdit12 from './TubeEdit12';
+import SvgTubeEdit13 from './TubeEdit13';
+import TubeEdit14 from './TubeEdit14';
 
 const TubeMap = () => {
   useEffect(() => { fadeAllStations() }, []);
@@ -31,7 +34,10 @@ const TubeMap = () => {
             height: "100%",
             position: "absolute"
           }}>
-            <TubeSvg />
+            {/* <TubeSvg /> */}
+            {/* <TubeEdit12 /> */}
+            {/* <SvgTubeEdit13 /> */}
+            <TubeEdit14 />
               {/* <TubeCheck /> */}
               {/* <Map /> */}
           </TransformComponent>
