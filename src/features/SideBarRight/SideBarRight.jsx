@@ -1,13 +1,15 @@
-import './SideBarRight.css'
+import './SideBarRight.css';
 
-
-
-const SideBarRight = ({arrivals, arrivalEffectsToggle, handleArrivalEffectToggle, stop}) => {
-
+const SideBarRight = ({
+  arrivals,
+  arrivalEffectsToggle,
+  handleFlareToggle,
+  stop,
+}) => {
   return (
-    <aside className="sidebar sidebar-right">
-      <h2>Effects button</h2>       
+    <aside className='sidebar sidebar-right'>
+      <h2>Effects button</h2>
     </aside>
   );
-}
+};
 export default SideBarRight;

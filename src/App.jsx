@@ -12,6 +12,7 @@ import { allStationsObject } from './data/stations';
 import tflApiUrl from './utils/tflApiUrl';
 import processTubeData from './utils/processTubeData';
 import triggerAudioVisuals from './utils/triggerAudioVisuals';
+import TIMEOUTS from './utils/timeouts';
 
 const minVelocity = 0.8;
 const dataBlockDuration = 90; // seconds between fetch from TFL
@@ -21,7 +22,6 @@ let mainLooper;
 
 const App = () => {
   const [audioContext, setAudioContext] = useState(false);
-  // const [isSoundOn, setIsSoundOn] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true);
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
@@ -51,12 +51,11 @@ const App = () => {
     if (!isPlaying) {
       // console.log('samplers not yet set');
     }
-    fadeAllStations();
-    setIsPlaying(true); // controls the visibility of the soundon button
-    const { awaitedInstruments, samplersObject } = await audioStartup(
-      currentInstrument,
-      samplers
-    );
+    setIsPlaying(true); // controls the visibility of the service-status button
+    // const { awaitedInstruments, samplersObject } = await audioStartup(
+    //   currentInstrument,
+    //   samplers
+    // );
     console.log(
       'in soundOn, samplersObject:',
       samplersObject,
@@ -68,7 +67,7 @@ const App = () => {
   };
 
   const handleInitialSoundSetup = () => {
-    // console.log('initialSoundSetup');
+    console.log('initialSoundSetup');
     setAudioContext(true);
     setIsPlaying(true);
   };
@@ -86,11 +85,18 @@ const App = () => {
     setIsPlaying(false);
   };
 
+  const clearCurrentArrivals = () => {
+    TIMEOUTS.clearAllTimeouts();
+    clearTimeout(mainLooper);
+  };
+
   const restart = async () => {
     console.log('RESTART');
     stop();
     soundOn();
   };
+
+
 
   const fetchData = () => {
     axios
@@ -151,15 +157,12 @@ const App = () => {
       });
   };
 
-  // To trigger the first fetch after instruments
-  useEffect(() => {
+  const getArrivalData = () => {
     if (!isPlaying) {
       return;
     }
-    // console.log('used effect')
 
     if (instruments) {
-      // console.log('instruments:', instruments);
       if (specialService) {
         fetchSpecialServiceData();
         mainLooper = setInterval(
@@ -171,6 +174,11 @@ const App = () => {
         mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
       }
     }
+  };
+
+  useEffect(() => {
+    // To trigger the first fetch after instruments
+    getArrivalData();
   }, [instruments]);
 
   const toggleVisualiseEventsOnly = () => {
@@ -184,11 +192,12 @@ const App = () => {
     }, 3000);
   };
 
-  // handleArrivalEffectToggle to toggle the value of flareEffects
-  const handleArrivalEffectToggle = () => {
-    console.log('flareEffects: ' + flareEffects);
+  // handleFlareToggle to toggle the value of flareEffects
+  const handleFlareToggle = () => {
+    console.log('flareEffects:', flareEffects);
     setFlareEffects((current) => !current);
-    restart();
+    // clearCurrentArrivals();
+    // getArrivalData();
   };
 
   // handleSpecialServiceToggle to toggle the value of specialService
@@ -224,11 +233,17 @@ const App = () => {
       console.log('muted');
     }
     setMuted(() => !muted);
+    console.log('flareEffects:', flareEffects);
   };
 
   useEffect(() => {
     if (audioContext) loadInstrumentSet(currentInstrument);
   }, [audioContext]);
+
+  // TEMPORARY MUTE CHECK FOR IF DEV MUTING BY DEFAULT - CAN BE REMOVED
+  useEffect(() => {
+    if (muted) Tone.Destination.mute = true;
+  }, []);
 
   return (
     <div className='App'>
@@ -246,6 +261,10 @@ const App = () => {
               <MapPage
                 muted={muted}
                 handleMuteButtonClick={handleMuteButtonClick}
+                isPlaying={isPlaying}
+                flareEffects={flareEffects}
+                handleFlareToggle={handleFlareToggle}
+                setFlareEffects={setFlareEffects}
               />
             }
           />

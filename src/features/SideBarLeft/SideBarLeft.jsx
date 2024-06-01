@@ -5,9 +5,9 @@ import lineNames from '../../data/lineNames';
 
 const SideBarLeft = ({
   flareEffects,
-  handleArrivalEffectToggle,
+  setFlareEffects,
+  handleFlareToggle,
   currentInstrument,
-  soundOn,
   isPlaying,
   instruments,
   changeCurrentInstrument,
@@ -47,7 +47,8 @@ const SideBarLeft = ({
   return (
     <aside className='sidebar sidebar-left'>
       <h2>Line Status</h2>
-      <button id='soundon' onClick={() => soundOn()} disabled={isPlaying}>
+      {/* <button id='service-status' onClick={() => soundOn()} disabled={isPlaying}> 👈🏼 OLD CODE - SHOULD NOT BE NEEDED */}
+      <button id='service-status' disabled={isPlaying}>
         {isPlaying ? 'Good Service' : 'Suspended'}
       </button>
       <br />
@@ -62,7 +63,7 @@ const SideBarLeft = ({
         className={`instrumentButton arrival-effects ${
           flareEffects ? 'greenButton' : 'redButton'
         }`}
-        onClick={() => handleArrivalEffectToggle()}>
+        onClick={handleFlareToggle}>
         {flareEffects ? 'Turn Flares OFF' : 'Turn Flares ON'}
       </button>
 
