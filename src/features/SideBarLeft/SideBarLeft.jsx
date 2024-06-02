@@ -10,9 +10,8 @@ const SideBarLeft = ({
   instruments,
   changeCurrentInstrument,
   handleSpecialServiceToggle,
-  specialServiceIsActive,
 }) => {
-  const { isMuted, handleMuteToggle, flareEffectsAreOn, setFlareEffectsAreOn } = useUserSettings();
+  const { isMuted, handleMuteToggle, flareEffectsAreOn, setFlareEffectsAreOn, specialServiceIsActive } = useUserSettings();
   const [linesToggled, setlinesToggled] = useState(
     // Populates an object with each line name and the property false
     lineNames.reduce((object, lineName) => {
@@ -44,9 +43,8 @@ const SideBarLeft = ({
   return (
     <aside className='sidebar sidebar-left'>
       <h2>Line Status</h2>
-      {/* <button id='service-status' onClick={() => soundOn()} disabled={isPlaying}> 👈🏼 OLD CODE - SHOULD NOT BE NEEDED */}
-      <button id='service-status' disabled={isPlaying}>
-        {isPlaying ? 'Good Service' : 'Suspended'}
+      <button className={`service-status ${specialServiceIsActive ? 'special-service' : 'good-service'} ${!isPlaying ? 'suspended-service' : ''}`} disabled={isPlaying}>
+        {!isPlaying ? 'Suspended' : !specialServiceIsActive ? 'Good Service' : 'Special Service'}
       </button>
       <br />
       <button

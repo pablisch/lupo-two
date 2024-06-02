@@ -27,13 +27,13 @@ const App = () => {
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true);
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
   const [visualData, setVisualData] = useState([]);
-  const [specialServiceIsActive, setSpecialServiceIsActive] = useState(false);
+  // const [specialServiceIsActive, setSpecialServiceIsActive] = useState(false);
 
   const [instruments, setInstruments] = useState([]);
   const [currentInstrument, setCurrentInstrument] = useState('orchestra');
   const [samplers, setSamplers] = useState(null);
 
-  const { isMuted, flareEffectsAreOn, setFlareEffectsAreOn } = useUserSettings();
+  const { isMuted, flareEffectsAreOn, setFlareEffectsAreOn, specialServiceIsActive, setSpecialServiceIsActive } = useUserSettings();
 
   const loadInstrumentSet = async (instrumentSet) => {
     console.log('loadInstrumentSet function called in App.jsx');
@@ -207,26 +207,17 @@ const App = () => {
     }, 3000);
   };
 
-  // handleFlareToggle to toggle the value of flareEffectsAreOn
-  const handleFlareToggle = () => {
-    setFlareEffectsAreOn(flares => !flares);
-  };
-
   useEffect(() => {
     clearCurrentArrivals();
     getArrivalData();
 
-    return () => {
-      clearCurrentArrivals();
-    };
-  }, [flareEffectsAreOn]);
+    // return () => {
+    //   clearCurrentArrivals();
+    // };
+  }, [flareEffectsAreOn, specialServiceIsActive]);
 
-  // handleSpecialServiceToggle to toggle the value of specialServiceIsActive
   const handleSpecialServiceToggle = () => {
-    console.log('specialServiceIsActive: ' + specialServiceIsActive);
-    setSpecialServiceIsActive((current) => !current);
-    clearCurrentArrivals();
-    getArrivalData();
+    setSpecialServiceIsActive((status) => !status);
   };
 
   useEffect(() => {
@@ -270,8 +261,7 @@ const App = () => {
             element={
               <MapPage
                 isPlaying={isPlaying}
-                flareEffectsAreOn={flareEffectsAreOn}
-                handleFlareToggle={handleFlareToggle}
+                handleSpecialServiceToggle={handleSpecialServiceToggle}
               />
             }
           />

@@ -7,7 +7,7 @@ export const UserSettingsContext = createContext();
 export const UserSettingsProvider = ({ children }) => {
   const [isMuted, setIsMuted] = useState(true);
   const [flareEffectsAreOn, setFlareEffectsAreOn] = useState(true);
-  // const [specialServiceIsActive, setSpecialServiceIsActive] = useState(false);
+  const [specialServiceIsActive, setSpecialServiceIsActive] = useState(false);
 
   const handleMuteToggle = () => {
     Tone.Destination.mute = !isMuted;
@@ -20,7 +20,7 @@ export const UserSettingsProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserSettingsContext.Provider value={{ isMuted, handleMuteToggle, flareEffectsAreOn, setFlareEffectsAreOn }}>
+    <UserSettingsContext.Provider value={{ isMuted, handleMuteToggle, flareEffectsAreOn, setFlareEffectsAreOn, specialServiceIsActive, setSpecialServiceIsActive }}>
       {children}
     </UserSettingsContext.Provider>
   );

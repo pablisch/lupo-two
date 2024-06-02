@@ -2,13 +2,13 @@
   z-index: 200;
 }
 
-#service-status {
+.service-status {
   width: 100%;
   margin: 5px auto 20px;
   padding: 5px 0;
-  background-color: #e48d6a;
   color: #000;
   font-size: 1.3rem;
+  font-weight: bold;
   border: 1px solid #999;
   border-radius: 2px;
   cursor: pointer;
@@ -18,20 +18,45 @@
   --service-2: #b2e63a;
 }
 
-#service-status:disabled {
-  background-color: var(--service-2);
+.service-status:disabled {
   cursor: not-allowed;
 }
 
-@keyframes colorTransition {
+.suspended-service {
+  background-color: #e48d6a;
+}
+
+.good-service {
+  background-color: var(--lime-500);
+  animation: goodServiceTransition 3s infinite;
+}
+
+.special-service {
+  background-color: var(--orange-400);
+  animation: specialServiceTransition 3s infinite;
+}
+
+@keyframes goodServiceTransition {
   0% {
-    background-color: var(--service-1);
+    background-color: var(--lime-yellow-300);
   }
   50% {
-    background-color: var(--service-2); /* slightly different color */
+    background-color: var(--lime-500);
   }
   100% {
-    background-color: var(--service-1);
+    background-color: var(--lime-yellow-300);
+  }
+}
+
+@keyframes specialServiceTransition {
+  0% {
+    background-color: var(--yellow-500);
+  }
+  50% {
+    background-color: var(--orange-400);
+  }
+  100% {
+    background-color: var(--yellow-500);
   }
 }
 
@@ -73,7 +98,7 @@
 }
 
 .instrumentButton:disabled {
-  background-color: var(--service-1);
+  background-color: var(--lime-yellow-300);
   color: #000;
   cursor: not-allowed;
   animation: colorTransition 2s infinite alternate;
@@ -120,57 +145,53 @@
 }
 
 .btn-bakerloo {
-  background-color: rgb(160, 112, 34);
+  background-color: var(--bakerloo);
   margin-top: 10px;
 }
 
 .btn-central {
-  background-color: rgb(220, 36, 31);
+  background-color: var(--central);
 }
 
 .btn-circle {
-  background-color: rgb(255, 211, 41);
+  background-color: var(--circle);
 }
 
 .btn-district {
-  background-color: rgb(0, 125, 50);
+  background-color: var(--district);
 }
 
 .btn-hammersmithcity {
-  background-color: rgb(244, 169, 190);
-  /* font-size: 0.9rem; */
-  /* font-weight: bold; */
+  background-color: var(--hammersmithcity);
 }
 
 .btn-jubilee {
-  background-color: rgb(161, 165, 167);
+  background-color: var(--jubilee);
 }
 
 .btn-metropolitan {
-  background-color: rgb(117, 16, 86);
+  background-color: var(--metropolitan);
 }
 
 .btn-northern {
-  background-color: rgb(0, 0, 0);
+  background-color: var(--northern);
 }
 
 .btn-piccadilly {
-  background-color: rgb(0, 25, 168);
+  background-color: var(--piccadilly);
 }
 
 .btn-victoria {
-  background-color: rgb(0, 152, 216);
+  background-color: var(--victoria);
 }
 
 .btn-waterloocity {
-  background-color: rgb(106, 187, 170);
+  background-color: var(--waterloocity);
   font-size: 1.2rem;
 }
 
 .underline-bakerloo {
-  /* min-height: 5px; */
-  background: rgb(160, 112, 34);
-  /* margin-bottom: 3px; */
+  background: var(--bakerloo);
 }
 
 @media (max-width: 650px) {
@@ -189,7 +210,7 @@
     height: 22px;
     font-size: 1rem;
   }
-  #service-status {
+  .service-status {
     height: auto;
     font-size: 0.9rem;
     margin: 5px auto 10px;
@@ -229,7 +250,7 @@
     font-size: 0.5rem;
     margin: 0 auto 3px;
   }
-  #service-status {
+  .service-status {
     height: auto;
     font-size: 0.6rem;
     margin: 3px auto 5px;
