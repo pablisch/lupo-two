@@ -49,7 +49,9 @@ const SideBarLeft = ({
       <button className={`service-status ${specialServiceIsActive ? 'special-service' : 'good-service'} ${!isPlaying ? 'suspended-service' : ''}`} disabled={isPlaying}>
         {!isPlaying ? 'Suspended' : !specialServiceIsActive ? 'Good Service' : 'Special Service'}
       </button>
-      <ToggleSwitch isOn={isToggled} handleToggle={handleToggle} labelId={'test-slider'} label={'test'} />
+      <ToggleSwitch isOn={specialServiceIsActive} handleToggle={() => setSpecialServiceIsActive((status) => !status)} labelId={'special-service-toggle'} label={'Special Service'} />
+      <ToggleSwitch isOn={flareEffectsAreOn} handleToggle={() => setFlareEffectsAreOn(flares => !flares)} labelId={'flare-effects'} label={'Flare Effects'} />
+      <ToggleSwitch isOn={!isMuted} handleToggle={handleMuteToggle} labelId={'music-mute'} label={'Music'} />
       <br />
       <button
         className={`specialServiceIsActiveButton instrumentButton ${
