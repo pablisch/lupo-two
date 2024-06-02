@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './SideBarLeft.css';
 import Slider from '../../components/Slider/Slider';
 import lineNames from '../../data/lineNames';
+import { useUserSettings } from '../../context/userSettingsContext';
 
 const SideBarLeft = ({
   flareEffectsOn,
@@ -10,11 +11,10 @@ const SideBarLeft = ({
   isPlaying,
   instruments,
   changeCurrentInstrument,
-  muted,
-  handleMuteToggle,
   handleSpecialServiceToggle,
   specialService,
 }) => {
+  const { isMuted, handleMuteToggle } = useUserSettings();
   const [linesToggled, setlinesToggled] = useState(
     // Populates an object with each line name and the property false
     lineNames.reduce((object, lineName) => {
@@ -67,11 +67,11 @@ const SideBarLeft = ({
       </button>
 
       <button
-        className={`instrumentButton ${muted ? 'redButton' : 'greenButton'}`}
+        className={`instrumentButton ${isMuted ? 'redButton' : 'greenButton'}`}
         id='mute'
         onClick={() => handleMuteToggle()}>
         {' '}
-        {muted ? 'Unmute' : 'Mute'}{' '}
+        {isMuted ? 'Unmute' : 'Mute'}{' '}
       </button>
 
       <button

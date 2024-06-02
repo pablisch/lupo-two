@@ -13,6 +13,7 @@ import tflApiUrl from './utils/tflApiUrl';
 import processTubeData from './utils/processTubeData';
 import triggerAudioVisuals from './utils/triggerAudioVisuals';
 import TIMEOUTS from './utils/timeouts';
+import { useUserSettings } from './context/userSettingsContext';
 
 const minVelocity = 0.8;
 const dataBlockDuration = 10; // seconds between fetch from TFL
@@ -32,7 +33,8 @@ const App = () => {
   const [instruments, setInstruments] = useState([]);
   const [currentInstrument, setCurrentInstrument] = useState('orchestra');
   const [samplers, setSamplers] = useState(null);
-  const [muted, setMuted] = useState(false);
+
+  const { isMuted } = useUserSettings();
 
   const loadInstrumentSet = async (instrumentSet) => {
     console.log('loadInstrumentSet function called in App.jsx');
@@ -122,7 +124,7 @@ const App = () => {
             `sortedData.length = ${sortedData.length}, NOT saved to localStorage`
           );
         }
-        if (sortedData.length > 0) {
+        if (sortedData.length > 4) {
           const processedData = processTubeData(sortedData, dataBlockDuration);
           // console.log('processedData =', processedData);
           setVisualData(processedData);
@@ -133,7 +135,9 @@ const App = () => {
             arrivals
           );
         } else {
-          console.log('No data fetched');
+          console.log(
+            'Not enough data to process. Implementing a special service.'
+          );
           fetchSpecialServiceData();
         }
       })
@@ -245,18 +249,13 @@ const App = () => {
     setCurrentInstrument(change);
   };
 
-  const handleMuteToggle = () => {
-    Tone.Destination.mute = !muted;
-    setMuted(() => !muted);
-  };
-
   useEffect(() => {
     if (audioContext) loadInstrumentSet(currentInstrument);
   }, [audioContext]);
 
   // TEMPORARY MUTE CHECK FOR IF DEV MUTING BY DEFAULT - CAN BE REMOVED
   useEffect(() => {
-    if (muted) Tone.Destination.mute = true;
+    if (isMuted) Tone.Destination.mute = true;
   }, []);
 
   return (
@@ -273,8 +272,6 @@ const App = () => {
             path='/sounds-of-the-underground'
             element={
               <MapPage
-                muted={muted}
-                handleMuteToggle={handleMuteToggle}
                 isPlaying={isPlaying}
                 flareEffectsOn={flareEffectsOn}
                 handleFlareToggle={handleFlareToggle}

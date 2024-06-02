@@ -3,8 +3,6 @@ import SideBarLeft from '../features/SideBarLeft/SideBarLeft';
 import TubeMap from '../features/TubeMap/TubeMap';
 
 const MapPage = ({
-  muted,
-  handleMuteToggle,
   isPlaying,
   flareEffectsOn,
   handleFlareToggle,
@@ -22,8 +20,6 @@ const MapPage = ({
           isPlaying={isPlaying}
           // instruments={instruments}
           // changeCurrentInstrument={changeCurrentInstrument}
-          muted={muted}
-          handleMuteToggle={handleMuteToggle}
           // handleSpecialServiceToggle={handleSpecialServiceToggle}
           // specialService={specialService}
         />
