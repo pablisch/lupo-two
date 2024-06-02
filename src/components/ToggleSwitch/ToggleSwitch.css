@@ -1,0 +1,60 @@
+.toggle-switch-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+
+}
+.toggle-switch {
+  display: block;
+  position: relative;
+  width: 35px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 10px;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.2s;
+  border-radius: 34px;
+  border: 1px solid #918f8f;
+  outline: 1px solid #7f7e7e;
+  outline-offset: 1px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 1px;
+  background-color: rgb(230, 230, 230);
+  transition: 0.4s;
+  border-radius: 50%;
+  border: 1px solid #918f8f;
+}
+
+input:checked + .slider {
+  background-color: #a2f786;
+}
+
+input:checked + .slider:before {
+  transform: translateX(10px);
+}
+
+/* Optional: focus styles for accessibility */
+input:focus + .slider {
+  box-shadow: 0 1px 1px 1px rgba(69, 70, 71, 0.6);
+}

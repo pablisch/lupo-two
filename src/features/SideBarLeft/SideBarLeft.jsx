@@ -3,6 +3,7 @@ import './SideBarLeft.css';
 import Slider from '../../components/Slider/Slider';
 import lineNames from '../../data/lineNames';
 import { useUserSettings } from '../../context/userSettingsContext';
+import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
 
 const SideBarLeft = ({
   currentInstrument,
@@ -10,6 +11,8 @@ const SideBarLeft = ({
   instruments,
   changeCurrentInstrument,
   handleSpecialServiceToggle,
+  isToggled,
+  handleToggle,
 }) => {
   const { isMuted, handleMuteToggle, flareEffectsAreOn, setFlareEffectsAreOn, specialServiceIsActive, setSpecialServiceIsActive } = useUserSettings();
   const [linesToggled, setlinesToggled] = useState(
@@ -46,6 +49,7 @@ const SideBarLeft = ({
       <button className={`service-status ${specialServiceIsActive ? 'special-service' : 'good-service'} ${!isPlaying ? 'suspended-service' : ''}`} disabled={isPlaying}>
         {!isPlaying ? 'Suspended' : !specialServiceIsActive ? 'Good Service' : 'Special Service'}
       </button>
+      <ToggleSwitch isOn={isToggled} handleToggle={handleToggle} labelId={'test-slider'} label={'test'} />
       <br />
       <button
         className={`specialServiceIsActiveButton instrumentButton ${

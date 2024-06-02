@@ -27,7 +27,8 @@ const App = () => {
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true);
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
   const [visualData, setVisualData] = useState([]);
-  // const [specialServiceIsActive, setSpecialServiceIsActive] = useState(false);
+
+  const [isToggled, setIsToggled] = useState(false);
 
   const [instruments, setInstruments] = useState([]);
   const [currentInstrument, setCurrentInstrument] = useState('orchestra');
@@ -225,6 +226,10 @@ const App = () => {
     if (isMuted) Tone.Destination.mute = true;
   }, []);
 
+  const handleToggle = () => {
+    setIsToggled((prevState) => !prevState);
+  };
+
   return (
     <div className='App'>
       <BrowserRouter>
@@ -240,6 +245,8 @@ const App = () => {
             element={
               <MapPage
                 isPlaying={isPlaying}
+                isToggled={isToggled}
+                handleToggle={handleToggle}
               />
             }
           />

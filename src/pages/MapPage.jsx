@@ -2,7 +2,7 @@ import Navbar from '../features/Navbar/Navbar';
 import SideBarLeft from '../features/SideBarLeft/SideBarLeft';
 import TubeMap from '../features/TubeMap/TubeMap';
 
-const MapPage = ({ isPlaying, handleSpecialServiceToggle }) => {
+const MapPage = ({ isPlaying, handleSpecialServiceToggle, isToggled, handleToggle }) => {
   return (
     <div>
       <Navbar />
@@ -16,6 +16,8 @@ const MapPage = ({ isPlaying, handleSpecialServiceToggle }) => {
           // changeCurrentInstrument={changeCurrentInstrument}
           handleSpecialServiceToggle={handleSpecialServiceToggle}
           // specialServiceIsActive={specialServiceIsActive}
+          isToggled={isToggled}
+          handleToggle={handleToggle}
         />
         <TubeMap />
       </div>
