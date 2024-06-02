@@ -11,7 +11,7 @@ const SideBarLeft = ({
   changeCurrentInstrument,
   handleSpecialServiceToggle,
 }) => {
-  const { isMuted, handleMuteToggle, flareEffectsAreOn, setFlareEffectsAreOn, specialServiceIsActive } = useUserSettings();
+  const { isMuted, handleMuteToggle, flareEffectsAreOn, setFlareEffectsAreOn, specialServiceIsActive, setSpecialServiceIsActive } = useUserSettings();
   const [linesToggled, setlinesToggled] = useState(
     // Populates an object with each line name and the property false
     lineNames.reduce((object, lineName) => {
@@ -51,7 +51,7 @@ const SideBarLeft = ({
         className={`specialServiceIsActiveButton instrumentButton ${
           specialServiceIsActive ? 'redButton' : 'greenButton'
         }`}
-        onClick={() => handleSpecialServiceToggle()}>
+        onClick={() => setSpecialServiceIsActive((status) => !status)}>
         {specialServiceIsActive ? 'Normal Service' : 'Special Service'}
       </button>
       <button

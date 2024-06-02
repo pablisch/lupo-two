@@ -33,7 +33,7 @@ const App = () => {
   const [currentInstrument, setCurrentInstrument] = useState('orchestra');
   const [samplers, setSamplers] = useState(null);
 
-  const { isMuted, flareEffectsAreOn, setFlareEffectsAreOn, specialServiceIsActive, setSpecialServiceIsActive } = useUserSettings();
+  const { isMuted, flareEffectsAreOn, specialServiceIsActive } = useUserSettings();
 
   const loadInstrumentSet = async (instrumentSet) => {
     console.log('loadInstrumentSet function called in App.jsx');
@@ -49,20 +49,7 @@ const App = () => {
 
   const soundOn = async () => {
     console.log('soundOn function called in App.jsx');
-    if (!isPlaying) {
-      // console.log('samplers not yet set');
-    }
-    setIsPlaying(true); // controls the visibility of the service-status button
-    // const { awaitedInstruments, samplersObject } = await audioStartup(
-    //   currentInstrument,
-    //   samplers
-    // );
-    console.log(
-      'in soundOn, samplersObject:',
-      samplersObject,
-      'instruments:',
-      awaitedInstruments
-    );
+    setIsPlaying(true); 
     setInstruments(awaitedInstruments);
     if (!samplers) setSamplers(samplersObject);
   };
@@ -125,7 +112,6 @@ const App = () => {
         }
         if (sortedData.length > 4) {
           const processedData = processTubeData(sortedData, dataBlockDuration);
-          // console.log('processedData =', processedData);
           setVisualData(processedData);
           triggerAudioVisuals(
             processedData,
@@ -154,11 +140,8 @@ const App = () => {
           (a, b) => a.timeToStation - b.timeToStation
         );
         const processedData = processTubeData(sortedData, dataBlockDuration);
-        // console.log('sortedData =', sortedData);
         console.log('RUNNING SPECIAL SERVICE processedData =', processedData);
         setVisualData(processedData);
-        // console.log('in fetchSpecialServiceData instruments', instruments);
-        // console.log('in fetchSpecialServiceData samplers', samplers);
 
         triggerAudioVisuals(
           processedData,
@@ -210,15 +193,11 @@ const App = () => {
   useEffect(() => {
     clearCurrentArrivals();
     getArrivalData();
-
-    // return () => {
-    //   clearCurrentArrivals();
-    // };
   }, [flareEffectsAreOn, specialServiceIsActive]);
 
-  const handleSpecialServiceToggle = () => {
-    setSpecialServiceIsActive((status) => !status);
-  };
+  // const handleSpecialServiceToggle = () => {
+  //   setSpecialServiceIsActive((status) => !status);
+  // };
 
   useEffect(() => {
     if (!isPlaying) {
@@ -261,7 +240,6 @@ const App = () => {
             element={
               <MapPage
                 isPlaying={isPlaying}
-                handleSpecialServiceToggle={handleSpecialServiceToggle}
               />
             }
           />
