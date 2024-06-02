@@ -6,6 +6,8 @@ export const UserSettingsContext = createContext();
 
 export const UserSettingsProvider = ({ children }) => {
   const [isMuted, setIsMuted] = useState(true);
+  const [flareEffectsAreOn, setFlareEffectsAreOn] = useState(true);
+  // const [specialServiceIsActive, setSpecialServiceIsActive] = useState(false);
 
   const handleMuteToggle = () => {
     Tone.Destination.mute = !isMuted;
@@ -18,11 +20,11 @@ export const UserSettingsProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserSettingsContext.Provider value={{ isMuted, handleMuteToggle }}>
+    <UserSettingsContext.Provider value={{ isMuted, handleMuteToggle, flareEffectsAreOn, setFlareEffectsAreOn }}>
       {children}
     </UserSettingsContext.Provider>
   );
-}
+};
 
 UserSettingsProvider.propTypes = {
   children: PropTypes.node.isRequired,
@@ -31,7 +33,9 @@ UserSettingsProvider.propTypes = {
 export const useUserSettings = () => {
   const context = useContext(UserSettingsContext);
   if (context === undefined) {
-    throw new Error('useUserSettings must be used within a UserSettingsProvider');
+    throw new Error(
+      'useUserSettings must be used within a UserSettingsProvider'
+    );
   }
   return context;
 };

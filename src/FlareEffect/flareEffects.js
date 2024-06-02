@@ -1,7 +1,6 @@
 // Get location of element and create two circle elements at that location with css effects
-export const createFlare = (elementId, flareEffectsOn) => {
-
-  if (!flareEffectsOn) return;
+export const createFlare = (elementId, flareEffectsAreOn) => {
+  if (!flareEffectsAreOn) return;
 
   const element = document.getElementById(
     elementId.replace(/ *\([^)]*\) */g, '')

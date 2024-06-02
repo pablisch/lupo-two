@@ -79,7 +79,7 @@
   animation: colorTransition 2s infinite alternate;
 }
 
-.specialServiceButton {
+.specialServiceIsActiveButton {
   font-size: 1rem;
 }
 
@@ -195,7 +195,7 @@
     margin: 5px auto 10px;
     padding: 3px 0;
   }
-  .specialServiceButton,
+  .specialServiceIsActiveButton,
   .arrival-effects {
     height: 22px;
     font-size: 0.7rem;
@@ -235,7 +235,7 @@
     margin: 3px auto 5px;
     padding: 3px 0;
   }
-  .specialServiceButton,
+  .specialServiceIsActiveButton,
   .arrival-effects {
     height: 18px;
     font-size: 0.4rem;

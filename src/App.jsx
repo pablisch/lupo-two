@@ -27,14 +27,13 @@ const App = () => {
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true);
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
   const [visualData, setVisualData] = useState([]);
-  const [flareEffectsOn, setFlareEffectsOn] = useState(true);
-  const [specialService, setSpecialService] = useState(false);
+  const [specialServiceIsActive, setSpecialServiceIsActive] = useState(false);
 
   const [instruments, setInstruments] = useState([]);
   const [currentInstrument, setCurrentInstrument] = useState('orchestra');
   const [samplers, setSamplers] = useState(null);
 
-  const { isMuted } = useUserSettings();
+  const { isMuted, flareEffectsAreOn, setFlareEffectsAreOn } = useUserSettings();
 
   const loadInstrumentSet = async (instrumentSet) => {
     console.log('loadInstrumentSet function called in App.jsx');
@@ -131,7 +130,7 @@ const App = () => {
           triggerAudioVisuals(
             processedData,
             instruments,
-            flareEffectsOn,
+            flareEffectsAreOn,
             arrivals
           );
         } else {
@@ -164,7 +163,7 @@ const App = () => {
         triggerAudioVisuals(
           processedData,
           instruments,
-          flareEffectsOn,
+          flareEffectsAreOn,
           arrivals
         );
       })
@@ -179,7 +178,7 @@ const App = () => {
     }
 
     if (instruments) {
-      if (specialService) {
+      if (specialServiceIsActive) {
         fetchSpecialServiceData();
         mainLooper = setInterval(
           fetchSpecialServiceData,
@@ -208,11 +207,9 @@ const App = () => {
     }, 3000);
   };
 
-  // handleFlareToggle to toggle the value of flareEffectsOn
+  // handleFlareToggle to toggle the value of flareEffectsAreOn
   const handleFlareToggle = () => {
-    setFlareEffectsOn((current) => !current);
-    // clearCurrentArrivals();
-    // getArrivalData();
+    setFlareEffectsAreOn(flares => !flares);
   };
 
   useEffect(() => {
@@ -222,12 +219,12 @@ const App = () => {
     return () => {
       clearCurrentArrivals();
     };
-  }, [flareEffectsOn]);
+  }, [flareEffectsAreOn]);
 
-  // handleSpecialServiceToggle to toggle the value of specialService
+  // handleSpecialServiceToggle to toggle the value of specialServiceIsActive
   const handleSpecialServiceToggle = () => {
-    console.log('specialService: ' + specialService);
-    setSpecialService((current) => !current);
+    console.log('specialServiceIsActive: ' + specialServiceIsActive);
+    setSpecialServiceIsActive((current) => !current);
     clearCurrentArrivals();
     getArrivalData();
   };
@@ -273,7 +270,7 @@ const App = () => {
             element={
               <MapPage
                 isPlaying={isPlaying}
-                flareEffectsOn={flareEffectsOn}
+                flareEffectsAreOn={flareEffectsAreOn}
                 handleFlareToggle={handleFlareToggle}
               />
             }

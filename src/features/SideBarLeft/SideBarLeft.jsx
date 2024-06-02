@@ -5,16 +5,14 @@ import lineNames from '../../data/lineNames';
 import { useUserSettings } from '../../context/userSettingsContext';
 
 const SideBarLeft = ({
-  flareEffectsOn,
-  handleFlareToggle,
   currentInstrument,
   isPlaying,
   instruments,
   changeCurrentInstrument,
   handleSpecialServiceToggle,
-  specialService,
+  specialServiceIsActive,
 }) => {
-  const { isMuted, handleMuteToggle } = useUserSettings();
+  const { isMuted, handleMuteToggle, flareEffectsAreOn, setFlareEffectsAreOn } = useUserSettings();
   const [linesToggled, setlinesToggled] = useState(
     // Populates an object with each line name and the property false
     lineNames.reduce((object, lineName) => {
@@ -52,18 +50,18 @@ const SideBarLeft = ({
       </button>
       <br />
       <button
-        className={`specialServiceButton instrumentButton ${
-          specialService ? 'redButton' : 'greenButton'
+        className={`specialServiceIsActiveButton instrumentButton ${
+          specialServiceIsActive ? 'redButton' : 'greenButton'
         }`}
         onClick={() => handleSpecialServiceToggle()}>
-        {specialService ? 'Normal Service' : 'Special Service'}
+        {specialServiceIsActive ? 'Normal Service' : 'Special Service'}
       </button>
       <button
         className={`instrumentButton arrival-effects ${
-          flareEffectsOn ? 'greenButton' : 'redButton'
+          flareEffectsAreOn ? 'greenButton' : 'redButton'
         }`}
-        onClick={handleFlareToggle}>
-        {flareEffectsOn ? 'Turn Flares OFF' : 'Turn Flares ON'}
+        onClick={() => setFlareEffectsAreOn(flares => !flares)}>
+        {flareEffectsAreOn ? 'Turn Flares OFF' : 'Turn Flares ON'}
       </button>
 
       <button

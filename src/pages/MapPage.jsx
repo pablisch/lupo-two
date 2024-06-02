@@ -2,18 +2,12 @@ import Navbar from '../features/Navbar/Navbar';
 import SideBarLeft from '../features/SideBarLeft/SideBarLeft';
 import TubeMap from '../features/TubeMap/TubeMap';
 
-const MapPage = ({
-  isPlaying,
-  flareEffectsOn,
-  handleFlareToggle,
-}) => {
+const MapPage = ({ isPlaying }) => {
   return (
     <div>
       <Navbar />
       <div className='container bars-and-map'>
         <SideBarLeft
-          flareEffectsOn={flareEffectsOn}
-          handleFlareToggle={handleFlareToggle}
           // currentInstrument={currentInstrument}
           // restart={restart}
           // soundOn={soundOn}
@@ -21,7 +15,7 @@ const MapPage = ({
           // instruments={instruments}
           // changeCurrentInstrument={changeCurrentInstrument}
           // handleSpecialServiceToggle={handleSpecialServiceToggle}
-          // specialService={specialService}
+          // specialServiceIsActive={specialServiceIsActive}
         />
         <TubeMap />
       </div>

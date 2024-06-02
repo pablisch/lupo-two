@@ -31,10 +31,9 @@ const getRandomVelocity = () => {
 const triggerAudioVisuals = (
   quantisedTubeData,
   instruments,
-  flareEffectsOn,
+  flareEffectsAreOn,
   arrivals
 ) => {
-
   quantisedTubeData.forEach((train) => {
     // console.log(train.stationName, train.lineName);
     const note = instruments.noteAssignFunctions[train.lineName](
@@ -55,7 +54,7 @@ const triggerAudioVisuals = (
       if (arrivals.length > 10) {
         arrivals.shift();
       }
-      createFlare(train.stationName, flareEffectsOn);
+      createFlare(train.stationName, flareEffectsAreOn);
     }, train.timeToStation * 1000);
   });
 };
