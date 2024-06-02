@@ -34,8 +34,6 @@ const triggerAudioVisuals = (
   flareEffectsOn,
   arrivals
 ) => {
-  // 👇🏻 ONLY FOR DEBUGGING 👇🏻
-  console.log('***** flareEffectsOn:', flareEffectsOn, '*****');
 
   quantisedTubeData.forEach((train) => {
     // console.log(train.stationName, train.lineName);

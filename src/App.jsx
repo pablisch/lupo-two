@@ -32,7 +32,7 @@ const App = () => {
   const [instruments, setInstruments] = useState([]);
   const [currentInstrument, setCurrentInstrument] = useState('orchestra');
   const [samplers, setSamplers] = useState(null);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
 
   const loadInstrumentSet = async (instrumentSet) => {
     console.log('loadInstrumentSet function called in App.jsx');
@@ -122,16 +122,10 @@ const App = () => {
             `sortedData.length = ${sortedData.length}, NOT saved to localStorage`
           );
         }
-        if (sortedData.length > 0) { 
+        if (sortedData.length > 0) {
           const processedData = processTubeData(sortedData, dataBlockDuration);
           // console.log('processedData =', processedData);
           setVisualData(processedData);
-          // console.log("fetchdata instruments", instruments)
-          console.log(
-            'in fetchData, 🚃 🚃 🚃  flareEffectsOn',
-            flareEffectsOn,
-            '🚃 🚃 🚃 '
-          );
           triggerAudioVisuals(
             processedData,
             instruments,
@@ -149,7 +143,6 @@ const App = () => {
   };
 
   const fetchSpecialServiceData = () => {
-
     axios
       .get(`/data/sampleData${dataBlockDuration}.json`)
       .then((response) => {
@@ -213,7 +206,6 @@ const App = () => {
 
   // handleFlareToggle to toggle the value of flareEffectsOn
   const handleFlareToggle = () => {
-    console.log('flareEffectsOn:', flareEffectsOn);
     setFlareEffectsOn((current) => !current);
     // clearCurrentArrivals();
     // getArrivalData();
@@ -225,15 +217,8 @@ const App = () => {
 
     return () => {
       clearCurrentArrivals();
-    }
+    };
   }, [flareEffectsOn]);
-
-  // // handleSpecialServiceToggle to toggle the value of specialService
-  // const handleSpecialServiceToggle = () => {
-  //   console.log('specialService: ' + specialService);
-  //   setSpecialService((current) => !current);
-  //   restart();
-  // };
 
   // handleSpecialServiceToggle to toggle the value of specialService
   const handleSpecialServiceToggle = () => {
@@ -260,20 +245,9 @@ const App = () => {
     setCurrentInstrument(change);
   };
 
-  const handleMuteButtonClick = () => {
-    if (muted) {
-      Tone.Destination.mute = false;
-      console.log('unmuted');
-    } else {
-      Tone.Destination.mute = true;
-      console.log('muted');
-    }
+  const handleMuteToggle = () => {
+    Tone.Destination.mute = !muted;
     setMuted(() => !muted);
-    console.log(
-      'In MUTE handler. 🔊🔊🔊 flareEffectsOn:',
-      flareEffectsOn,
-      '🔊🔊🔊'
-    );
   };
 
   useEffect(() => {
@@ -300,7 +274,7 @@ const App = () => {
             element={
               <MapPage
                 muted={muted}
-                handleMuteButtonClick={handleMuteButtonClick}
+                handleMuteToggle={handleMuteToggle}
                 isPlaying={isPlaying}
                 flareEffectsOn={flareEffectsOn}
                 handleFlareToggle={handleFlareToggle}

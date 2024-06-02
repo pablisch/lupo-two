@@ -1,6 +1,5 @@
 // Get location of element and create two circle elements at that location with css effects
 export const createFlare = (elementId, flareEffectsOn) => {
-  // console.log('flareEffectsOn:', flareEffectsOn, 'staion:', elementId);
 
   if (!flareEffectsOn) return;
 

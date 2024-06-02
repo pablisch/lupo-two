@@ -11,7 +11,7 @@ const SideBarLeft = ({
   instruments,
   changeCurrentInstrument,
   muted,
-  handleMuteButtonClick,
+  handleMuteToggle,
   handleSpecialServiceToggle,
   specialService,
 }) => {
@@ -69,7 +69,7 @@ const SideBarLeft = ({
       <button
         className={`instrumentButton ${muted ? 'redButton' : 'greenButton'}`}
         id='mute'
-        onClick={() => handleMuteButtonClick()}>
+        onClick={() => handleMuteToggle()}>
         {' '}
         {muted ? 'Unmute' : 'Mute'}{' '}
       </button>

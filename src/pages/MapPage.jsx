@@ -4,7 +4,7 @@ import TubeMap from '../features/TubeMap/TubeMap';
 
 const MapPage = ({
   muted,
-  handleMuteButtonClick,
+  handleMuteToggle,
   isPlaying,
   flareEffectsOn,
   handleFlareToggle,
@@ -23,7 +23,7 @@ const MapPage = ({
           // instruments={instruments}
           // changeCurrentInstrument={changeCurrentInstrument}
           muted={muted}
-          handleMuteButtonClick={handleMuteButtonClick}
+          handleMuteToggle={handleMuteToggle}
           // handleSpecialServiceToggle={handleSpecialServiceToggle}
           // specialService={specialService}
         />
