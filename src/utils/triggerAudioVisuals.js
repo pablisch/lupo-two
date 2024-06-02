@@ -31,9 +31,12 @@ const getRandomVelocity = () => {
 const triggerAudioVisuals = (
   quantisedTubeData,
   instruments,
-  flareEffects,
+  isFlareEffects,
   arrivals
 ) => {
+  // 👇🏻 ONLY FOR DEBUGGING 👇🏻
+  console.log('***** isFlareEffects:', isFlareEffects, '*****');
+
   quantisedTubeData.forEach((train) => {
     // console.log(train.stationName, train.lineName);
     const note = instruments.noteAssignFunctions[train.lineName](
@@ -54,7 +57,7 @@ const triggerAudioVisuals = (
       if (arrivals.length > 10) {
         arrivals.shift();
       }
-      if (flareEffects) createFlare(train.stationName, flareEffects);
+      createFlare(train.stationName, isFlareEffects);
     }, train.timeToStation * 1000);
   });
 };

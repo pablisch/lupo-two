@@ -4,8 +4,7 @@ import Slider from '../../components/Slider/Slider';
 import lineNames from '../../data/lineNames';
 
 const SideBarLeft = ({
-  flareEffects,
-  setFlareEffects,
+  isFlareEffects,
   handleFlareToggle,
   currentInstrument,
   isPlaying,
@@ -61,10 +60,10 @@ const SideBarLeft = ({
       </button>
       <button
         className={`instrumentButton arrival-effects ${
-          flareEffects ? 'greenButton' : 'redButton'
+          isFlareEffects ? 'greenButton' : 'redButton'
         }`}
         onClick={handleFlareToggle}>
-        {flareEffects ? 'Turn Flares OFF' : 'Turn Flares ON'}
+        {isFlareEffects ? 'Turn Flares OFF' : 'Turn Flares ON'}
       </button>
 
       <button
