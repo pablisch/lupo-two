@@ -24,8 +24,8 @@ const App = () => {
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true);
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
   const [visualData, setVisualData] = useState([]);
-  const [isFlareEffects, setIsFlareEffects] = useState(false);
-  const isFlareEffectsRef = useRef(isFlareEffects); // Create a ref for isFlareEffects
+  const [flareEffectsOn, setFlareEffectsOn] = useState(true);
+  const flareEffectsOnRef = useRef(flareEffectsOn); // Create a ref for flareEffectsOn
   const [specialService, setSpecialService] = useState(false);
   const [instruments, setInstruments] = useState([]);
   const [currentInstrument, setCurrentInstrument] = useState('orchestra');
@@ -33,12 +33,15 @@ const App = () => {
   const [muted, setMuted] = useState(true);
 
   useEffect(() => {
-    isFlareEffectsRef.current = isFlareEffects; // Update ref whenever isFlareEffects changes
-  }, [isFlareEffects]);
+    flareEffectsOnRef.current = flareEffectsOn; // Update ref whenever flareEffectsOn changes
+  }, [flareEffectsOn]);
 
   const loadInstrumentSet = async (instrumentSet) => {
     console.log('loadInstrumentSet function called in App.jsx');
-    const { awaitedInstruments, samplersObject } = await audioStartup(currentInstrument, samplers);
+    const { awaitedInstruments, samplersObject } = await audioStartup(
+      currentInstrument,
+      samplers
+    );
     console.log('awaitedInstruments', awaitedInstruments);
     setInstruments(awaitedInstruments);
     if (!samplers) setSamplers(samplersObject);
@@ -47,7 +50,12 @@ const App = () => {
   const soundOn = async () => {
     console.log('soundOn function called in App.jsx');
     setIsPlaying(true); // controls the visibility of the service-status button
-    console.log('in soundOn, samplersObject:', samplersObject, 'instruments:', awaitedInstruments);
+    console.log(
+      'in soundOn, samplersObject:',
+      samplersObject,
+      'instruments:',
+      awaitedInstruments
+    );
     setInstruments(awaitedInstruments);
     if (!samplers) setSamplers(samplersObject);
   };
@@ -82,7 +90,6 @@ const App = () => {
     soundOn();
   };
 
-
   const fetchData = () => {
     axios
       .get(tflApiUrl)
@@ -96,16 +103,31 @@ const App = () => {
             timeToStation: item.timeToStation,
           }));
         console.log('filteredData =', filteredData);
-        const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
+        const sortedData = filteredData.sort(
+          (a, b) => a.timeToStation - b.timeToStation
+        );
         if (sortedData.length > 260) {
           localStorage.setItem('sortedData', JSON.stringify(sortedData));
-          console.log(`sortedData.length = ${sortedData.length}, saved to localStorage`);
+          console.log(
+            `sortedData.length = ${sortedData.length}, saved to localStorage`
+          );
         } else {
-          console.log(`sortedData.length = ${sortedData.length}, NOT saved to localStorage`);
+          console.log(
+            `sortedData.length = ${sortedData.length}, NOT saved to localStorage`
+          );
         }
         const processedData = processTubeData(sortedData, dataBlockDuration);
-        console.log('in fetchData, 🚃 🚃 🚃  isFlareEffectsRef', isFlareEffectsRef.current, '🚃 🚃 🚃 ');
-        triggerAudioVisuals(processedData, instruments, isFlareEffectsRef.current, arrivals);
+        console.log(
+          'in fetchData, 🚃 🚃 🚃  flareEffectsOnRef',
+          flareEffectsOnRef.current,
+          '🚃 🚃 🚃 '
+        );
+        triggerAudioVisuals(
+          processedData,
+          instruments,
+          flareEffectsOnRef.current,
+          arrivals
+        );
       })
       .catch((error) => {
         console.error("Error fetching TFL's dodgy tube data:", error);
@@ -117,11 +139,18 @@ const App = () => {
       .get('/data/sampleData.json')
       .then((response) => {
         const filteredData = response.data;
-        const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
+        const sortedData = filteredData.sort(
+          (a, b) => a.timeToStation - b.timeToStation
+        );
         const processedData = processTubeData(sortedData, dataBlockDuration);
         console.log('RUNNING SPECIAL SERVICE processedData =', processedData);
         setVisualData(processedData);
-        triggerAudioVisuals(processedData, instruments, isFlareEffectsRef.current, arrivals);
+        triggerAudioVisuals(
+          processedData,
+          instruments,
+          flareEffectsOnRef.current,
+          arrivals
+        );
       })
       .catch((error) => {
         console.error('Error fetching Special Service tube data:', error);
@@ -136,7 +165,10 @@ const App = () => {
     if (instruments) {
       if (specialService) {
         fetchSpecialServiceData();
-        mainLooper = setInterval(fetchSpecialServiceData, dataBlockDuration * 1000);
+        mainLooper = setInterval(
+          fetchSpecialServiceData,
+          dataBlockDuration * 1000
+        );
       } else {
         fetchData(); // initial fetch as setInterval only executes after first interval
         mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
@@ -161,8 +193,8 @@ const App = () => {
   };
 
   const handleFlareToggle = () => {
-    console.log('isFlareEffects:', isFlareEffects);
-    setIsFlareEffects((current) => !current);
+    console.log('flareEffectsOn:', flareEffectsOn);
+    setFlareEffectsOn((current) => !current);
   };
 
   const handleSpecialServiceToggle = () => {
@@ -198,7 +230,11 @@ const App = () => {
       console.log('muted');
     }
     setMuted(() => !muted);
-    console.log('In MUTE handler. 🔊🔊🔊 isFlareEffects:', isFlareEffects, '🔊🔊🔊');
+    console.log(
+      'In MUTE handler. 🔊🔊🔊 flareEffectsOn:',
+      flareEffectsOn,
+      '🔊🔊🔊'
+    );
   };
 
   useEffect(() => {
@@ -215,7 +251,9 @@ const App = () => {
         <Routes>
           <Route
             path='/'
-            element={<LandingPage handleInitialSoundSetup={handleInitialSoundSetup} />}
+            element={
+              <LandingPage handleInitialSoundSetup={handleInitialSoundSetup} />
+            }
           />
           <Route
             path='/sounds-of-the-underground'
@@ -224,7 +262,7 @@ const App = () => {
                 muted={muted}
                 handleMuteButtonClick={handleMuteButtonClick}
                 isPlaying={isPlaying}
-                isFlareEffects={isFlareEffects}
+                flareEffectsOn={flareEffectsOn}
                 handleFlareToggle={handleFlareToggle}
               />
             }

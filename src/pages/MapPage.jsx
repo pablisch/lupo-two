@@ -6,7 +6,7 @@ const MapPage = ({
   muted,
   handleMuteButtonClick,
   isPlaying,
-  isFlareEffects,
+  flareEffectsOn,
   handleFlareToggle,
 }) => {
   return (
@@ -14,7 +14,7 @@ const MapPage = ({
       <Navbar />
       <div className='container bars-and-map'>
         <SideBarLeft
-          isFlareEffects={isFlareEffects}
+          flareEffectsOn={flareEffectsOn}
           handleFlareToggle={handleFlareToggle}
           // currentInstrument={currentInstrument}
           // restart={restart}

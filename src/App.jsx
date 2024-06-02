@@ -15,7 +15,7 @@ import triggerAudioVisuals from './utils/triggerAudioVisuals';
 import TIMEOUTS from './utils/timeouts';
 
 const minVelocity = 0.8;
-const dataBlockDuration = 20; // seconds between fetch from TFL
+const dataBlockDuration = 10; // seconds between fetch from TFL
 // const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
 const arrivals = []; // array to hold arrival elements, intialised w global scope
 let mainLooper;
@@ -26,7 +26,7 @@ const App = () => {
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true);
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
   const [visualData, setVisualData] = useState([]);
-  const [isFlareEffects, setIsFlareEffects] = useState(false);
+  const [flareEffectsOn, setFlareEffectsOn] = useState(true);
   const [specialService, setSpecialService] = useState(false);
 
   const [instruments, setInstruments] = useState([]);
@@ -122,21 +122,26 @@ const App = () => {
             `sortedData.length = ${sortedData.length}, NOT saved to localStorage`
           );
         }
-        const processedData = processTubeData(sortedData, dataBlockDuration);
-        // console.log('processedData =', processedData);
-        setVisualData(processedData);
-        // console.log("fetchdata instruments", instruments)
-        console.log(
-          'in fetchData, 🚃 🚃 🚃  isFlareEffects',
-          isFlareEffects,
-          '🚃 🚃 🚃 '
-        );
-        triggerAudioVisuals(
-          processedData,
-          instruments,
-          isFlareEffects,
-          arrivals
-        );
+        if (sortedData.length > 0) { 
+          const processedData = processTubeData(sortedData, dataBlockDuration);
+          // console.log('processedData =', processedData);
+          setVisualData(processedData);
+          // console.log("fetchdata instruments", instruments)
+          console.log(
+            'in fetchData, 🚃 🚃 🚃  flareEffectsOn',
+            flareEffectsOn,
+            '🚃 🚃 🚃 '
+          );
+          triggerAudioVisuals(
+            processedData,
+            instruments,
+            flareEffectsOn,
+            arrivals
+          );
+        } else {
+          console.log('No data fetched');
+          fetchSpecialServiceData();
+        }
       })
       .catch((error) => {
         console.error("Error fetching TFL's dodgy tube data:", error);
@@ -144,8 +149,9 @@ const App = () => {
   };
 
   const fetchSpecialServiceData = () => {
+
     axios
-      .get('/data/sampleData.json')
+      .get(`/data/sampleData${dataBlockDuration}.json`)
       .then((response) => {
         const filteredData = response.data;
         const sortedData = filteredData.sort(
@@ -161,7 +167,7 @@ const App = () => {
         triggerAudioVisuals(
           processedData,
           instruments,
-          isFlareEffects,
+          flareEffectsOn,
           arrivals
         );
       })
@@ -205,13 +211,22 @@ const App = () => {
     }, 3000);
   };
 
-  // handleFlareToggle to toggle the value of isFlareEffects
+  // handleFlareToggle to toggle the value of flareEffectsOn
   const handleFlareToggle = () => {
-    console.log('isFlareEffects:', isFlareEffects);
-    setIsFlareEffects((current) => !current);
+    console.log('flareEffectsOn:', flareEffectsOn);
+    setFlareEffectsOn((current) => !current);
     // clearCurrentArrivals();
     // getArrivalData();
   };
+
+  useEffect(() => {
+    clearCurrentArrivals();
+    getArrivalData();
+
+    return () => {
+      clearCurrentArrivals();
+    }
+  }, [flareEffectsOn]);
 
   // // handleSpecialServiceToggle to toggle the value of specialService
   // const handleSpecialServiceToggle = () => {
@@ -254,7 +269,11 @@ const App = () => {
       console.log('muted');
     }
     setMuted(() => !muted);
-    console.log('In MUTE handler. 🔊🔊🔊 isFlareEffects:', isFlareEffects, "🔊🔊🔊");
+    console.log(
+      'In MUTE handler. 🔊🔊🔊 flareEffectsOn:',
+      flareEffectsOn,
+      '🔊🔊🔊'
+    );
   };
 
   useEffect(() => {
@@ -283,7 +302,7 @@ const App = () => {
                 muted={muted}
                 handleMuteButtonClick={handleMuteButtonClick}
                 isPlaying={isPlaying}
-                isFlareEffects={isFlareEffects}
+                flareEffectsOn={flareEffectsOn}
                 handleFlareToggle={handleFlareToggle}
               />
             }

@@ -1,0 +1,194 @@
+[
+  {
+    "id": "382349788",
+    "stationName": "Brixton Underground Station",
+    "lineName": "Victoria",
+    "timeToStation": 1
+  },
+  {
+    "id": "1814536028",
+    "stationName": "Cannon Street Underground Station",
+    "lineName": "District",
+    "timeToStation": 1
+  },
+  {
+    "id": "311355537",
+    "stationName": "Gloucester Road Underground Station",
+    "lineName": "Circle",
+    "timeToStation": 1
+  },
+  {
+    "id": "727646787",
+    "stationName": "Kingsbury Underground Station",
+    "lineName": "Jubilee",
+    "timeToStation": 2
+  },
+  {
+    "id": "-970120468",
+    "stationName": "Finsbury Park Underground Station",
+    "lineName": "Piccadilly",
+    "timeToStation": 2
+  },
+  {
+    "id": "-1331539765",
+    "stationName": "Manor House Underground Station",
+    "lineName": "Piccadilly",
+    "timeToStation": 2
+  },
+  {
+    "id": "757435552",
+    "stationName": "Upminster Underground Station",
+    "lineName": "District",
+    "timeToStation": 4
+  },
+  {
+    "id": "89907149",
+    "stationName": "St. James's Park Underground Station",
+    "lineName": "District",
+    "timeToStation": 4
+  },
+  {
+    "id": "-1940619080",
+    "stationName": "Plaistow Underground Station",
+    "lineName": "Hammersmith & City",
+    "timeToStation": 4
+  },
+  {
+    "id": "-1546340319",
+    "stationName": "Westminster Underground Station",
+    "lineName": "Circle",
+    "timeToStation": 4
+  },
+  {
+    "id": "727646787",
+    "stationName": "Kingsbury Underground Station",
+    "lineName": "Jubilee",
+    "timeToStation": 5
+  },
+  {
+    "id": "-970120468",
+    "stationName": "Finsbury Park Underground Station",
+    "lineName": "Piccadilly",
+    "timeToStation": 5
+  },
+  {
+    "id": "-1331539765",
+    "stationName": "Manor House Underground Station",
+    "lineName": "Piccadilly",
+    "timeToStation": 5
+  },
+  {
+    "id": "817257558",
+    "stationName": "Finsbury Park Underground Station",
+    "lineName": "Piccadilly",
+    "timeToStation": 5
+  },
+  {
+    "id": "382349788",
+    "stationName": "Brixton Underground Station",
+    "lineName": "Victoria",
+    "timeToStation": 6
+  },
+  {
+    "id": "1814536028",
+    "stationName": "Cannon Street Underground Station",
+    "lineName": "District",
+    "timeToStation": 6
+  },
+  {
+    "id": "311355537",
+    "stationName": "Gloucester Road Underground Station",
+    "lineName": "Circle",
+    "timeToStation": 6
+  },
+  {
+    "id": "727646787",
+    "stationName": "Kingsbury Underground Station",
+    "lineName": "Jubilee",
+    "timeToStation": 8
+  },
+  {
+    "id": "-970120468",
+    "stationName": "Finsbury Park Underground Station",
+    "lineName": "Piccadilly",
+    "timeToStation": 8
+  },
+  {
+    "id": "-1331539765",
+    "stationName": "Manor House Underground Station",
+    "lineName": "Piccadilly",
+    "timeToStation": 8
+  },
+  {
+    "id": "-1681145050",
+    "stationName": "Southfields Underground Station",
+    "lineName": "District",
+    "timeToStation": 9
+  },
+  {
+    "id": "810964243",
+    "stationName": "Bromley-by-Bow Underground Station",
+    "lineName": "District",
+    "timeToStation": 9
+  },
+  {
+    "id": "1481374702",
+    "stationName": "Richmond Underground Station",
+    "lineName": "District",
+    "timeToStation": 9
+  },
+  {
+    "id": "1481374702",
+    "stationName": "Richmond Underground Station",
+    "lineName": "District",
+    "timeToStation": 9
+  },
+  {
+    "id": "1814536028",
+    "stationName": "Cannon Street Underground Station",
+    "lineName": "District",
+    "timeToStation": 9
+  },
+  {
+    "id": "311355537",
+    "stationName": "Gloucester Road Underground Station",
+    "lineName": "Circle",
+    "timeToStation": 9
+  },
+  {
+    "id": "521703175",
+    "stationName": "Monument Underground Station",
+    "lineName": "Circle",
+    "timeToStation": 9
+  },
+  {
+    "id": "-266374874",
+    "stationName": "Westminster Underground Station",
+    "lineName": "Circle",
+    "timeToStation": 10
+  },
+  {
+    "id": "1959803197",
+    "stationName": "Sloane Square Underground Station",
+    "lineName": "District",
+    "timeToStation": 10
+  },
+  {
+    "id": "-1926102796",
+    "stationName": "Stamford Brook Underground Station",
+    "lineName": "District",
+    "timeToStation": 10
+  },
+  {
+    "id": "-469636566",
+    "stationName": "Victoria Underground Station",
+    "lineName": "District",
+    "timeToStation": 10
+  },
+  {
+    "id": "1453795187",
+    "stationName": "Barking Underground Station",
+    "lineName": "District",
+    "timeToStation": 10
+  }
+]
