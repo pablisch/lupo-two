@@ -4,7 +4,7 @@
 
 .service-status {
   width: 100%;
-  margin: 5px auto 20px;
+  margin: 20px auto 15px;
   padding: 5px 0;
   color: #000;
   font-size: 1.3rem;
@@ -58,6 +58,10 @@
   100% {
     background-color: var(--yellow-500);
   }
+}
+
+.instrument-selectors {
+  margin-top: 10px;
 }
 
 .mute-icon {

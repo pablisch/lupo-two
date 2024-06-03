@@ -14,7 +14,14 @@ const SideBarLeft = ({
   isToggled,
   handleToggle,
 }) => {
-  const { isMuted, handleMuteToggle, flareEffectsAreOn, setFlareEffectsAreOn, specialServiceIsActive, setSpecialServiceIsActive } = useUserSettings();
+  const {
+    isMuted,
+    handleMuteToggle,
+    flareEffectsAreOn,
+    setFlareEffectsAreOn,
+    specialServiceIsActive,
+    setSpecialServiceIsActive,
+  } = useUserSettings();
   const [linesToggled, setlinesToggled] = useState(
     // Populates an object with each line name and the property false
     lineNames.reduce((object, lineName) => {
@@ -45,14 +52,39 @@ const SideBarLeft = ({
 
   return (
     <aside className='sidebar sidebar-left'>
-      <h2>Line Status</h2>
-      <button className={`service-status ${specialServiceIsActive ? 'special-service' : 'good-service'} ${!isPlaying ? 'suspended-service' : ''}`} disabled={isPlaying}>
-        {!isPlaying ? 'Suspended' : !specialServiceIsActive ? 'Good Service' : 'Special Service'}
+      {/* <h2>Line Status</h2> */}
+      <button
+        className={`service-status ${
+          specialServiceIsActive ? 'special-service' : 'good-service'
+        } ${!isPlaying ? 'suspended-service' : ''}`}
+        disabled={isPlaying}>
+        {!isPlaying
+          ? 'Suspended'
+          : !specialServiceIsActive
+          ? 'Good Service'
+          : 'Special Service'}
       </button>
-      <ToggleSwitch isOn={specialServiceIsActive} handleToggle={() => setSpecialServiceIsActive((status) => !status)} labelId={'special-service-toggle'} label={'Special Service'} />
-      <ToggleSwitch isOn={flareEffectsAreOn} handleToggle={() => setFlareEffectsAreOn(flares => !flares)} labelId={'flare-effects'} label={'Flare Effects'} />
-      <ToggleSwitch isOn={!isMuted} handleToggle={handleMuteToggle} labelId={'music-mute'} label={'Music'} />
-      <br />
+      <div className='user-settings'>
+        <ToggleSwitch
+          isOn={specialServiceIsActive}
+          handleToggle={() => setSpecialServiceIsActive((status) => !status)}
+          labelId={'special-service-toggle'}
+          label={'Special Service'}
+        />
+        <ToggleSwitch
+          isOn={flareEffectsAreOn}
+          handleToggle={() => setFlareEffectsAreOn((flares) => !flares)}
+          labelId={'flare-effects'}
+          label={'Flare Effects'}
+        />
+        <ToggleSwitch
+          isOn={!isMuted}
+          handleToggle={handleMuteToggle}
+          labelId={'music-mute'}
+          label={'Music'}
+        />
+      </div>
+      {/* <br />
       <button
         className={`specialServiceIsActiveButton instrumentButton ${
           specialServiceIsActive ? 'redButton' : 'greenButton'
@@ -64,7 +96,7 @@ const SideBarLeft = ({
         className={`instrumentButton arrival-effects ${
           flareEffectsAreOn ? 'greenButton' : 'redButton'
         }`}
-        onClick={() => setFlareEffectsAreOn(flares => !flares)}>
+        onClick={() => setFlareEffectsAreOn((flares) => !flares)}>
         {flareEffectsAreOn ? 'Turn Flares OFF' : 'Turn Flares ON'}
       </button>
 
@@ -74,8 +106,9 @@ const SideBarLeft = ({
         onClick={() => handleMuteToggle()}>
         {' '}
         {isMuted ? 'Unmute' : 'Mute'}{' '}
-      </button>
+      </button> */}
 
+      <div className="instrument-selectors">
       <button
         className='instrumentButton'
         id='tubeDrums'
@@ -107,7 +140,8 @@ const SideBarLeft = ({
         disabled={currentInstrument === 'orchestra'}>
         Orchestra
       </button>
-      <br />
+
+      </div>
 
       {lineNames.map((lineName) => {
         return (
