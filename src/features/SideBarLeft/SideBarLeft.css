@@ -89,25 +89,6 @@
   margin-bottom: 15px;
 }
 
-.instrumentButton {
-  width: 100%;
-  height: 28px;
-  margin: 0 auto 5px;
-  color: #222;
-  font-size: 1.2rem;
-  border: 1.5px solid #555;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: rgb(214, 216, 213);
-}
-
-.instrumentButton:disabled {
-  background-color: var(--lime-yellow-300);
-  color: #000;
-  cursor: not-allowed;
-  animation: colorTransition 2s infinite alternate;
-}
-
 .specialServiceIsActiveButton {
   font-size: 1rem;
 }
@@ -215,7 +196,7 @@
   .btn-waterloocity {
     font-size: 0.8rem;
   }
-  .instrumentButton {
+  .instrument-button {
     height: 22px;
     font-size: 1rem;
   }
@@ -254,7 +235,7 @@
   #mute {
     margin-bottom: 6px;
   }
-  .instrumentButton {
+  .instrument-button {
     height: 18px;
     font-size: 0.5rem;
     margin: 0 auto 3px;

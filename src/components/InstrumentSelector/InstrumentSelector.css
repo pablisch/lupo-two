@@ -1,0 +1,97 @@
+.instrument-selector-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.instrument-button {
+  width: 75%;
+  height: 28px;
+  margin: 3px auto;
+  color: #222;
+  font-size: 1.2rem;
+  border: 1.5px solid #999;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(214, 216, 213);
+}
+
+.instrument-button:disabled {
+  background-color: var(--lime-yellow-200);
+  color: #000;
+  cursor: not-allowed;
+  animation: instrumentButtonTransition 3s infinite alternate;
+}
+
+.instrument-light {
+  height: 28px;
+  width: 28px;
+  background-color: rgb(214, 216, 213);
+  border: 1.5px solid #999;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px #fff, -1px -1px 2px rgb(0, 0, 0, 0.6);
+}
+
+.instrument-light:before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: 3px auto;
+  border-radius: 50%;
+  background-color: #cccccc;
+  border: 1.5px solid #999;
+  box-shadow: inset 2px 2px 5px #fff, inset -2px -1px 2px rgb(0, 0, 0, 0.6), inset -3px -2px 5px rgb(0, 0, 0, 0.3);
+}
+
+.instrument-light-active {
+  background-color: rgb(214, 216, 213);
+  animation: instrumentLightRimTransition 3s infinite alternate;
+}
+
+.instrument-light-active:before {
+  background-color: var(--lime-yellow-300);
+  animation: instrumentLightTransition 3s infinite alternate;
+}
+
+@keyframes instrumentButtonTransition {
+  0% {
+    background-color: var(--lime-yellow-100);
+  }
+  50% {
+    background-color: var(--white-600);
+  }
+  100% {
+    background-color: var(--lime-yellow-100);
+  }
+}
+
+@keyframes instrumentLightTransition {
+  0% {
+    background-color: var(--lime-400);
+    box-shadow: inset 2px 2px 5px #fcfcfc, inset -2px -1px 2px rgba(132, 161, 2, 0.8), inset -3px -2px 5px rgba(106, 186, 2, 0.5);
+  }
+  50% {
+    background-color: var(--lime-500);
+    box-shadow: inset 2px 2px 5px #f8f7c0, inset -2px -1px 2px rgba(76, 103, 1, 0.6), inset -3px -2px 5px rgba(57, 119, 4, 0.3);
+  }
+  100% {
+    background-color: var(--lime-400);
+    box-shadow: inset 2px 2px 5px #fcfcfc, inset -2px -1px 2px rgba(132, 161, 2, 0.8), inset -3px -2px 5px rgba(106, 186, 2, 0.5);
+  }
+}
+
+@keyframes instrumentLightRimTransition {
+  0% {
+    background-color: rgb(214, 216, 213);
+  }
+  50% {
+    background-color: rgb(213, 240, 199);
+  }
+  100% {
+    background-color: rgb(214, 216, 213);
+  }
+}
+
