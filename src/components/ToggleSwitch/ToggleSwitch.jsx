@@ -15,7 +15,7 @@ const ToggleSwitch = ({ isOn, handleToggle, labelId, label }) => {
         <input 
           type="checkbox" 
           checked={isOn} 
-          // onChange={(event) => event.stopPropagation()} 
+          onChange={(event) => event.stopPropagation()} 
           onClick={handleInputClick} 
           aria-labelledby={labelId} // Reference external label
         />
