@@ -248,6 +248,7 @@ const App = () => {
                 handleToggle={handleToggle}
                 currentInstrument={currentInstrument}
                 changeCurrentInstrument={changeCurrentInstrument}
+                instruments={instruments}
               />
             }
           />

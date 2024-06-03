@@ -1,8 +1,8 @@
 import Navbar from '../features/Navbar/Navbar';
-import SideBarLeft from '../features/SideBarLeft/SideBarLeft';
+import SideBarLeft from '../features/SideBarLeft/SideBarLeft2';
 import TubeMap from '../features/TubeMap/TubeMap';
 
-const MapPage = ({ isPlaying, handleSpecialServiceToggle, isToggled, handleToggle, currentInstrument, changeCurrentInstrument }) => {
+const MapPage = ({ isPlaying, handleSpecialServiceToggle, isToggled, handleToggle, currentInstrument, changeCurrentInstrument, instruments }) => {
   return (
     <div>
       <Navbar />
@@ -12,7 +12,7 @@ const MapPage = ({ isPlaying, handleSpecialServiceToggle, isToggled, handleToggl
           // restart={restart}
           // soundOn={soundOn}
           isPlaying={isPlaying}
-          // instruments={instruments}
+          instruments={instruments}
           changeCurrentInstrument={changeCurrentInstrument}
           handleSpecialServiceToggle={handleSpecialServiceToggle}
           // specialServiceIsActive={specialServiceIsActive}

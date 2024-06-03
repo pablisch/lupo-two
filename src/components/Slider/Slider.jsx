@@ -8,28 +8,30 @@ const Slider = ({
   setLineSliderValues,
 }) => {
   const changeOpacity = (elementId, opacity) => {
-    const element = document.getElementById(elementId);
+    // const element = document.getElementById(elementId);
+    const element = document.getElementById('centralTracks');
     element.style.opacity = opacity;
+    console.log('intended opacity =', opacity);
   };
 
   const handleSliderChange = (event) => {
     console.log('event.target.value =', event.target.value);
     console.log('maxVolumeScaledUp =', maxVolumeScaledUp);
     console.log('instrument =', instruments);
-    // let negativeValue = event.target.value - 100;
-    // instruments[lineName].volume.value = negativeValue;
-    // setLineSliderValues((prevState) => {
-    //   return {
-    //     ...prevState,
-    //     [lineName]: event.target.value, // square brackets are used to evaluate the variable lineName
-    //   };
-    // });
+    let negativeValue = event.target.value - 100;
+    instruments[lineName].volume.value = negativeValue;
+    setLineSliderValues((prevState) => {
+      return {
+        ...prevState,
+        [lineName]: event.target.value, // square brackets are used to evaluate the variable lineName
+      };
+    });
 
-    // let newOpacity = event.target.value / 100 + 0.15;
-    // if (newOpacity > 1) {
-    //   newOpacity = 1;
-    // }
-    // changeOpacity(lineName, newOpacity);
+    let newOpacity = event.target.value / 100 + 0.05;
+    if (newOpacity > 1) {
+      newOpacity = 1;
+    }
+    changeOpacity(lineName, newOpacity);
   };
 
   const handleButtonClick = () => {
@@ -67,7 +69,7 @@ const Slider = ({
         min='0'
         max={maxVolumeScaledUp}
         value={sliderValue}
-        className={`slider ${lineName}`}
+        className={`volume-slider ${lineName}`}
         onChange={handleSliderChange}></input>
     </div>
   );

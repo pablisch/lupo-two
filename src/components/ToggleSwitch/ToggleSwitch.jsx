@@ -13,13 +13,14 @@ const ToggleSwitch = ({ isOn, handleToggle, labelId, label }) => {
       <label id={labelId} className="toggle-switch-label">{label}</label>
       <label className="toggle-switch">
         <input 
+          className="toggle-switch-input"
           type="checkbox" 
           checked={isOn} 
           onChange={(event) => event.stopPropagation()} 
           onClick={handleInputClick} 
           aria-labelledby={labelId} // Reference external label
         />
-        <span className="slider"></span>
+        <span className="toggle"></span>
       </label>
     </div>
   );
