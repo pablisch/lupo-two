@@ -12,6 +12,7 @@ export const UserSettingsProvider = ({ children }) => {
   const handleMuteToggle = () => {
     Tone.Destination.mute = !isMuted;
     setIsMuted(() => !isMuted);
+    console.log('Mute status:', isMuted);
   };
 
   // TEMPORARY MUTE CHECK FOR IF DEV MUTING BY DEFAULT - CAN BE REMOVED

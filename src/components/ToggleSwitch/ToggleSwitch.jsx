@@ -2,6 +2,12 @@ import { useState } from 'react';
 import './ToggleSwitch.css';
 
 const ToggleSwitch = ({ isOn, handleToggle, labelId, label }) => {
+
+  const handleInputClick = (event) => {
+    event.stopPropagation();
+    // handleToggle();
+  };
+
   return (
     <div onClick={handleToggle} className='toggle-switch-container'>
       <label id={labelId} className="toggle-switch-label">{label}</label>
@@ -9,7 +15,8 @@ const ToggleSwitch = ({ isOn, handleToggle, labelId, label }) => {
         <input 
           type="checkbox" 
           checked={isOn} 
-          onChange={handleToggle} 
+          // onChange={(event) => event.stopPropagation()} 
+          onClick={handleInputClick} 
           aria-labelledby={labelId} // Reference external label
         />
         <span className="slider"></span>
