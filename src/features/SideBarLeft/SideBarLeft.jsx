@@ -4,6 +4,14 @@ import Slider from '../../components/Slider/Slider';
 import lineNames from '../../data/lineNames';
 import { useUserSettings } from '../../context/userSettingsContext';
 import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
+import InstrumentSelector from '../../components/InstrumentSelector/InstrumentSelector';
+
+const instrumentSelection = [
+  { label: 'Tube Drums', value: 'tubeDrums' },
+  { label: 'Strings', value: 'strings' },
+  { label: 'Marimba', value: 'marimba' },
+  { label: 'Orchestra', value: 'orchestra' },
+];
 
 const SideBarLeft = ({
   currentInstrument,
@@ -84,70 +92,22 @@ const SideBarLeft = ({
           label={'Music'}
         />
       </div>
-      {/* <br />
-      <button
-        className={`specialServiceIsActiveButton instrumentButton ${
-          specialServiceIsActive ? 'redButton' : 'greenButton'
-        }`}
-        onClick={() => setSpecialServiceIsActive((status) => !status)}>
-        {specialServiceIsActive ? 'Normal Service' : 'Special Service'}
-      </button>
-      <button
-        className={`instrumentButton arrival-effects ${
-          flareEffectsAreOn ? 'greenButton' : 'redButton'
-        }`}
-        onClick={() => setFlareEffectsAreOn((flares) => !flares)}>
-        {flareEffectsAreOn ? 'Turn Flares OFF' : 'Turn Flares ON'}
-      </button>
-
-      <button
-        className={`instrumentButton ${isMuted ? 'redButton' : 'greenButton'}`}
-        id='mute'
-        onClick={() => handleMuteToggle()}>
-        {' '}
-        {isMuted ? 'Unmute' : 'Mute'}{' '}
-      </button> */}
 
       <div className="instrument-selectors">
-      <button
-        className='instrumentButton'
-        id='tubeDrums'
-        onClick={() => changeCurrentInstrument('tubeDrums')}
-        disabled={currentInstrument === 'tubeDrums'}>
-        Tube Drums
-      </button>
-      <br />
-      <button
-        className='instrumentButton'
-        id='strings'
-        onClick={() => changeCurrentInstrument('strings')}
-        disabled={currentInstrument === 'strings'}>
-        Strings
-      </button>
-      <br />
-      <button
-        className='instrumentButton'
-        id='marimba'
-        onClick={() => changeCurrentInstrument('marimba')}
-        disabled={currentInstrument === 'marimba'}>
-        Marimba
-      </button>
-      <br />
-      <button
-        className='instrumentButton'
-        id='orchestra'
-        onClick={() => changeCurrentInstrument('orchestra')}
-        disabled={currentInstrument === 'orchestra'}>
-        Orchestra
-      </button>
-
+        {instrumentSelection.map((instrument) => (
+          <InstrumentSelector
+            key={instrument.value}
+            instrumentLabel={instrument.label}
+            instrumentSet={instrument.value}
+            currentInstrument={currentInstrument}
+            changeCurrentInstrument={changeCurrentInstrument}
+          />
+        ))}
       </div>
 
       {lineNames.map((lineName) => {
         return (
           <div key={lineName}>
-            {' '}
-            {/* Each child in a list should have a unique "key" prop */}
             <button
               className={`btn-line btn-${lineName.toLowerCase()}`}
               type='button'

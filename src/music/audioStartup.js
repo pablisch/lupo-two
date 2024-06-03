@@ -1,10 +1,10 @@
 import getNoteAssignFunctions from './note-assignments/getNoteAssignFunctions';
 import createSamplers from './samplerSetup';
 
-const audioStartup = async (instrumentSet, samplers) => {
+const audioStartup = async (currentInstrument, samplers) => {
   // console.log('Samplers:', samplers);
 
-  const samplersObject = samplers || (await createSamplers(instrumentSet));
+  const samplersObject = samplers || (await createSamplers(currentInstrument));
 
   const {
     marimbaSampler,
@@ -35,9 +35,9 @@ const audioStartup = async (instrumentSet, samplers) => {
 
   let instruments = {};
 
-  // console.log(`instrumentSet is ${instrumentSet}`);
+  // console.log(`currentInstrument is ${currentInstrument}`);
 
-  if (instrumentSet === 'orchestra') {
+  if (currentInstrument === 'orchestra') {
     instruments = {
       Bakerloo: violinSampler,
       Central: violaSampler,
@@ -52,7 +52,7 @@ const audioStartup = async (instrumentSet, samplers) => {
       WaterlooCity: gongSampler,
       Pedal: violinSampler,
     };
-  } else if (instrumentSet === 'marimba') {
+  } else if (currentInstrument === 'marimba') {
     instruments = {
       Bakerloo: marimbaSampler,
       Central: marimbaSampler,
@@ -67,7 +67,7 @@ const audioStartup = async (instrumentSet, samplers) => {
       WaterlooCity: marimbaSampler,
       Pedal: marimbaSampler,
     };
-  } else if (instrumentSet === 'tubeDrums') {
+  } else if (currentInstrument === 'tubeDrums') {
     instruments = {
       Bakerloo: tubeDrumSampler,
       Central: tubeDrumSampler,
@@ -82,7 +82,7 @@ const audioStartup = async (instrumentSet, samplers) => {
       WaterlooCity: tubeDrumSampler,
       Pedal: tubeDrumSampler,
     };
-  } else if (instrumentSet === 'strings') {
+  } else if (currentInstrument === 'strings') {
     instruments = {
       Bakerloo: celloMarcSampler,
       Central: celloPizzSampler,
@@ -100,7 +100,7 @@ const audioStartup = async (instrumentSet, samplers) => {
   }
 
   // getNoteAssignFunctions returns an object with line names as keys and note assign functions as values
-  instruments.noteAssignFunctions = getNoteAssignFunctions(instrumentSet);
+  instruments.noteAssignFunctions = getNoteAssignFunctions(currentInstrument);
 
   return { awaitedInstruments: instruments, samplersObject };
 };

@@ -204,16 +204,15 @@ const App = () => {
     if (!isPlaying) {
       return;
     }
+    clearCurrentArrivals();
     (async () => {
-      await restart();
+      await loadInstrumentSet(currentInstrument);
     })();
-
-    return () => {};
     // eslint-disable-next-line
   }, [currentInstrument]);
 
   const changeCurrentInstrument = (change) => {
-    console.log('Change Current Instrument to :' + change);
+    console.log('Change Current Instrument to :', change);
     setCurrentInstrument(change);
   };
 
@@ -247,6 +246,8 @@ const App = () => {
                 isPlaying={isPlaying}
                 isToggled={isToggled}
                 handleToggle={handleToggle}
+                currentInstrument={currentInstrument}
+                changeCurrentInstrument={changeCurrentInstrument}
               />
             }
           />
