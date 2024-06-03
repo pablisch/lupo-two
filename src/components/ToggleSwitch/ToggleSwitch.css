@@ -5,6 +5,8 @@
   padding: 0 10px 0 10px;
   border-radius: 12px;
   cursor: pointer;
+  font-family:  Arial, Helvetica, sans-serif;
+  font-size: 1rem;
 }
 
 .toggle-switch-container:hover {
