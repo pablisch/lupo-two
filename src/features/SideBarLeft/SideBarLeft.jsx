@@ -18,9 +18,6 @@ const SideBarLeft = ({
   isPlaying,
   instruments,
   changeCurrentInstrument,
-  handleSpecialServiceToggle,
-  isToggled,
-  handleToggle,
 }) => {
   const {
     isMuted,
@@ -56,6 +53,8 @@ const SideBarLeft = ({
       ...prevState,
       [lineName]: !prevState[lineName],
     }));
+    console.log("*** lineName", lineName, '***');
+    console.log("=== linesToggled", linesToggled, '===');
   };
 
   return (
@@ -105,6 +104,9 @@ const SideBarLeft = ({
         ))}
       </div>
 
+      <div className="line-volume-controls">
+
+      
       {lineNames.map((lineName) => {
         return (
           <div key={lineName}>
@@ -118,25 +120,18 @@ const SideBarLeft = ({
                 ? lineName
                 : ''}
             </button>
-            {linesToggled[lineName] && (
-              <>
-                <div className={`mute ${linesToggled[lineName] ? 'open' : ''}`}>
-                  <Slider
-                    lineName={lineName}
-                    instruments={instruments}
-                    key={lineName}
-                    maxVolumeScaledUp={
-                      instruments ? instruments[lineName].maxVolume + 100 : 94
-                    }
-                    sliderValue={lineSliderValues[lineName]}
-                    setLineSliderValues={setLineSliderValues}
-                  />
-                </div>
-              </>
-            )}
+            {linesToggled[lineName] && <>
+                  <div className={`slider-container mute ${linesToggled[lineName] ? 'open' : ''}`}>
+                    <Slider lineName={lineName} instruments={instruments} key={lineName} 
+                      maxVolumeScaledUp={instruments ? instruments[lineName].maxVolume + 100 : 94} 
+                      sliderValue={lineSliderValues[lineName]}
+                      setLineSliderValues={setLineSliderValues}/>
+                  </div>
+                </>}
           </div>
         );
       })}
+      </div>
     </aside>
   );
 };

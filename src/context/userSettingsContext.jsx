@@ -6,7 +6,7 @@ export const UserSettingsContext = createContext();
 
 export const UserSettingsProvider = ({ children }) => {
   const [isMuted, setIsMuted] = useState(true);
-  const [flareEffectsAreOn, setFlareEffectsAreOn] = useState(true);
+  const [flareEffectsAreOn, setFlareEffectsAreOn] = useState(false);
   const [specialServiceIsActive, setSpecialServiceIsActive] = useState(false);
 
   const handleMuteToggle = () => {

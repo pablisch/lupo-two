@@ -153,6 +153,11 @@
   margin-top: 10px;
 }
 
+.slider-container {
+  width: inherit;
+  height: inherit;
+}
+
 .btn-central {
   background-color: var(--central);
 }
