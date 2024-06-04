@@ -1,5 +1,6 @@
 .sidebar-left {
   z-index: 200;
+  box-shadow: inset 2px 0 3px rgba(0, 0, 0, 0.3), inset -2px 0 3px  rgb(0, 0, 0, 0.3);
 }
 
 .service-status {
