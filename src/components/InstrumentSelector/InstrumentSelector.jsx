@@ -1,5 +1,6 @@
 import React from 'react';
 import './InstrumentSelector.css';
+import '../Controls.css';
 
 const InstrumentSelector = ({
   instrumentLabel,
@@ -9,7 +10,7 @@ const InstrumentSelector = ({
 }) => {
   return (
     <button
-      className='instrument-selector-container'
+      className='instrument-selector-container control-container'
       disabled={currentInstrument === instrumentSet}
       onClick={() => changeCurrentInstrument(instrumentSet)}
       id={instrumentSet}>

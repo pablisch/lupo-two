@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import './ToggleSwitch.css';
+import '../Controls.css';
 
 const ToggleSwitch = ({ isOn, handleToggle, labelId, label }) => {
 
@@ -9,7 +9,7 @@ const ToggleSwitch = ({ isOn, handleToggle, labelId, label }) => {
   };
 
   return (
-    <button onClick={handleToggle} className='toggle-switch-container'>
+    <button onClick={handleToggle} className='control-container'>
       <label id={labelId} className="toggle-switch-label">{label}</label>
       <label className="toggle-switch">
         <input 
