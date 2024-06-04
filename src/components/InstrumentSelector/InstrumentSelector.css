@@ -1,24 +1,31 @@
+:root {
+  --selector-height: 30px;
+  --light-diameter: calc(var(--selector-height) - 6px);
+  --light-rim-thickness: 3px;
+  --light-border-thickness: 1px;
+  --light-before-border-thickness: 1px;
+}
+
 .instrument-selector-container {
+  position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100%;
-}
-
-.instrument-button {
-  width: 75%;
-  height: 28px;
-  margin: 3px auto;
-  color: #222;
-  font-size: 1.2rem;
-  border: 1.5px solid #999;
-  border-radius: 5px;
+  height: var(--selector-height);
+  padding-left: 10px;
+  padding-right: 7px;
+  border: 1px solid #d2d1d1;
+  border-radius: 8px;
   cursor: pointer;
-  background-color: rgb(214, 216, 213);
+  font-family:  Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  background-color: #e9e9e9;
+  box-shadow: 2px 2px 5px rgb(255, 255, 255, 0.6), -1px -1px 2px rgb(0, 0, 0, 0.3);
+  margin-bottom: 6px;
 }
 
-.instrument-button:disabled {
+.instrument-selector-container:disabled {
   background-color: var(--lime-yellow-200);
   color: #000;
   cursor: not-allowed;
@@ -26,32 +33,39 @@
 }
 
 .instrument-light {
-  height: 28px;
-  width: 28px;
+  position: absolute;
+  top: calc((var(--selector-height) - var(--light-diameter)) / 2);
+  right: calc((var(--selector-height) - var(--light-diameter)) / 2);
+  height: var(--light-diameter);
+  width: var(--light-diameter);
   background-color: rgb(214, 216, 213);
-  border: 1.5px solid #999;
+  border: var(--light-border-thickness) solid #999;
   border-radius: 50%;
   box-shadow: 2px 2px 5px #fff, -1px -1px 2px rgb(0, 0, 0, 0.6);
 }
 
 .instrument-light:before {
+  position: absolute;
   content: "";
   display: block;
-  width: 18px;
-  height: 18px;
-  margin: 3px auto;
+  width: calc(var(--light-diameter) - (2 * var(--light-rim-thickness)));
+  height: calc(var(--light-diameter) - (2 * var(--light-rim-thickness)));
+  /* margin: 3px auto; */
+  top:  calc(var(--light-rim-thickness) - var(--light-border-thickness) - var(--light-before-border-thickness));
+  left: calc(var(--light-rim-thickness) - var(--light-border-thickness) - var(--light-before-border-thickness));
+  /* top: 0; */
   border-radius: 50%;
   background-color: #cccccc;
-  border: 1.5px solid #999;
+  border: var(--light-before-border-thickness) solid #999;
   box-shadow: inset 2px 2px 5px #fff, inset -2px -1px 2px rgb(0, 0, 0, 0.6), inset -3px -2px 5px rgb(0, 0, 0, 0.3);
 }
 
-.instrument-light-active {
+.instrument-selector-container:disabled .instrument-light {
   background-color: rgb(214, 216, 213);
   animation: instrumentLightRimTransition 3s infinite;
 }
 
-.instrument-light-active:before {
+.instrument-selector-container:disabled .instrument-light:before {
   background-color: var(--lime-yellow-300);
   animation: instrumentLightTransition 3s infinite;
 }

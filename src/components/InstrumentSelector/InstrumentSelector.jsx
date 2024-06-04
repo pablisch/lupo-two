@@ -8,16 +8,17 @@ const InstrumentSelector = ({
   changeCurrentInstrument,
 }) => {
   return (
-    <div className='instrument-selector-container'>
-      <button
-        className='instrument-button'
-        id={instrumentSet}
-        onClick={() => changeCurrentInstrument(instrumentSet)}
-        disabled={currentInstrument === instrumentSet}>
-        {instrumentLabel}
-      </button>
-      <div className={`instrument-light ${currentInstrument === instrumentSet ? 'instrument-light-active' : ''}`}></div>
-    </div>
+    <button
+      className='instrument-selector-container'
+      disabled={currentInstrument === instrumentSet}
+      onClick={() => changeCurrentInstrument(instrumentSet)}
+      id={instrumentSet}>
+      {instrumentLabel}
+      <div
+        className={`instrument-light ${
+          currentInstrument === instrumentSet ? 'instrument-light-active' : ''
+        }`}></div>
+    </button>
   );
 };
 

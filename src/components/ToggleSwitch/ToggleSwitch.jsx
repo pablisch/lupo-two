@@ -9,7 +9,7 @@ const ToggleSwitch = ({ isOn, handleToggle, labelId, label }) => {
   };
 
   return (
-    <div onClick={handleToggle} className='toggle-switch-container'>
+    <button onClick={handleToggle} className='toggle-switch-container'>
       <label id={labelId} className="toggle-switch-label">{label}</label>
       <label className="toggle-switch">
         <input 
@@ -22,7 +22,7 @@ const ToggleSwitch = ({ isOn, handleToggle, labelId, label }) => {
         />
         <span className="toggle"></span>
       </label>
-    </div>
+    </button>
   );
 };
 
