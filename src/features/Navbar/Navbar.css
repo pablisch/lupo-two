@@ -49,6 +49,11 @@ nav h2 {
   margin: auto;
 }
 
+.burger-button {
+  max-height: 45px;
+  margin: auto;
+}
+
 .link-btn {
   background-color: #000;
   text-align: center;
