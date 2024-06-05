@@ -44,7 +44,7 @@ nav h2 {
   align-items: center;
 }
 
-.luso-logo {
+.lu-logo {
   max-height: 45px;
   margin: auto;
 }
@@ -55,7 +55,7 @@ nav h2 {
 
 .burger-btn {
   position: relative;
-  top: -3px;
+  top: 2px;
   left: 0;
   background: none;
   border: none;
@@ -67,7 +67,7 @@ nav h2 {
 
 .burger-icon {
   position: absolute;
-  max-height: 45px;
+  max-height: 33px;
   margin: auto;
 }
 
@@ -157,4 +157,3 @@ nav h2 {
     width: auto;
   }
 }
-

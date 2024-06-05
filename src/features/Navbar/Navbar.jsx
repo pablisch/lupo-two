@@ -26,25 +26,28 @@ const Navbar = ({ stop, setTapInVisible }) => {
   return (
     <nav>
       <div className='nav-container'>
-        <div className="burger-menu-icon-container">
-
-        <button
-          onClick={handleBurgerToggle}
-          onMouseEnter={handleBurgerIconHover}
-          onMouseLeave={handleBurgerIconLeave}
-          className='burger-btn'
-          aria-label='open and close hamburger menu'>
-          <img
-            src='./images/burger-hover-circle.png'
-            alt='burger circle icon'
-            className='burger-icon burger-circle'
-          />
-          <img
-            src={isBurgerOpen ? './images/burger-open.png' : './images/burger-close.png'}
-            alt='burger menu icon'
-            className='burger-icon burger-lines'
-          />
-        </button>
+        <div className='burger-menu-icon-container'>
+          <button
+            onClick={handleBurgerToggle}
+            onMouseEnter={handleBurgerIconHover}
+            onMouseLeave={handleBurgerIconLeave}
+            className='burger-btn'
+            aria-label='open and close hamburger menu'>
+            <img
+              src='./images/burger-hover-circle.png'
+              alt='burger circle icon'
+              className='burger-icon burger-circle'
+            />
+            <img
+              src={
+                isBurgerOpen
+                  ? './images/burger-open.png'
+                  : './images/burger-close.png'
+              }
+              alt='burger menu icon'
+              className='burger-icon burger-lines'
+            />
+          </button>
         </div>
         <div className='nav-logo'>
           <h2 id='long-title'>The Arrival Orchestra</h2>
@@ -52,7 +55,7 @@ const Navbar = ({ stop, setTapInVisible }) => {
           <img
             src='./images/underground.png'
             alt=''
-            className='luso-logo second-logo'
+            className='lu-logo second-logo'
           />
         </div>
         <div className='nav-links'>

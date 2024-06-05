@@ -3,7 +3,7 @@ body > iframe {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .luso-logo {
+  .lu-logo {
     animation: App-logo-spin infinite 5s linear;
   }
 }
@@ -63,7 +63,7 @@ header p {
   font-size: 16px;
 }
 
-.container {
+.map-container {
   display: flex;
   height: 93vh;
 }
@@ -79,7 +79,7 @@ main {
 .sidebar {
   background-color: #f2f1f1;
   padding: 0 20px;
-  width: 210px;
+  width: var(--sidebar-width);
   overflow: scroll;
 }
 

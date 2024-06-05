@@ -5,6 +5,7 @@ import lineNames from '../../data/lineNames';
 import { useUserSettings } from '../../context/userSettingsContext';
 import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
 import InstrumentSelector from '../../components/InstrumentSelector/InstrumentSelector';
+import { useBurgerMenu } from '../../context/burgerMenuContext';
 
 const instrumentSelection = [
   { label: 'Tube Drums', value: 'tubeDrums' },
@@ -29,6 +30,7 @@ const SideBarLeft = ({
     specialServiceIsActive,
     setSpecialServiceIsActive,
   } = useUserSettings();
+  const { isBurgerOpen } = useBurgerMenu();
 
   const [linesToggled, setlinesToggled] = useState(
     lineNames.reduce((object, lineName) => {
@@ -63,7 +65,7 @@ const SideBarLeft = ({
   }
 
   return (
-    <aside className='sidebar sidebar-left'>
+    <aside className={`sidebar sidebar-left ${isBurgerOpen ? 'left-bar-open' : ''}`}>
       <button
         className={`service-status ${
           specialServiceIsActive ? 'special-service' : 'good-service'

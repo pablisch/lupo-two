@@ -1,15 +1,14 @@
 import Navbar from '../features/Navbar/Navbar';
 import SideBarLeft from '../features/SideBarLeft/SideBarLeft2';
 import TubeMap from '../features/TubeMap/TubeMap';
-import { useBurgerMenu } from '../context/burgerMenuContext';
 
 const MapPage = ({ isPlaying, handleSpecialServiceToggle, isToggled, handleToggle, currentInstrument, changeCurrentInstrument, instruments }) => {
-  const { isBurgerOpen } = useBurgerMenu();
+
   return (
     <div>
       <Navbar />
-      <div className='container bars-and-map'>
-        {isBurgerOpen && <SideBarLeft
+      <div className='map-container bars-and-map'>
+        <SideBarLeft
           currentInstrument={currentInstrument}
           // restart={restart}
           // soundOn={soundOn}
@@ -20,7 +19,7 @@ const MapPage = ({ isPlaying, handleSpecialServiceToggle, isToggled, handleToggl
           // specialServiceIsActive={specialServiceIsActive}
           isToggled={isToggled}
           handleToggle={handleToggle}
-        />}
+        />
         <TubeMap />
       </div>
     </div>

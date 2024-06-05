@@ -1,6 +1,24 @@
+:root {
+  --sidebar-width: 190px;
+
+}
+
 .sidebar-left {
+  position: absolute;
+  left: -210px;
+  left: 0;
+  min-height: 93vw;
   z-index: 200;
+  opacity: 0.2;
   box-shadow: inset 2px 0 3px rgba(0, 0, 0, 0.3), inset -2px 0 3px  rgb(0, 0, 0, 0.3);
+  transform: translateX(-210px);
+  transition: left 0.5s ease, opacity 0.5s ease, transform 0.6s ease;
+}
+
+.left-bar-open {
+  transform: translateX(0);
+  left: 0;
+  opacity: 1;
 }
 
 .service-status {
