@@ -79,11 +79,13 @@ const SideBarLeft = ({
       </button>
       <div className='user-settings'>
         <ToggleSwitch
+          className='control-container special-service-toggle'
           isOn={specialServiceIsActive}
           handleToggle={() => setSpecialServiceIsActive((status) => !status)}
           labelId={'special-service-toggle'}
           label={'Special Service'}
         />
+        {/* <div className="tooltip-special-service">Hello hello</div> */}
         <ToggleSwitch
           isOn={flareEffectsAreOn}
           handleToggle={() => setFlareEffectsAreOn((flares) => !flares)}

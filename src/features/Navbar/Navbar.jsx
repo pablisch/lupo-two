@@ -50,12 +50,37 @@ const Navbar = ({ stop, setTapInVisible }) => {
           </button>
         </div>
         <div className='nav-logo'>
+        <img
+            src='./images/lu-black.png'
+            alt=''
+            className='lu-logo outer-logo clockwise'
+          />
+        <img
+            src='./images/lu-black.png'
+            alt=''
+            className='lu-logo middle-logo anti-clockwise'
+          />
+        <img
+            src='./images/lu-black.png'
+            alt=''
+            className='lu-logo inner-logo clockwise'
+          />
           <h2 id='long-title'>The Arrival Orchestra</h2>
           <h2 id='short-title'>LUPO</h2>
           <img
-            src='./images/underground.png'
+            src='./images/lu-black.png'
             alt=''
-            className='lu-logo second-logo'
+            className='lu-logo inner-logo anti-clockwise'
+          />
+          <img
+            src='./images/lu-black.png'
+            alt=''
+            className='lu-logo middle-logo clockwise'
+          />
+          <img
+            src='./images/lu-black.png'
+            alt=''
+            className='lu-logo outer-logo anti-clockwise'
           />
         </div>
         <div className='nav-links'>

@@ -3,17 +3,32 @@ body > iframe {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .lu-logo {
-    animation: App-logo-spin infinite 5s linear;
+  .clockwise {
+    animation: App-logo-spin-cw infinite 5s linear;
   }
 }
 
-@keyframes App-logo-spin {
+@media (prefers-reduced-motion: no-preference) {
+  .anti-clockwise {
+    animation: App-logo-spin-acw infinite 5s linear;
+  }
+}
+
+@keyframes App-logo-spin-cw {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin-acw {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
 
@@ -30,20 +45,6 @@ body > iframe {
   to {
     transform: translate(-50%, -50%) rotate(360deg);
   }
-}
-
-#tap-in {
-  position: absolute;
-  top: 50%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-  font-size: calc(10px + 2vmin);
-  color: #fff;
-  font-weight: bold;
-  text-shadow: 0 0 5px #000;
-  z-index: 1000;
-  cursor: url('./oyster-card.png');
-  max-width: 400px;
 }
 
 /* GENERAL PAGE STYLES */

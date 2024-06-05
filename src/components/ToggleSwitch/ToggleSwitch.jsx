@@ -1,7 +1,7 @@
 import './ToggleSwitch.css';
 import '../Controls.css';
 
-const ToggleSwitch = ({ isOn, handleToggle, labelId, label }) => {
+const ToggleSwitch = ({ isOn, handleToggle, labelId, label, className = 'control-container' }) => {
 
   const handleInputClick = (event) => {
     event.stopPropagation();
@@ -9,7 +9,7 @@ const ToggleSwitch = ({ isOn, handleToggle, labelId, label }) => {
   };
 
   return (
-    <button onClick={handleToggle} className='control-container'>
+    <button onClick={handleToggle} className={className}>
       <label id={labelId} className="toggle-switch-label">{label}</label>
       <label className="toggle-switch">
         <input 
