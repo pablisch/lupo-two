@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SideBarLeft.css';
 import Slider from '../../components/Slider/Slider';
 import lineNames from '../../data/lineNames';
 import { useUserSettings } from '../../context/userSettingsContext';
 import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
 import InstrumentSelector from '../../components/InstrumentSelector/InstrumentSelector';
+import { useBurgerMenu } from '../../context/burgerMenuContext';
 
 const instrumentSelection = [
   { label: 'Tube Drums', value: 'tubeDrums' },
@@ -19,7 +20,8 @@ const SideBarLeft = ({
   instruments,
   changeCurrentInstrument,
 }) => {
-  console.log('In LEFTY. instrument maxVol:', instruments['Bakerloo']?.maxVolume);
+  const [isLoading, setIsLoading] = useState(true);
+
   const {
     isMuted,
     handleMuteToggle,
@@ -28,39 +30,42 @@ const SideBarLeft = ({
     specialServiceIsActive,
     setSpecialServiceIsActive,
   } = useUserSettings();
+  const { isBurgerOpen } = useBurgerMenu();
+
   const [linesToggled, setlinesToggled] = useState(
-    // Populates an object with each line name and the property false
     lineNames.reduce((object, lineName) => {
       object[lineName] = false;
       return object;
-    }, {}) // last arg = inital value of empty object
+    }, {})
   );
 
-  const [lineSliderValues, setLineSliderValues] = useState(
-    lineNames.reduce((object, lineName) => {
-      const maxVolumeScaledUp = instruments
-        ? instruments[lineName]?.maxVolume + 100
-        : 94;
-      object[lineName] = maxVolumeScaledUp;
-      return object;
-    }, {}) // last arg = inital value of empty object
-  );
+  const [lineSliderValues, setLineSliderValues] = useState({});
 
-  // Function to toggle the open/closed boolean state of the line controls
+  useEffect(() => {
+    if (instruments) {
+      const initialSliderValues = lineNames.reduce((object, lineName) => {
+        const maxVolumeScaledUp = instruments[lineName]?.maxVolume + 100 || 94;
+        object[lineName] = maxVolumeScaledUp;
+        return object;
+      }, {});
+      setLineSliderValues(initialSliderValues);
+      setIsLoading(false);
+    }
+  }, [instruments]);
+
   const handleLineControlToggle = (lineName) => {
-    // First arg to useState setter function is the previous state of the variable...
-    // ...In our case this is the object containing toggled state of all lines
     setlinesToggled((prevState) => ({
       ...prevState,
       [lineName]: !prevState[lineName],
     }));
-    console.log("*** lineName", lineName, '***');
-    console.log("=== linesToggled", linesToggled, '===');
   };
 
+  if (isLoading) {
+    return <aside className='sidebar sidebar-left'></aside>;
+  }
+
   return (
-    <aside className='sidebar sidebar-left'>
-      {/* <h2>Line Status</h2> */}
+    <aside className={`sidebar sidebar-left ${isBurgerOpen ? 'left-bar-open' : ''}`}>
       <button
         className={`service-status ${
           specialServiceIsActive ? 'special-service' : 'good-service'
@@ -74,11 +79,13 @@ const SideBarLeft = ({
       </button>
       <div className='user-settings'>
         <ToggleSwitch
+          className='control-container special-service-toggle'
           isOn={specialServiceIsActive}
           handleToggle={() => setSpecialServiceIsActive((status) => !status)}
           labelId={'special-service-toggle'}
           label={'Special Service'}
         />
+        {/* <div className="tooltip-special-service">Hello hello</div> */}
         <ToggleSwitch
           isOn={flareEffectsAreOn}
           handleToggle={() => setFlareEffectsAreOn((flares) => !flares)}
@@ -105,16 +112,8 @@ const SideBarLeft = ({
         ))}
       </div>
 
-      <button onClick={() => console.log('In LEFTY. Instruments value:', instruments) } >intruments</button>
-      <button onClick={() => console.log('In LEFTY. Bakerloo instruments value:', typeof(instruments['Bakerloo'].maxVolume)) } >Bakerloo maxVolume</button>
-      <button onClick={() => console.log('In LEFTY. linesToggled:', linesToggled) } >linesToggled</button>
-      <button onClick={() => console.log('In LEFTY. lineSliderValues:', lineSliderValues) } >lineSliderValues</button>
-
       <div className="line-volume-controls">
-
-      
-      {lineNames.map((lineName) => {
-        return (
+        {lineNames.map((lineName) => (
           <div key={lineName}>
             <button
               className={`btn-line btn-${lineName.toLowerCase()}`}
@@ -127,18 +126,28 @@ const SideBarLeft = ({
                 : ''}
             </button>
             {linesToggled[lineName] && 
-                  <div className={`slider-container mute ${linesToggled[lineName] ? 'open' : ''}`}>
-                    <Slider lineName={lineName} instruments={instruments} key={lineName} 
-                      maxVolumeScaledUp={instruments ? instruments[lineName].maxVolume + 100 : 94} 
-                      sliderValue={lineSliderValues[lineName]}
-                      setLineSliderValues={setLineSliderValues}/>
-                  </div>
-                }
+              <div className={`slider-container mute ${linesToggled[lineName] ? 'open' : ''}`}>
+                <Slider 
+                  lineName={lineName} 
+                  instruments={instruments} 
+                  key={lineName} 
+                  maxVolumeScaledUp={instruments[lineName]?.maxVolume + 100 || 94} 
+                  sliderValue={lineSliderValues[lineName]}
+                  setLineSliderValues={setLineSliderValues}
+                />
+              </div>
+            }
           </div>
-        );
-      })}
+        ))}
       </div>
+
+
+      <button onClick={() => console.log('In LEFTY. Instruments value:', instruments) } >intruments</button>
+      <button onClick={() => console.log('In LEFTY. Bakerloo instruments value:', typeof(instruments['Bakerloo'].maxVolume)) } >Bakerloo maxVolume</button>
+      <button onClick={() => console.log('In LEFTY. linesToggled:', linesToggled) } >linesToggled</button>
+      <button onClick={() => console.log('In LEFTY. lineSliderValues:', lineSliderValues) } >lineSliderValues</button>
     </aside>
   );
 };
+
 export default SideBarLeft;

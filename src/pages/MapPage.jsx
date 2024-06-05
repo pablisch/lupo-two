@@ -1,5 +1,5 @@
 import Navbar from '../features/Navbar/Navbar';
-import SideBarLeft from '../features/SideBarLeft/SideBarLeft2';
+import SideBarLeft from '../features/SideBarLeft/SideBarLeft';
 import TubeMap from '../features/TubeMap/TubeMap';
 
 const MapPage = ({ isPlaying, handleSpecialServiceToggle, isToggled, handleToggle, currentInstrument, changeCurrentInstrument, instruments }) => {
