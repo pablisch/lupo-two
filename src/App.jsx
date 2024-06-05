@@ -14,6 +14,7 @@ import processTubeData from './utils/processTubeData';
 import triggerAudioVisuals from './utils/triggerAudioVisuals';
 import TIMEOUTS from './utils/timeouts';
 import { useUserSettings } from './context/userSettingsContext';
+import { BurgerMenuProvider } from './context/burgerMenuContext';
 
 const minVelocity = 0.8;
 const dataBlockDuration = 90; // seconds between fetch from TFL
@@ -230,6 +231,7 @@ const App = () => {
   };
 
   return (
+    <BurgerMenuProvider>
     <div className='App'>
       <BrowserRouter>
         <Routes>
@@ -254,7 +256,8 @@ const App = () => {
           />
         </Routes>
       </BrowserRouter>
-    </div>
+      </div>
+    </BurgerMenuProvider>
   );
 };
 

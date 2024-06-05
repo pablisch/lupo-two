@@ -4,7 +4,7 @@
   margin: 5px;
 }
 
-#button {
+/* #button {
   width: 100%;
   margin: 0px auto;
   padding-top: 2px;
@@ -13,7 +13,7 @@
   font-size: 0.6rem;
   border: 1px solid #555;
   border-radius: 2px;
-}
+} */
 
 .dropdown-container {
   display: flex;
