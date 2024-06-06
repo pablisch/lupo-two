@@ -3,7 +3,7 @@ import { createContext, useState, useContext } from 'react';
 export const BurgerMenuContext = createContext();
 
 export const BurgerMenuProvider = ({ children }) => {
-  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+  const [isBurgerOpen, setIsBurgerOpen] = useState(open);
   const [isBurgerIconHovered, setIsBurgerIconHovered] = useState(false);
 
   const handleBurgerToggle = () => {
