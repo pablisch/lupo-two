@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "docker compose up --watch"
+    "start": "docker-compose up dev --watch",
+    "prod": "docker-compose up web"
   },
   "dependencies": {
     "axios": "^1.7.2",
