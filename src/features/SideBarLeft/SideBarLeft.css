@@ -1,6 +1,5 @@
 :root {
   --sidebar-width: 190px;
-
 }
 
 .sidebar {
@@ -16,7 +15,8 @@
   height: 100%;
   z-index: 200;
   opacity: 0.2;
-  box-shadow: inset 2px 0 3px rgba(0, 0, 0, 0.3), inset -2px 0 3px  rgb(0, 0, 0, 0.3);
+  box-shadow: inset 2px 0 3px rgba(0, 0, 0, 0.3),
+    inset -2px 0 3px rgb(0, 0, 0, 0.3);
   transform: translateX(-210px);
   transition: left 0.5s ease, opacity 0.5s ease, transform 0.6s ease;
   overflow-y: auto;
@@ -39,7 +39,9 @@
   border: 1px solid #999;
   border-radius: 2px;
   cursor: pointer;
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.2), inset -1px -1px 2px rgb(0, 0, 0, 0.3);
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.2), inset -1px -1px 2px rgb(0, 0, 0, 0.3);
 }
 :root {
   --service-1: #eefaaf;
@@ -101,29 +103,18 @@
   margin-bottom: 25px;
 }
 
-.mute-icon {
-  height: 25px;
-}
-
-.mute {
+/* .slider-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px 5px 4px;
+  padding: 0 5px;
   background: #fff;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
   transition: height 1s ease, opacity 3s ease;
-}
+} */
 
 .open {
-  height: auto;
+  height: 30px;
   opacity: 1;
-}
-
-#mute {
-  margin-bottom: 15px;
 }
 
 .specialServiceIsActiveButton {
@@ -164,22 +155,20 @@
   border: none;
   cursor: pointer;
   height: 30px;
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.2), inset -1px -1px 2px rgb(0, 0, 0, 0.3);
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.2), inset -1px -1px 2px rgb(0, 0, 0, 0.3);
 }
 
 .btn-bakerloo {
   background-color: var(--bakerloo);
-  
 }
 
 .btn-bakerloo:hover {
   background-color: var(--bakerloo-dark);
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
-}
-
-.slider-container {
-  width: 100%;
-  height: inherit;
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
 .btn-central {
@@ -189,7 +178,9 @@
 .btn-central:hover {
   background-color: var(--central-dark);
   /* background-color: #1a37b9; */
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
 .btn-circle {
@@ -198,7 +189,9 @@
 
 .btn-circle:hover {
   background-color: var(--circle-dark);
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
 .btn-district {
@@ -207,7 +200,9 @@
 
 .btn-district:hover {
   background-color: var(--district-dark);
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
 .btn-hammersmithcity {
@@ -216,7 +211,9 @@
 
 .btn-hammersmithcity:hover {
   background-color: var(--hammersmithcity-dark);
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
 .btn-jubilee {
@@ -225,7 +222,9 @@
 
 .btn-jubilee:hover {
   background-color: var(--jubilee-dark);
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
   color: #282828;
 }
 
@@ -235,7 +234,9 @@
 
 .btn-metropolitan:hover {
   background-color: var(--metropolitan-dark);
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
 .btn-northern {
@@ -244,7 +245,9 @@
 
 .btn-northern:hover {
   background-color: var(--northern-light);
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
 .btn-piccadilly {
@@ -253,7 +256,9 @@
 
 .btn-piccadilly:hover {
   background-color: var(--piccadilly-dark);
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
 .btn-victoria {
@@ -262,7 +267,9 @@
 
 .btn-victoria:hover {
   background-color: var(--victoria-dark);
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
 .btn-waterloocity {
@@ -272,11 +279,16 @@
 
 .btn-waterloocity:hover {
   background-color: var(--waterloocity-dark);
-  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
+  box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7),
+    inset 1px 1px 1px rgb(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
   color: #282828;
 }
 
-.btn-circle, .btn-hammersmithcity, .btn-jubilee, .btn-waterloocity {
+.btn-circle,
+.btn-hammersmithcity,
+.btn-jubilee,
+.btn-waterloocity {
   color: #333333;
 }
 
@@ -312,9 +324,6 @@
     font-size: 0.7rem;
     text-align: center;
   }
-  #mute {
-    margin-bottom: 10px;
-  }
 }
 
 @media (max-width: 550px) {
@@ -331,9 +340,6 @@
   }
   .btn-temp-left {
     font-size: 0.8rem;
-  }
-  #mute {
-    margin-bottom: 6px;
   }
   .instrument-button {
     height: 18px;
