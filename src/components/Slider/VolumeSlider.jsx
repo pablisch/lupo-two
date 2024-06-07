@@ -1,11 +1,12 @@
-import './Slider.css';
+import './VolumeSlider.css';
 
-const Slider = ({
+const VolumeSlider = ({
   instruments,
   lineName,
   maxVolumeScaledUp,
   sliderValue,
   setLineSliderValues,
+  linesToggled,
 }) => {
   const changeOpacity = (elementId, opacity) => {
     // const element = document.getElementById(elementId);
@@ -57,9 +58,9 @@ const Slider = ({
   };
 
   return (
-    <div className='old-slider-container'>
+    <div className={`slider-container ${linesToggled[lineName] ? 'slider-open' : ''}`}>
       <img
-        className='old-mute-icon'
+        className='mute-icon'
         src={sliderValue === 0 ? '/images/mute.png' : '/images/unmute.png'}
         alt='mute'
         onClick={handleButtonClick}
@@ -69,10 +70,10 @@ const Slider = ({
         min='0'
         max={maxVolumeScaledUp}
         value={sliderValue}
-        className={`old-volume-slider ${lineName}`}
+        className={`volume-slider ${lineName}`}
         onChange={handleSliderChange}></input>
     </div>
   );
 };
 
-export default Slider;
+export default VolumeSlider;

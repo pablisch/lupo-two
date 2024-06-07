@@ -6,6 +6,9 @@ import { useUserSettings } from '../../context/userSettingsContext';
 import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
 import InstrumentSelector from '../../components/InstrumentSelector/InstrumentSelector';
 import { useBurgerMenu } from '../../context/burgerMenuContext';
+import VolumeSlider from '../../components/Slider/VolumeSlider';
+
+const sampleLine = 'Bakerloo';
 
 const instrumentSelection = [
   { label: 'Tube Drums', value: 'tubeDrums' },
@@ -113,6 +116,54 @@ const SideBarLeft = ({
       </div>
 
       <div className="line-volume-controls">
+        
+      <div key={sampleLine}>
+            {/* <button
+              className={`btn-line btn-${sampleLine.toLowerCase()}`}
+              type='button'
+              onClick={() => handleLineControlToggle(sampleLine)}>
+              {sampleLine === 'HammersmithCity' ? 'H&C' : ''}
+              {sampleLine === 'WaterlooCity' ? 'Waterloo & City' : ''}
+              {sampleLine !== 'HammersmithCity' && sampleLine !== 'WaterlooCity'
+                ? sampleLine
+                : ''}
+            </button>
+            <VolumeSlider 
+                  lineName={sampleLine} 
+                  instruments={instruments} 
+                  key={sampleLine} 
+                  maxVolumeScaledUp={instruments[sampleLine]?.maxVolume + 100 || 94} 
+                  sliderValue={lineSliderValues[sampleLine]}
+            setLineSliderValues={setLineSliderValues}
+            linesToggled={linesToggled}
+                /> */}
+            
+            {/* {linesToggled[sampleLine] && <VolumeSlider 
+                  lineName={sampleLine} 
+                  instruments={instruments} 
+                  key={sampleLine} 
+                  maxVolumeScaledUp={instruments[sampleLine]?.maxVolume + 100 || 94} 
+                  sliderValue={lineSliderValues[sampleLine]}
+            setLineSliderValues={setLineSliderValues}
+            linesToggled={linesToggled}
+                />
+            } */}
+            {/* {linesToggled[sampleLine] && 
+              <div className={`slider-container ${linesToggled[sampleLine] ? 'open' : ''}`}>
+                <VolumeSlider 
+                  lineName={sampleLine} 
+                  instruments={instruments} 
+                  key={sampleLine} 
+                  maxVolumeScaledUp={instruments[sampleLine]?.maxVolume + 100 || 94} 
+                  sliderValue={lineSliderValues[sampleLine]}
+                  setLineSliderValues={setLineSliderValues}
+                />
+              </div>
+            } */}
+        </div>
+        
+        
+
         {lineNames.map((lineName) => (
           <div key={lineName}>
             <button
@@ -125,8 +176,44 @@ const SideBarLeft = ({
                 ? lineName
                 : ''}
             </button>
-            {linesToggled[lineName] && 
-              <div className={`slider-container mute ${linesToggled[lineName] ? 'open' : ''}`}>
+            <VolumeSlider 
+                  lineName={lineName} 
+                  instruments={instruments} 
+                  key={lineName} 
+                  maxVolumeScaledUp={instruments[lineName]?.maxVolume + 100 || 94} 
+                  sliderValue={lineSliderValues[lineName]}
+              setLineSliderValues={setLineSliderValues}
+              linesToggled={linesToggled}
+                />
+            
+          </div>
+        ))}
+
+        <div className="scroll-spacer"></div>
+
+        {lineNames.map((lineName) => (
+          <div key={lineName}>
+            <button
+              className={`btn-line btn-${lineName.toLowerCase()}`}
+              type='button'
+              onClick={() => handleLineControlToggle(lineName)}>
+              {lineName === 'HammersmithCity' ? 'H&C' : ''}
+              {lineName === 'WaterlooCity' ? 'Waterloo & City' : ''}
+              {lineName !== 'HammersmithCity' && lineName !== 'WaterlooCity'
+                ? lineName
+                : ''}
+            </button>
+            {linesToggled[lineName] && <Slider 
+                  lineName={lineName} 
+                  instruments={instruments} 
+                  key={lineName} 
+                  maxVolumeScaledUp={instruments[lineName]?.maxVolume + 100 || 94} 
+                  sliderValue={lineSliderValues[lineName]}
+                  setLineSliderValues={setLineSliderValues}
+                />
+            }
+            {/* {linesToggled[lineName] && 
+              <div className={`slider-container ${linesToggled[lineName] ? 'slier-open' : ''}`}>
                 <Slider 
                   lineName={lineName} 
                   instruments={instruments} 
@@ -136,7 +223,7 @@ const SideBarLeft = ({
                   setLineSliderValues={setLineSliderValues}
                 />
               </div>
-            }
+            } */}
           </div>
         ))}
       </div>
