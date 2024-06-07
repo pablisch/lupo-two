@@ -80,10 +80,10 @@ const SideBarLeft = ({
       <div className='user-settings'>
         <ToggleSwitch
           className='control-container special-service-toggle'
-          isOn={specialServiceIsActive}
+          isOn={!specialServiceIsActive}
           handleToggle={() => setSpecialServiceIsActive((status) => !status)}
           labelId={'special-service-toggle'}
-          label={'Special Service'}
+          label={'Live Arrivals'}
         />
         {/* <div className="tooltip-special-service">Hello hello</div> */}
         <ToggleSwitch
