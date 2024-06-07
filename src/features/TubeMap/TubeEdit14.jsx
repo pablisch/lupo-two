@@ -3,7 +3,7 @@ const TubeEdit14 = (props) => (
   <svg
     xlink="http://www.w3.org/1999/xlink"
     width={3015}
-    height={900}
+    height={1000}
     viewBox="55 130 1005 670"
     xmlSpace="preserve"
     id="svg2079"
