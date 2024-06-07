@@ -172,7 +172,7 @@
 }
 
 .btn-bakerloo:hover {
-  background-color: #a15a04;
+  background-color: var(--bakerloo-dark);
   box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
@@ -186,7 +186,8 @@
 }
 
 .btn-central:hover {
-  background-color: #ca2009;
+  background-color: var(--central-dark);
+  /* background-color: #1a37b9; */
   box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
@@ -195,7 +196,7 @@
 }
 
 .btn-circle:hover {
-  background-color: #e6b800;
+  background-color: var(--circle-dark);
   box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
@@ -204,7 +205,7 @@
 }
 
 .btn-district:hover {
-  background-color: #025f27;
+  background-color: var(--district-dark);
   box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
@@ -213,7 +214,7 @@
 }
 
 .btn-hammersmithcity:hover {
-  background-color: #e192b1;
+  background-color: var(--hammersmithcity-dark);
   box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
@@ -222,8 +223,9 @@
 }
 
 .btn-jubilee:hover {
-  background-color: #969d9d;
+  background-color: var(--jubilee-dark);
   box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
+  color: #282828;
 }
 
 .btn-metropolitan {
@@ -231,7 +233,7 @@
 }
 
 .btn-metropolitan:hover {
-  background-color: #5a0b3d;
+  background-color: var(--metropolitan-dark);
   box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
@@ -240,7 +242,7 @@
 }
 
 .btn-northern:hover {
-  background-color: #1f1f1f;
+  background-color: var(--northern-light);
   box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
@@ -249,7 +251,7 @@
 }
 
 .btn-piccadilly:hover {
-  background-color: #051885;
+  background-color: var(--piccadilly-dark);
   box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
@@ -258,7 +260,7 @@
 }
 
 .btn-victoria:hover {
-  background-color: #0a84b5;
+  background-color: var(--victoria-dark);
   box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
 }
 
@@ -268,12 +270,13 @@
 }
 
 .btn-waterloocity:hover {
-  background-color: #58a292;
+  background-color: var(--waterloocity-dark);
   box-shadow: inset 2px 2px 3px 1px rgb(255, 255, 255, 0.7), inset 1px 1px 1px rgb(255, 255, 255, 0.9), inset -2px -2px 4px rgb(0, 0, 0, 0.3), inset -1px -1px 2px rgb(0, 0, 0, 0.5);
+  color: #282828;
 }
 
 .btn-circle, .btn-hammersmithcity, .btn-jubilee, .btn-waterloocity {
-  color: #444444;
+  color: #333333;
 }
 
 .scroll-spacer {

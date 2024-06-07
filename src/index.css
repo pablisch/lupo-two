@@ -28,23 +28,23 @@
   --lime-600: #b3f615;
 
   --bakerloo: #b26300;
-  --bakerloo-dark: #9b5805;
+  --bakerloo-dark: #a15a04;
   --central: #dc241f;
-  --central-dark: #b91d1a;
+  --central-dark: #ca2009;
   --circle: #ffcc00;
-  --circle-dark: #e0b401;
+  --circle-dark: #edbd01;
   --district: #007229;
   --district-dark: #005a1f;
   --hammersmithcity: #f4a9be;
   --hammersmithcity-dark: #e192b1;
   --jubilee: #a3a9a9;
   --jubilee-dark: #8f9393;
-  --metropolitan: #751056;
-  --metropolitan-dark: #5c0f3a;
+  --metropolitan: #7e135e;
+  --metropolitan-dark: #6a014b;
   --northern: #000000;
-  --northern-light: #1f1f1f;
+  --northern-light: #212121;
   --piccadilly: #0019a8;
-  --piccadilly-dark: #051885;
+  --piccadilly-dark: #0b175e;
   --victoria: #0098d4;
   --victoria-dark: #0a84b5;
   --waterloocity: #6abbaa;
@@ -65,10 +65,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
 
 .temp-delete-buttons {
   display: flex; 
