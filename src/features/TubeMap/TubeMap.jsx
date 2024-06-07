@@ -1,13 +1,7 @@
-// import { ReactComponent as Map } from '../../assets/Tube.svg?component';
-// import Map from '../../assets/Map';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import './TubeMap.css';
 import fadeAllStations from '../../utils/fadeAllStations';
 import { useEffect } from 'react';
-import TubeSvg from './TubeSvg';
-import TubeCheck from './TubeCheck';
-import TubeEdit12 from './TubeEdit12';
-import SvgTubeEdit13 from './TubeEdit13';
 import TubeEdit14 from './TubeEdit14';
 
 const TubeMap = () => {
@@ -36,15 +30,11 @@ const TubeMap = () => {
               height: '100%',
               position: 'absolute',
             }}>
-            {/* <TubeSvg /> */}
-            {/* <TubeEdit12 /> */}
-            {/* <SvgTubeEdit13 /> */}
             <TubeEdit14 />
-            {/* <TubeCheck /> */}
-            {/* <Map /> */}
           </TransformComponent>
         </TransformWrapper>
       </div>
+      <div className="map-bottom-spacer"></div>
     </main>
   );
 };

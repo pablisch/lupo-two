@@ -8,3 +8,7 @@
   position: relative;
   overflow: hidden;
 }
+
+.map-bottom-spacer {
+  height: 1000px;
+}
