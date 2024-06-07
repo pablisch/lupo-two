@@ -5,8 +5,8 @@ import * as Tone from 'tone';
 export const UserSettingsContext = createContext();
 
 export const UserSettingsProvider = ({ children }) => {
-  const [isMuted, setIsMuted] = useState(true);
-  const [flareEffectsAreOn, setFlareEffectsAreOn] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [flareEffectsAreOn, setFlareEffectsAreOn] = useState(true);
   const [specialServiceIsActive, setSpecialServiceIsActive] = useState(false);
 
   const handleMuteToggle = () => {
