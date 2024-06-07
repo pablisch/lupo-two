@@ -65,7 +65,7 @@ nav h2 {
 
 .burger-btn {
   position: relative;
-  top: 2px;
+  top: 4px;
   left: 0;
   background: none;
   border: none;
@@ -77,7 +77,7 @@ nav h2 {
 
 .burger-icon {
   position: absolute;
-  max-height: 33px;
+  max-height: 28px;
   margin: auto;
 }
 
