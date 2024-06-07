@@ -141,11 +141,12 @@ const SideBarLeft = ({
         ))}
       </div>
 
-
-      <button onClick={() => console.log('In LEFTY. Instruments value:', instruments) } >intruments</button>
+      {/* <button onClick={() => console.log('In LEFTY. Instruments value:', instruments) } >intruments</button>
       <button onClick={() => console.log('In LEFTY. Bakerloo instruments value:', typeof(instruments['Bakerloo'].maxVolume)) } >Bakerloo maxVolume</button>
       <button onClick={() => console.log('In LEFTY. linesToggled:', linesToggled) } >linesToggled</button>
-      <button onClick={() => console.log('In LEFTY. lineSliderValues:', lineSliderValues) } >lineSliderValues</button>
+      <button onClick={() => console.log('In LEFTY. lineSliderValues:', lineSliderValues)} >lineSliderValues</button> */}
+
+      <div className="scroll-spacer"></div>
     </aside>
   );
 };

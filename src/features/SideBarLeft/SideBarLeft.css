@@ -276,6 +276,10 @@
   color: #444444;
 }
 
+.scroll-spacer {
+  height: 60px;
+}
+
 @media (max-width: 650px) {
   .btn-line {
     width: 100%;
