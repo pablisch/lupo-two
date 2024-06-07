@@ -5,6 +5,7 @@
 
 .sidebar {
   overflow-y: auto;
+  /* background-color: #e48d6a; */
 }
 
 .sidebar-left {
@@ -156,7 +157,7 @@
 
 .btn-line {
   width: 100%;
-  margin: 1px auto;
+  margin-top: 3px;
   background-color: #fff;
   color: #fff;
   font-size: 1.4rem;

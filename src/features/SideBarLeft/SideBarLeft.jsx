@@ -7,6 +7,8 @@ import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
 import InstrumentSelector from '../../components/InstrumentSelector/InstrumentSelector';
 import { useBurgerMenu } from '../../context/burgerMenuContext';
 
+const sampleLine = 'Bakerloo';
+
 const instrumentSelection = [
   { label: 'Tube Drums', value: 'tubeDrums' },
   { label: 'Strings', value: 'strings' },
@@ -113,6 +115,32 @@ const SideBarLeft = ({
       </div>
 
       <div className="line-volume-controls">
+        
+      <div key={sampleLine}>
+            <button
+              className={`btn-line btn-${sampleLine.toLowerCase()}`}
+              type='button'
+              onClick={() => handleLineControlToggle(sampleLine)}>
+              {sampleLine === 'HammersmithCity' ? 'H&C' : ''}
+              {sampleLine === 'WaterlooCity' ? 'Waterloo & City' : ''}
+              {sampleLine !== 'HammersmithCity' && sampleLine !== 'WaterlooCity'
+                ? sampleLine
+                : ''}
+            </button>
+            {linesToggled[sampleLine] && 
+              <div className={`slider-container mute ${linesToggled[sampleLine] ? 'open' : ''}`}>
+                <Slider 
+                  lineName={sampleLine} 
+                  instruments={instruments} 
+                  key={sampleLine} 
+                  maxVolumeScaledUp={instruments[sampleLine]?.maxVolume + 100 || 94} 
+                  sliderValue={lineSliderValues[sampleLine]}
+                  setLineSliderValues={setLineSliderValues}
+                />
+              </div>
+            }
+          </div>
+
         {lineNames.map((lineName) => (
           <div key={lineName}>
             <button
