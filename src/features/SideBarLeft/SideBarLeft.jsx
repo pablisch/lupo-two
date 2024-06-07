@@ -118,7 +118,7 @@ const SideBarLeft = ({
       <div className="line-volume-controls">
         
       <div key={sampleLine}>
-            <button
+            {/* <button
               className={`btn-line btn-${sampleLine.toLowerCase()}`}
               type='button'
               onClick={() => handleLineControlToggle(sampleLine)}>
@@ -136,7 +136,7 @@ const SideBarLeft = ({
                   sliderValue={lineSliderValues[sampleLine]}
             setLineSliderValues={setLineSliderValues}
             linesToggled={linesToggled}
-                />
+                /> */}
             
             {/* {linesToggled[sampleLine] && <VolumeSlider 
                   lineName={sampleLine} 
@@ -160,7 +160,36 @@ const SideBarLeft = ({
                 />
               </div>
             } */}
+        </div>
+        
+        
+
+        {lineNames.map((lineName) => (
+          <div key={lineName}>
+            <button
+              className={`btn-line btn-${lineName.toLowerCase()}`}
+              type='button'
+              onClick={() => handleLineControlToggle(lineName)}>
+              {lineName === 'HammersmithCity' ? 'H&C' : ''}
+              {lineName === 'WaterlooCity' ? 'Waterloo & City' : ''}
+              {lineName !== 'HammersmithCity' && lineName !== 'WaterlooCity'
+                ? lineName
+                : ''}
+            </button>
+            <VolumeSlider 
+                  lineName={lineName} 
+                  instruments={instruments} 
+                  key={lineName} 
+                  maxVolumeScaledUp={instruments[lineName]?.maxVolume + 100 || 94} 
+                  sliderValue={lineSliderValues[lineName]}
+              setLineSliderValues={setLineSliderValues}
+              linesToggled={linesToggled}
+                />
+            
           </div>
+        ))}
+
+        <div className="scroll-spacer"></div>
 
         {lineNames.map((lineName) => (
           <div key={lineName}>

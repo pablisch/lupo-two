@@ -1,10 +1,14 @@
+:root {
+  --transition: 0.2s;
+}
+
 .slider-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 5px 0 15px;
   background: #fff;
-  transition: height 0.4s ease, opacity 0.8s ease, padding-left 0.4s ease;
+  transition: height var(--transition) ease, opacity calc(var(--transition) * 2) ease, padding-left var(--transition) ease;
   height: 0px;
   opacity: 0;
   box-shadow: inset 2px 2px 3px 1px rgba(223, 223, 223, 0.7),
@@ -22,7 +26,8 @@
   height: 1px;
   max-width: 125px;
   margin: 5px;
-  transition: height 0.4s ease;
+  transition: height var(--transition) ease;
+  /* color: #fff; */
 }
 
 .slider-open .volume-slider {
@@ -31,7 +36,7 @@
 
 .mute-icon {
   height: 1px;
-  transition: height 0.4s ease;
+  transition: height var(--transition) ease;
 }
 
 .slider-open .mute-icon {
