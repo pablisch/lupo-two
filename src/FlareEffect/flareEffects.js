@@ -7,7 +7,7 @@ export const createFlare = (elementId, flareEffectsAreOn) => {
   );
   const rect = element.getBoundingClientRect();
 
-  // Get the position and dimensions of section element with a class of "bars-and-map"
+  // Get the position and dimensions of section element with thre id of root
   const rootDiv = document.querySelector('#root');
   // const svg = document.querySelector("svg");
   const svgRect = rootDiv.getBoundingClientRect();

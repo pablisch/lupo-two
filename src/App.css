@@ -64,7 +64,7 @@ header p {
   font-size: 16px;
 }
 
-.map-container {
+.sidebars-and-map {
   display: flex;
   height: 93vh;
 }
@@ -81,7 +81,7 @@ main {
   background-color: #f2f1f1;
   padding: 0 20px;
   width: var(--sidebar-width);
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 .sidebar h2 {
