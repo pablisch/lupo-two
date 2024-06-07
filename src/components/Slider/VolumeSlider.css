@@ -3,15 +3,17 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 5px 0 15px;
-  /* padding-left: 15px; */
   background: #fff;
   transition: height 0.4s ease, opacity 0.8s ease, padding-left 0.4s ease;
   height: 0px;
   opacity: 0;
+  box-shadow: inset 2px 2px 3px 1px rgba(223, 223, 223, 0.7),
+    inset 1px 1px 1px rgba(238, 238, 238, 0.9),
+    inset -3px -4px 4px rgb(0, 0, 0, 0.2), inset -1px -1px 2px rgb(0, 0, 0, 0.3);
 }
 
 .slider-open {
-  height: 30px;
+  height: 33px;
   opacity: 1;
   padding-left: 5px;
 }
