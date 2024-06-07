@@ -65,7 +65,7 @@ const Navbar = ({ stop, setTapInVisible }) => {
             alt=''
             className='lu-logo inner-logo clockwise'
           />
-          <h2 id='long-title'>The Arrival Orchestra</h2>
+          <h2 id='long-title'>Underground Orchestra</h2>
           <h2 id='short-title'>LUPO</h2>
           <img
             src='./images/lu-black.png'

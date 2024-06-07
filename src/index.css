@@ -28,16 +28,27 @@
   --lime-600: #b3f615;
 
   --bakerloo: #b26300;
+  --bakerloo-dark: #9b5805;
   --central: #dc241f;
+  --central-dark: #b91d1a;
   --circle: #ffcc00;
+  --circle-dark: #e0b401;
   --district: #007229;
+  --district-dark: #005a1f;
   --hammersmithcity: #f4a9be;
+  --hammersmithcity-dark: #e192b1;
   --jubilee: #a3a9a9;
+  --jubilee-dark: #8f9393;
   --metropolitan: #751056;
+  --metropolitan-dark: #5c0f3a;
   --northern: #000000;
+  --northern-light: #1f1f1f;
   --piccadilly: #0019a8;
+  --piccadilly-dark: #051885;
   --victoria: #0098d4;
+  --victoria-dark: #0a84b5;
   --waterloocity: #6abbaa;
+  --waterloocity-dark: #58a292;
 
   --sidebar-width: 210px;
 }
