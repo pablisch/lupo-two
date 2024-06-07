@@ -103,20 +103,6 @@
   margin-bottom: 25px;
 }
 
-/* .slider-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 5px;
-  background: #fff;
-  transition: height 1s ease, opacity 3s ease;
-} */
-
-.open {
-  height: 30px;
-  opacity: 1;
-}
-
 .specialServiceIsActiveButton {
   font-size: 1rem;
 }

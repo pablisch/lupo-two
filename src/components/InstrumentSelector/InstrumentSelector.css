@@ -4,7 +4,10 @@
 
 .instrument-selector-container:disabled {
   background-color: var(--lime-yellow-200);
+  /* background-color: #8d8d8d; */
   color: #000;
+  /* color: #f8f8f8; */
+  /* font-weight: bold; */
   cursor: not-allowed;
   animation: instrumentButtonTransition 3s infinite alternate;
 }
