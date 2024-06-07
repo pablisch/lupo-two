@@ -11,40 +11,42 @@ import SvgTubeEdit13 from './TubeEdit13';
 import TubeEdit14 from './TubeEdit14';
 
 const TubeMap = () => {
-  useEffect(() => { fadeAllStations() }, []);
+  useEffect(() => {
+    fadeAllStations();
+  }, []);
 
   return (
-    <main>
-      <div className="map-wrapper">
-      <TransformWrapper
+    <main className='map-container'>
+      <div className='map-wrapper'>
+        <TransformWrapper
           disablePadding={true}
           initialScale={1.7}
           initialPositionX={-370}
-          initialPositionY={-320}
-        >
-          <TransformComponent wrapperStyle={{
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          contentStyle={{
-            width: "100%",
-            height: "100%",
-            position: "absolute"
-          }}>
+          initialPositionY={-320}>
+          <TransformComponent
+            wrapperStyle={{
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+            contentStyle={{
+              width: '100%',
+              height: '100%',
+              position: 'absolute',
+            }}>
             {/* <TubeSvg /> */}
             {/* <TubeEdit12 /> */}
             {/* <SvgTubeEdit13 /> */}
             <TubeEdit14 />
-              {/* <TubeCheck /> */}
-              {/* <Map /> */}
+            {/* <TubeCheck /> */}
+            {/* <Map /> */}
           </TransformComponent>
         </TransformWrapper>
       </div>
     </main>
   );
-}
+};
 
 export default TubeMap;
