@@ -53,34 +53,54 @@ const Navbar = ({ stop, setTapInVisible }) => {
         <img
             src='./images/lu-black.png'
             alt=''
-            className='lu-logo outer-logo clockwise'
+            className='lu-logo outer2-logo clockwise'
           />
         <img
             src='./images/lu-black.png'
             alt=''
-            className='lu-logo middle-logo anti-clockwise'
+            className='lu-logo outer1-logo anti-clockwise'
           />
         <img
             src='./images/lu-black.png'
             alt=''
-            className='lu-logo inner-logo clockwise'
+            className='lu-logo middle-logo clockwise'
+          />
+        <img
+            src='./images/lu-black.png'
+            alt=''
+            className='lu-logo inner1-logo anti-clockwise'
+          />
+        <img
+            src='./images/lu-black.png'
+            alt=''
+            className='lu-logo inner2-logo clockwise'
           />
           <h2 id='long-title'>Underground Orchestra</h2>
           <h2 id='short-title'>LUPO</h2>
           <img
             src='./images/lu-black.png'
             alt=''
-            className='lu-logo inner-logo anti-clockwise'
+            className='lu-logo inner2-logo anti-clockwise'
           />
           <img
             src='./images/lu-black.png'
             alt=''
-            className='lu-logo middle-logo clockwise'
+            className='lu-logo inner1-logo clockwise'
           />
           <img
             src='./images/lu-black.png'
             alt=''
-            className='lu-logo outer-logo anti-clockwise'
+            className='lu-logo middle-logo anti-clockwise'
+          />
+          <img
+            src='./images/lu-black.png'
+            alt=''
+            className='lu-logo outer1-logo clockwise'
+          />
+          <img
+            src='./images/lu-black.png'
+            alt=''
+            className='lu-logo outer2-logo anti-clockwise'
           />
         </div>
         <div className='nav-links'>

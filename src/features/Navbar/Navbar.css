@@ -1,6 +1,7 @@
 nav {
   position: relative;
-  background-color: #3b3939;
+  background-color: #3b3b3b;
+  background-color: #3f3f3f;
   padding: 0;
   margin: 0 auto;
   height: 7vh;
@@ -11,7 +12,6 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* max-width: 1200px; */
   margin: 0 auto;
   padding: 0 30px;
   height: 100%;
@@ -46,17 +46,23 @@ nav h2 {
 
 .lu-logo {
   max-height: 45px;
-  margin: auto;
+  margin: 5px;
+}
+
+.inner1-logo {
   opacity: 0.5;
 }
 
 .middle-logo {
-  opacity: 0.3;
-  margin: 10px;
+  opacity: 0.4;
 }
 
-.outer-logo {
-  opacity: 0.2;
+.outer1-logo {
+  opacity: 0.25;
+}
+
+.outer2-logo {
+  opacity: 0.15;
 }
 
 .burger-menu-icon-container {
