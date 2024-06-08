@@ -189,7 +189,7 @@ const SideBarLeft = ({
           </div>
         ))}
 
-        <div className="scroll-spacer"></div>
+        {/* <div className="scroll-spacer"></div>
 
         {lineNames.map((lineName) => (
           <div key={lineName}>
@@ -212,26 +212,10 @@ const SideBarLeft = ({
                   setLineSliderValues={setLineSliderValues}
                 />
             }
-            {/* {linesToggled[lineName] && 
-              <div className={`slider-container ${linesToggled[lineName] ? 'slier-open' : ''}`}>
-                <Slider 
-                  lineName={lineName} 
-                  instruments={instruments} 
-                  key={lineName} 
-                  maxVolumeScaledUp={instruments[lineName]?.maxVolume + 100 || 94} 
-                  sliderValue={lineSliderValues[lineName]}
-                  setLineSliderValues={setLineSliderValues}
-                />
-              </div>
-            } */}
           </div>
-        ))}
+        ))} */}
+        
       </div>
-
-      {/* <button onClick={() => console.log('In LEFTY. Instruments value:', instruments) } >intruments</button>
-      <button onClick={() => console.log('In LEFTY. Bakerloo instruments value:', typeof(instruments['Bakerloo'].maxVolume)) } >Bakerloo maxVolume</button>
-      <button onClick={() => console.log('In LEFTY. linesToggled:', linesToggled) } >linesToggled</button>
-      <button onClick={() => console.log('In LEFTY. lineSliderValues:', lineSliderValues)} >lineSliderValues</button> */}
 
       <div className="scroll-spacer"></div>
     </aside>
