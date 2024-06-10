@@ -4,7 +4,7 @@ const TubeEdit18 = (props) => (
   <svg
     xlink="http://www.w3.org/1999/xlink"
     width={3015}
-    height={2010}
+    height={1000}
     viewBox="55 130 1005 670"
     xmlSpace="preserve"
     id="svg2079"
@@ -49,9 +49,9 @@ const TubeEdit18 = (props) => (
         />
       </linearGradient>
     </defs>
-    <title id="title1">
+    {/* <title id="title1">
       {"Transport for London railway service status diagram (31st May, 2015)"}
-    </title>
+    </title> */}
     <style id="style1">
       {
         "text{font-size:4.4px;font-weight:bold;font-family:Arimo,Liberation Sans,Arial,sans-serif}.style0{fill:#fff}.style1{fill:#CCECF4}.style10{stroke-linejoin:round;stroke:#23A492;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style11{stroke-linejoin:round;stroke:#88CFA3;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style12{stroke-linejoin:round;stroke:#AB4800;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style13{stroke-linejoin:round;stroke:#E5E5E5;stroke-width:3.0813;stroke-miterlimit:3.9938;fill:none}.style14{stroke-linejoin:round;stroke:#85898A;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style15{fill:#85898A}.style16{stroke-linejoin:round;stroke:#2B8DBF;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style17{fill:#2B8DBF}.style18{stroke-linejoin:round;stroke:#000000;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style19{stroke:#fff;stroke-width:0.9691;fill:none}.style2{stroke:#00A0C6;stroke-width:0.2718;fill:none}.style20{stroke-linejoin:round;stroke:#FF1100;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style21{fill:#FF1100}.style22{stroke-linejoin:round;stroke:#F76897;stroke-width:2.3739;stroke-miterlimit:3.9938;fill:none}.style23{stroke-linejoin:round;stroke:#FFD600;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style24{fill:#F76897}.style25{fill:#FFD600}.style26{stroke-linejoin:round;stroke:#0C6826;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style27{stroke-linejoin:round;stroke:#FFFFFF;stroke-width:1.5673;stroke-miterlimit:3.9938;fill:none}.style28{stroke-linejoin:round;stroke:#0C6826;stroke-miterlimit:3.9938;stroke-dasharray:1.5819;stroke-width:2.2691;fill:none}.style29{fill:#0C6826}.style3{fill:#1AAACC}.style30{stroke-linejoin:round;stroke:#89014C;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style31{fill:#89014C}.style32{stroke:#FF1100;stroke-width:0.4201;fill:none}.style33{font-weight:400;font-size:3.5px;fill:#10137E}.style34{stroke-linejoin:round;stroke:#FFFFFF;stroke-width:2.4989;stroke-miterlimit:3.9938;fill:none}.style35{stroke-linejoin:round;stroke:#F20017;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style36{stroke:#FFFFFF;stroke-width:1.4237;stroke-miterlimit:1;fill:none}.style37{stroke-linejoin:round;stroke:#F20017;stroke-width:0.4746;stroke-miterlimit:3.9938;fill:none}.style38{fill:#FFFFFF}.style4{fill:#10137E}.style5{stroke-linejoin:round;stroke:#10137E;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style6{stroke-linejoin:round;stroke:#FFFFFF;stroke-width:0.8146;stroke-miterlimit:3.9938;fill:none}.style7{stroke-linejoin:round;stroke:#FF6409;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style72{stroke-linejoin:round;stroke:#c55;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style73{stroke-linejoin:round;stroke:#aa3;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style74{stroke-linejoin:round;stroke:#4af;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style75{stroke-linejoin:round;stroke:#937;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style76{stroke-linejoin:round;stroke:#7b6;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style77{stroke-linejoin:round;stroke:#a51;stroke-width:2.3737;stroke-miterlimit:3.9938;fill:none}.style8{fill:#FF6409}.style82{fill:#c55}.style83{fill:#aa3}.style84{fill:#4af}.style85{fill:#937}.style86{fill:#7b6}.style87{fill:#a51}.style9{fill:#AB4800}"

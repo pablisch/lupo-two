@@ -54,7 +54,7 @@ const triggerAudioVisuals = (
       if (arrivals.length > 10) {
         arrivals.shift();
       }
-      createFlare(train.stationName, flareEffectsAreOn);
+      createFlare(train.stationName, flareEffectsAreOn, train.lineName);
     }, train.timeToStation * 1000);
   });
 };

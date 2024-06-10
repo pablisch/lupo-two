@@ -1,10 +1,11 @@
 // Get location of element and create two circle elements at that location with css effects
-export const createFlare = (elementId, flareEffectsAreOn) => {
+export const createFlare = (stationName, flareEffectsAreOn, lineName) => {
   if (!flareEffectsAreOn) return;
 
-  const element = document.getElementById(
-    elementId.replace(/ *\([^)]*\) */g, '')
-  );
+  const newElement = document.getElementById(`${stationName}Loc${lineName}`);
+  if (newElement) console.log('newElement =', `${stationName}Loc${lineName}`);
+
+  const element = document.getElementById(`${stationName}Loc${lineName}`);
   const rect = element.getBoundingClientRect();
 
   // Get the position and dimensions of section element with thre id of root
@@ -65,18 +66,20 @@ export const createFlare = (elementId, flareEffectsAreOn) => {
   }, 6000);
 };
 
-// Apply css effects to the circle elements that exist in the svg already
-const arrivalFlareEffectTransform = (elementId) => {
-  const centreEl = document.getElementById(elementId);
-  // const outerEl = document.getElementById(arrivalPointOuter);
-  //add the class of "active" to the element
-  centreEl.classList.add('arrivalInner');
-  // outerEl.classList.add("arrivalOuter");
+// NOT SURE OF THE ORGINAL PURPOSE OF THE BELOW CODE SO KEEPING IT FOR THE TIME BEING
 
-  //remove the class of "active" after 1 second
-  setTimeout(function () {
-    centreEl.classList.remove('arrivalInner');
-    // outerEl.classList.remove("arrivalOuter");
-  }, 1500);
-  console.log(centreEl.id);
-};
+// // Apply css effects to the circle elements that exist in the svg already
+// const arrivalFlareEffectTransform = (stationName) => {
+//   const centreEl = document.getElementById(stationName);
+//   // const outerEl = document.getElementById(arrivalPointOuter);
+//   //add the class of "active" to the element
+//   centreEl.classList.add('arrivalInner');
+//   // outerEl.classList.add("arrivalOuter");
+
+//   //remove the class of "active" after 1 second
+//   setTimeout(function () {
+//     centreEl.classList.remove('arrivalInner');
+//     // outerEl.classList.remove("arrivalOuter");
+//   }, 1500);
+//   console.log(centreEl.id);
+// };
