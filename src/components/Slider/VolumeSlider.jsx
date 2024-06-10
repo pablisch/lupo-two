@@ -1,3 +1,4 @@
+import { click } from '@testing-library/user-event/dist/cjs/convenience/click.js';
 import './VolumeSlider.css';
 
 const VolumeSlider = ({
@@ -9,8 +10,8 @@ const VolumeSlider = ({
   linesToggled,
 }) => {
   const changeOpacity = (elementId, opacity) => {
-    // const element = document.getElementById(elementId);
-    const element = document.getElementById('centralTracks');
+    console.log('elementId =', elementId);
+    const element = document.getElementById(`${elementId}Tracks`);
     element.style.opacity = opacity;
     console.log('intended opacity =', opacity);
   };
