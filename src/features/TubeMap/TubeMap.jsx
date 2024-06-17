@@ -3,7 +3,8 @@ import './TubeMap.css';
 import fadeAllStations from '../../utils/fadeAllStations';
 import { useEffect } from 'react';
 // import TubeEdit14 from './TubeEdit14';
-import TubeEdit18 from './tubeEdit18';
+// import TubeEdit18 from './tubeEdit18';
+import TubeEdit24 from './tubeEdit24';
 
 const TubeMap = () => {
   useEffect(() => {
@@ -31,7 +32,8 @@ const TubeMap = () => {
               height: '100%',
               position: 'absolute',
             }}>
-            <TubeEdit18 />
+            {/* <TubeEdit18 /> */}
+            <TubeEdit24 />
           </TransformComponent>
         </TransformWrapper>
       </div>

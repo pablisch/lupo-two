@@ -2,10 +2,11 @@
 export const createFlare = (stationName, flareEffectsAreOn, lineName) => {
   if (!flareEffectsAreOn) return;
 
-  const newElement = document.getElementById(`${stationName}Loc${lineName}`);
-  if (newElement) console.log('newElement =', `${stationName}Loc${lineName}`);
-
   const element = document.getElementById(`${stationName}Loc${lineName}`);
+  if (!element) {
+    console.warn(`${stationName} on ${lineName} line - Locationnot found for flare effect`);
+    return;
+  }
   const rect = element.getBoundingClientRect();
 
   // Get the position and dimensions of section element with thre id of root
