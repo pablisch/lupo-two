@@ -92,6 +92,11 @@ function processDataClumps(array, dataBlockDuration) {
 function abridgeData(tubeData) {
   if (tubeData.length > 0) {
     const abridgedData = tubeData.map((obj) => {
+      // if stationName includes "Edgware", console log "Edgware found"
+      if (obj.stationName.includes('Edgware Road') && obj.lineName === ('Bakerloo')) {
+        obj.stationName = 'EdgwareRoadBakerloo';
+        console.log('Edgware found:', obj.stationName, "on", obj.lineName, "line");
+      }
       return {
         lineName: obj.lineName.replace(/[\s&]/g, ''),
         timeToStation: obj.timeToStation,

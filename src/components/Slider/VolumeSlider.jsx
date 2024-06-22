@@ -1,6 +1,8 @@
 import { click } from '@testing-library/user-event/dist/cjs/convenience/click.js';
 import './VolumeSlider.css';
 
+const minOpacity = 0.15;
+
 const VolumeSlider = ({
   instruments,
   lineName,
@@ -9,9 +11,9 @@ const VolumeSlider = ({
   setLineSliderValues,
   linesToggled,
 }) => {
-  const changeOpacity = (elementId, opacity) => {
-    console.log('elementId =', elementId);
-    const element = document.getElementById(`${elementId}Tracks`);
+  const changeOpacity = (lineName, opacity) => {
+    console.log('lineName =', lineName);
+    const element = document.getElementById(`${lineName}Tracks`);
     element.style.opacity = opacity;
     console.log('intended opacity =', opacity);
   };
@@ -29,7 +31,7 @@ const VolumeSlider = ({
       };
     });
 
-    let newOpacity = event.target.value / 100 + 0.05;
+    let newOpacity = event.target.value / 100 + minOpacity;
     if (newOpacity > 1) {
       newOpacity = 1;
     }

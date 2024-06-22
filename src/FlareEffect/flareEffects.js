@@ -4,7 +4,7 @@ export const createFlare = (stationName, flareEffectsAreOn, lineName) => {
 
   const element = document.getElementById(`${stationName}Loc${lineName}`);
   if (!element) {
-    console.warn(`${stationName} on ${lineName} line - Locationnot found for flare effect`);
+    // console.warn(`${stationName} on ${lineName} line - Locationnot found for flare effect`);
     return;
   }
   const rect = element.getBoundingClientRect();

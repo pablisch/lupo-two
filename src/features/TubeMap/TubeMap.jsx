@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 // import TubeEdit14 from './TubeEdit14';
 // import TubeEdit18 from './tubeEdit18';
 import TubeEdit24 from './tubeEdit24';
+import TubeEdit27 from './tubeEdit27';
 
 const TubeMap = () => {
   useEffect(() => {
@@ -33,7 +34,8 @@ const TubeMap = () => {
               position: 'absolute',
             }}>
             {/* <TubeEdit18 /> */}
-            <TubeEdit24 />
+            {/* <TubeEdit24 /> */}
+            <TubeEdit27 />
           </TransformComponent>
         </TransformWrapper>
       </div>
