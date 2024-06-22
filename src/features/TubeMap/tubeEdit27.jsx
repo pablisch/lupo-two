@@ -2143,7 +2143,7 @@ const TubeEdit27 = (props) => (
       className="line"
       id="g52"
       style={{
-        display: "inline",
+        display: "none",
       }}
     >
       <path
