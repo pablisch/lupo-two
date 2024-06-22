@@ -24,10 +24,12 @@
 
 .volume-slider {
   height: 1px;
-  max-width: 125px;
+  max-width: 110px;
   margin: 5px;
   transition: height var(--transition) ease;
-  /* color: #fff; */
+  color: #e11414;
+  background: #c10c0c;
+  accent-color: #be3434;
 }
 
 .slider-open .volume-slider {
@@ -44,8 +46,11 @@
 }
 
 .Bakerloo {
-  background-color: rgb(160, 112, 34);
+  background-color: rgb(160, 34, 160);
+  /* background: rgb(44, 118, 237); */
   accent-color: rgb(160, 112, 34);
+  /* accent-color: rgb(34, 160, 55); */
+  background: linear-gradient(to right, #e3aaaa 0%, #c10c0c 100%);
 }
 
 .Central {
@@ -54,17 +59,17 @@
 }
 
 .Circle {
-  background-color: rgb(255, 211, 41);
+  /* background-color: rgb(255, 211, 41); */
   accent-color: rgb(255, 211, 41);
 }
 
 .District {
-  background-color: rgb(0, 125, 50);
+  /* background-color: rgb(0, 125, 50); */
   accent-color: rgb(0, 125, 50);
 }
 
 .HammersmithCity {
-  background-color: rgb(244, 169, 190);
+  /* background-color: rgb(244, 169, 190); */
   accent-color: rgb(244, 169, 190);
 }
 

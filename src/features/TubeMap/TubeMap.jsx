@@ -2,9 +2,6 @@ import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import './TubeMap.css';
 import fadeAllStations from '../../utils/fadeAllStations';
 import { useEffect } from 'react';
-// import TubeEdit14 from './TubeEdit14';
-// import TubeEdit18 from './tubeEdit18';
-import TubeEdit24 from './tubeEdit24';
 import TubeEdit27 from './tubeEdit27';
 
 const TubeMap = () => {
@@ -33,8 +30,6 @@ const TubeMap = () => {
               height: '100%',
               position: 'absolute',
             }}>
-            {/* <TubeEdit18 /> */}
-            {/* <TubeEdit24 /> */}
             <TubeEdit27 />
           </TransformComponent>
         </TransformWrapper>

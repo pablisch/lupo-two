@@ -74,6 +74,7 @@ const VolumeSlider = ({
         max={maxVolumeScaledUp}
         value={sliderValue}
         className={`volume-slider ${lineName}`}
+        // className={`volume-slider`}
         onChange={handleSliderChange}></input>
     </div>
   );
