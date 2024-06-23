@@ -97,12 +97,25 @@ _In 'Object properties', the ID and label can be changed and then 'set'._
 
 Since it is the SVG file that is edited in Inkscape, all SVG editing must be completed before the SVG file is converted to a React component. In this instance, I am expecting to add classNames to manage the fading in and out of elements. I am not certain that this will be necessary but all SVG editing **must** be completed before the conversion.
 
-#### Station names
+#### Station label, location, tracks and links naming
 
-My convention to achieve matching station IDs and data names is to use PascalCase and remove all punctuation and spaces, including hyphens and ampersands, e.g. 
+The overall convention used here is naming in PascalCase with all punctuation and spaces removed. This follows the pattern of processing the TfL data so that any names are easily matchable with `stationName` and `lineName` in the data.
+
 `Baker Street` becomes `BakerStreet`. 
 `King's Cross St. Pancras` becomes `KingsCrossStPancras`.
 `Harrow-on-the-Hill` becomes `HarrowOnTheHill`.
+
+`Bakerloo` remains `Bakerloo`.
+`Hammersmith & City` becomes `HammersmithCity`.
+
+From that starting point, the following naming conventions are used:
+- Station name lables are simply the station name, e.g. `BakerStreet`.
+- Station locations are the station name followed by `Loc` and the line, e.g. `BakerStreetLocBakerloo`.
+- Joins between stations are named with the station name followed by `LocJoin` and the connected train line that comes last alphabetically, e.g. `BakerStreetLocJoinMetropolitan`.
+- Directories containing station locations are named with the station name followed by `Stations`, e.g. `BakerlooStations`.
+- Directories containing train lines, currently including station marker tabs, are named with the line name followed by `Tracks`, e.g. `BakerlooTracks`.
+  
+**NOTE:** It is likely that some tabs will be moved to a separate directory so that they appear over correctly layered.
 
 ##### Station name edge cases
 
