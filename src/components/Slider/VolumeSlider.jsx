@@ -11,10 +11,14 @@ const VolumeSlider = ({
   setLineSliderValues,
   linesToggled,
 }) => {
-  const changeOpacity = (lineName, opacity) => {
-    console.log('lineName =', lineName);
-    const element = document.getElementById(`${lineName}Tracks`);
-    element.style.opacity = opacity;
+  const changeOpacity = (elementId, opacity) => {
+    console.log('elementId =', elementId);
+    const tracks = document.getElementById(`${elementId}Tracks`);
+    const stations = document.getElementById(`${elementId}Stations`);
+    const stationsFore = document.getElementById(`${elementId}StationsFore`);
+    tracks.style.opacity = opacity;
+    stations.style.opacity = opacity;
+    stationsFore.style.opacity = opacity;
     console.log('intended opacity =', opacity);
   };
 

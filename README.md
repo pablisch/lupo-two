@@ -111,7 +111,7 @@ The overall convention used here is naming in PascalCase with all punctuation an
 From that starting point, the following naming conventions are used:
 - Station name lables are simply the station name, e.g. `BakerStreet`.
 - Station locations are the station name followed by `Loc` and the line, e.g. `BakerStreetLocBakerloo`.
-- Joins between stations are named with the station name followed by `LocJoin` and the connected train line that comes last alphabetically, e.g. `BakerStreetLocJoinMetropolitan`.
+- Joins between stations are named with the station name followed by `LocJoin` and the connected train line that comes first alphabetically, e.g. `BakerStreetLocJoinBakerloo`.
 - Directories containing station locations are named with the station name followed by `Stations`, e.g. `BakerlooStations`.
 - Directories containing train lines, currently including station marker tabs, are named with the line name followed by `Tracks`, e.g. `BakerlooTracks`.
   
@@ -121,6 +121,12 @@ From that starting point, the following naming conventions are used:
 
 - `Edgware Road` becomes `EdgwareRoad` but there are two stations with this name. The Circle, District and Hammersmith & City lines station is `EdgwareRoad` and the Bakerloo line station is `EdgwareRoadBakerloo`. This is the only station with a line name appended to it. This is dealt with in `processTubeData.js` in the `abridgeData` function where, if the station name includes `Edgware Road` and the line is `Bakerloo`, the station name is changed to `EdgwareRoadBakerloo`.
 - `Victoria` is a station and a line. This had to be dealt with in the original app but in this version, the station name is `Victoria`, the station locations are, e.g. `VictoriaLocDistrict`, and the line is `victoriaTracks`.
+
+##### Dealing with layering with station links
+
+The links between stations are currently stored in the same directory as the station locations for round station markers. They take the first alphabetical line they serve and should be higher in the element list than any station that they belong to so they appear at a higher level than the station marker.
+
+**Notable exceptions:** whilst the joining links must appear over the top or the common circle station location markers, the disabled station location markers must appear over the top of the joining links. A separate set of station directories has been created for this purpose, e.g. `BakerlooStationsFore`, and all disabled station location markers are stored here.
 
 #### Lines
 
