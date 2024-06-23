@@ -23,6 +23,7 @@ const SideBarLeft = ({
   changeCurrentInstrument,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [hoveredLineBtn, setHoveredLineBtn] = useState('');
 
   const {
     isMuted,
@@ -42,6 +43,14 @@ const SideBarLeft = ({
   );
 
   const [lineSliderValues, setLineSliderValues] = useState({});
+
+  const handleLineBtnHover = (lineName) => {
+    setHoveredLineBtn(lineName);
+  };
+
+  const handleLineBtnLeave = () => {
+    setHoveredLineBtn('');
+  };
 
   useEffect(() => {
     if (instruments) {
@@ -123,12 +132,20 @@ const SideBarLeft = ({
             <button
               className={`btn-line btn-${lineName.toLowerCase()}`}
               type='button'
-              onClick={() => handleLineControlToggle(lineName)}>
-              {lineName === 'HammersmithCity' ? 'H&C' : ''}
-              {lineName === 'WaterlooCity' ? 'Waterloo & City' : ''}
-              {lineName !== 'HammersmithCity' && lineName !== 'WaterlooCity'
-                ? lineName
-                : ''}
+              onClick={() => handleLineControlToggle(lineName)}
+              onMouseEnter={() => handleLineBtnHover(lineName)}
+              onMouseLeave={handleLineBtnLeave}>
+              {lineName === hoveredLineBtn ? (
+                "Good Service"
+              ) : (
+                <>
+                  {lineName === 'HammersmithCity' ? 'H&C' : ''}
+                  {lineName === 'WaterlooCity' ? 'Waterloo & City' : ''}
+                  {lineName !== 'HammersmithCity' && lineName !== 'WaterlooCity'
+                    ? lineName
+                    : ''}
+                </>
+              )}
             </button>
             <VolumeSlider
               lineName={lineName}
