@@ -276,7 +276,20 @@
 .btn-jubilee,
 .btn-victoria,
 .btn-waterloocity {
-  color: #333333;
+  color: #292929;
+}
+
+.btn-victoria,
+.btn-waterloocity {
+  color: #202020;
+}
+
+.display-orch-instrument {
+  font-size: 0.95rem;
+}
+
+.display-string-instrument {
+  font-size: 0.85rem;
 }
 
 .scroll-spacer {

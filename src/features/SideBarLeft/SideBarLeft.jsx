@@ -25,6 +25,7 @@ const SideBarLeft = ({
   const [isLoading, setIsLoading] = useState(true);
   const [hoveredLineBtn, setHoveredLineBtn] = useState('');
 
+  console.log('instruments display name:', instruments?.Circle?.displayName);
   const {
     isMuted,
     handleMuteToggle,
@@ -130,13 +131,13 @@ const SideBarLeft = ({
         {lineNames.map((lineName) => (
           <div key={lineName}>
             <button
-              className={`btn-line btn-${lineName.toLowerCase()}`}
+              className={`btn-line btn-${lineName.toLowerCase()} ${lineName === hoveredLineBtn && (currentInstrument === 'orchestra' ? 'display-orch-instrument' : currentInstrument === 'strings' ? 'display-string-instrument' : '')}`}
               type='button'
               onClick={() => handleLineControlToggle(lineName)}
               onMouseEnter={() => handleLineBtnHover(lineName)}
               onMouseLeave={handleLineBtnLeave}>
-              {lineName === hoveredLineBtn ? (
-                "Good Service"
+              {lineName === hoveredLineBtn && (currentInstrument === 'orchestra' || currentInstrument === 'strings') ? (
+                instruments[lineName].displayName
               ) : (
                 <>
                   {lineName === 'HammersmithCity' ? 'H&C' : ''}

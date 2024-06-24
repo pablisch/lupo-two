@@ -13,7 +13,8 @@ const createSampler = (
   instrument,
   baseUrl,
   connection,
-  maxVolume = -12
+  displayName = instrument,
+  maxVolume = -13
 ) => {
   const sampler = new Tone.Sampler({
     urls: getUrls(notes, instrument),
@@ -22,6 +23,7 @@ const createSampler = (
   }).connect(connection);
   sampler.maxVolume = maxVolume;
   sampler.volume.value = sampler.maxVolume;
+  sampler.displayName = displayName;
   return sampler;
 };
 
@@ -35,38 +37,42 @@ const createSamplers = async (instrumentSet) => {
 
   const toDestination = Tone.Destination;
 
-  const celloMarcSampler = createSampler(NOTES.celloMarc, 'cello_marc', '/samples/cello_marc_samples/', toDestination);
+  const celloMarcSampler = createSampler(NOTES.celloMarc, 'cello_marc', '/samples/cello_marc_samples/', toDestination, 'Cello Marcato');
 
-  const celloPizzSampler = createSampler(NOTES.celloPizz, 'cello_pizz', '/samples/cello_pizz_samples/', toDestination);
+  const celloPizzSampler = createSampler(NOTES.celloPizz, 'cello_pizz', '/samples/cello_pizz_samples/', toDestination, 'Cello Pizzicato');
 
-  const celloSampler = createSampler(NOTES.cello, 'cello_legato', '/samples/cello_samples/', toDestination, -6);
+  const celloSampler = createSampler(NOTES.cello, 'cello_legato', '/samples/cello_samples/', toDestination, 'Cello Legato', -6);
 
   const doubleBassMarcSampler = createSampler(
     NOTES.doubleBassMarc,
     'doublebass_marc',
     '/samples/doublebass_marc_samples/',
-    toDestination
+    toDestination,
+    'Double Bass Marcato'
   );
 
   const doubleBassPizzSampler = createSampler(
     NOTES.doubleBassPizz,
     'doublebass_pizz',
     '/samples/doublebass_pizz_samples/',
-    toDestination
+    toDestination,
+    'Double Bass Pizzicato'
   );
 
   const doubleBassSampler = createSampler(
     NOTES.doublebass,
     'doublebass_legato',
     '/samples/doublebass_samples/',
-    toDestination
+    toDestination,
+    'Double Bass Legato',
   );
   
   const fhornSampler = createSampler(
     NOTES.fhorn,
     'fhorn_stacc',
     '/samples/fhorn_samples/',
-    toDestination
+    toDestination,
+    'French Horn'
   );
   
   const gongSampler = new Tone.Sampler({
@@ -78,19 +84,22 @@ const createSamplers = async (instrumentSet) => {
   }).toDestination();
   gongSampler.maxVolume = -6;
   gongSampler.volume.value = gongSampler.maxVolume;
+  gongSampler.displayName = 'Gong';
 
   const harpSampler = createSampler(
     NOTES.harp,
     'harp_pluck',
     '/samples/harp_samples/',
-    toDestination
+    toDestination,
+    'Harp'
   );
   
   const harpsichordSampler = createSampler(
     NOTES.harpsichord,
     'harpsichord',
     '/samples/harpsichord_samples/',
-    toDestination
+    toDestination,
+    'Harpsichord'
   );
   
   const lupoIdentSampler = new Tone.Sampler({
@@ -102,12 +111,14 @@ const createSamplers = async (instrumentSet) => {
   }).toDestination();
   lupoIdentSampler.maxVolume = -12;
   lupoIdentSampler.volume.value = lupoIdentSampler.maxVolume;
+  lupoIdentSampler.displayName = 'LUPO';
 
   const marimbaSampler = createSampler(
     NOTES.marimba,
     'marimba',
     '/samples/marimba_hits/',
     reverb,
+    'Marimba',
     -6
   );
   
@@ -115,28 +126,32 @@ const createSamplers = async (instrumentSet) => {
     NOTES.oboe,
     'oboe_legato',
     '/samples/oboe_samples/',
-    toDestination
+    toDestination,
+    'Oboe',
   );
   
   const timpaniSampler = createSampler(
     NOTES.timpani,
     'timp_hit',
     '/samples/timpani_samples/',
-    toDestination
+    toDestination,
+    'Timpani'
   );
   
   const trumpetSampler = createSampler(
     NOTES.trumpet,
     'trumpet_stacc',
     '/samples/trumpet_samples/',
-    toDestination
+    toDestination,
+    'Trumpet Stacatto'
   );
   
   const tubaSampler = createSampler(
     NOTES.tuba,
     'tuba_marc',
     '/samples/tuba_samples/',
-    toDestination
+    toDestination,
+    'Tuba Marcato'
   );
   
   const tubeDrumSampler = createSampler(
@@ -144,6 +159,7 @@ const createSamplers = async (instrumentSet) => {
     'tube_drum',
     '/samples/tubeDrum_samples/',
     toDestination,
+    'Tube Drum',
     -10
   );
   
@@ -151,14 +167,16 @@ const createSamplers = async (instrumentSet) => {
     NOTES.violaMarc,
     'viola_marc',
     '/samples/viola_marc_samples/',
-    toDestination
+    toDestination,
+    'Viola Marcato'
   );
   
   const violaPizzSampler = createSampler(
     NOTES.violaPizz,
     'viola_pizz',
     '/samples/viola_pizz_samples/',
-    toDestination
+    toDestination,
+    'Viola Pizzicato'
   );
   
   const violaSampler = createSampler(
@@ -166,6 +184,7 @@ const createSamplers = async (instrumentSet) => {
     'viola_legato',
     '/samples/viola_samples/',
     reverb,
+    'Viola Legato',
     -6
   );
   
@@ -173,21 +192,24 @@ const createSamplers = async (instrumentSet) => {
     NOTES.violinColLegno,
     'violin_col_legno',
     '/samples/violin_col_legno_samples/',
-    toDestination
+    toDestination,
+    'Violin Col Legno'
   );
   
   const violinMarcSampler = createSampler(
     NOTES.violinMarc,
     'violin_marc',
     '/samples/violin_marc_samples/',
-    toDestination
+    toDestination,
+    'Violin Marcato'
   );
   
   const violinPizzSampler = createSampler(
     NOTES.violinPizz,
     'violin_pizz',
     '/samples/violin_pizz_samples/',
-    toDestination
+    toDestination,
+    'Violin Pizzicato'
   );
 
   const violinSampler = createSampler(
@@ -195,6 +217,7 @@ const createSamplers = async (instrumentSet) => {
     'violin_legato',
     '/samples/violin_samples/',
     reverb,
+    'Violin Legato',
     -6
   );
   
