@@ -24,8 +24,15 @@ const SideBarLeft = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hoveredLineBtn, setHoveredLineBtn] = useState('');
+  const [linesToggled, setlinesToggled] = useState(
+    lineNames.reduce((object, lineName) => {
+      object[lineName] = false;
+      return object;
+    }, {})
+  );
 
-  console.log('instruments display name:', instruments?.Circle?.displayName);
+  console.log('instruments display name:', instruments?.Circle?.displayName, linesToggled['Circle']);
+
   const {
     isMuted,
     handleMuteToggle,
@@ -35,13 +42,6 @@ const SideBarLeft = ({
     setSpecialServiceIsActive,
   } = useUserSettings();
   const { isBurgerOpen } = useBurgerMenu();
-
-  const [linesToggled, setlinesToggled] = useState(
-    lineNames.reduce((object, lineName) => {
-      object[lineName] = false;
-      return object;
-    }, {})
-  );
 
   const [lineSliderValues, setLineSliderValues] = useState({});
 
@@ -136,7 +136,8 @@ const SideBarLeft = ({
               onClick={() => handleLineControlToggle(lineName)}
               onMouseEnter={() => handleLineBtnHover(lineName)}
               onMouseLeave={handleLineBtnLeave}>
-              {lineName === hoveredLineBtn && (currentInstrument === 'orchestra' || currentInstrument === 'strings') ? (
+              {/* {
+                linesToggled[lineName] && (currentInstrument === 'orchestra' || currentInstrument === 'strings') ? (
                 instruments[lineName].displayName
               ) : (
                 <>
@@ -146,7 +147,8 @@ const SideBarLeft = ({
                     ? lineName
                     : ''}
                 </>
-              )}
+              )} */}
+              åç
             </button>
             <VolumeSlider
               lineName={lineName}
