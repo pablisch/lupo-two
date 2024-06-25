@@ -148,7 +148,18 @@ const SideBarLeft = ({
                     : ''}
                 </>
               )} */}
-              åç
+              {
+                lineName === hoveredLineBtn && (currentInstrument === 'orchestra' || currentInstrument === 'strings') ? (
+                instruments[lineName].displayName
+              ) : (
+                <>
+                  {lineName === 'HammersmithCity' ? 'H&C' : ''}
+                  {lineName === 'WaterlooCity' ? 'Waterloo & City' : ''}
+                  {lineName !== 'HammersmithCity' && lineName !== 'WaterlooCity'
+                    ? lineName
+                    : ''}
+                </>
+              )}
             </button>
             <VolumeSlider
               lineName={lineName}
