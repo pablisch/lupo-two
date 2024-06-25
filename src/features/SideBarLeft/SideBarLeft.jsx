@@ -98,7 +98,6 @@ const SideBarLeft = ({
           labelId={'special-service-toggle'}
           label={'Live Arrivals'}
         />
-        {/* <div className="tooltip-special-service">Hello hello</div> */}
         <ToggleSwitch
           isOn={flareEffectsAreOn}
           handleToggle={() => setFlareEffectsAreOn((flares) => !flares)}
@@ -131,7 +130,7 @@ const SideBarLeft = ({
         {lineNames.map((lineName) => (
           <div key={lineName}>
             <button
-              className={`btn-line btn-${lineName.toLowerCase()} ${lineName === hoveredLineBtn && (currentInstrument === 'orchestra' ? 'display-orch-instrument' : currentInstrument === 'strings' ? 'display-string-instrument' : '')}`}
+              className={`btn-line btn-${lineName.toLowerCase()} ${linesToggled[lineName] && (currentInstrument === 'orchestra' ? 'display-orch-instrument' : currentInstrument === 'strings' ? 'display-string-instrument' : '')}`}
               type='button'
               onClick={() => handleLineControlToggle(lineName)}
               onMouseEnter={() => handleLineBtnHover(lineName)}
@@ -149,7 +148,7 @@ const SideBarLeft = ({
                 </>
               )} */}
               {
-                lineName === hoveredLineBtn && (currentInstrument === 'orchestra' || currentInstrument === 'strings') ? (
+                linesToggled[lineName] && (currentInstrument === 'orchestra' || currentInstrument === 'strings') ? (
                 instruments[lineName].displayName
               ) : (
                 <>
@@ -160,6 +159,18 @@ const SideBarLeft = ({
                     : ''}
                 </>
               )}
+              {/* {
+                lineName === hoveredLineBtn && (currentInstrument === 'orchestra' || currentInstrument === 'strings') ? (
+                instruments[lineName].displayName
+              ) : (
+                <>
+                  {lineName === 'HammersmithCity' ? 'H&C' : ''}
+                  {lineName === 'WaterlooCity' ? 'Waterloo & City' : ''}
+                  {lineName !== 'HammersmithCity' && lineName !== 'WaterlooCity'
+                    ? lineName
+                    : ''}
+                </>
+              )} */}
             </button>
             <VolumeSlider
               lineName={lineName}
