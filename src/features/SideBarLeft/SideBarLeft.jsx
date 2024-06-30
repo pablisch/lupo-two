@@ -135,18 +135,6 @@ const SideBarLeft = ({
               onClick={() => handleLineControlToggle(lineName)}
               onMouseEnter={() => handleLineBtnHover(lineName)}
               onMouseLeave={handleLineBtnLeave}>
-              {/* {
-                linesToggled[lineName] && (currentInstrument === 'orchestra' || currentInstrument === 'strings') ? (
-                instruments[lineName].displayName
-              ) : (
-                <>
-                  {lineName === 'HammersmithCity' ? 'H&C' : ''}
-                  {lineName === 'WaterlooCity' ? 'Waterloo & City' : ''}
-                  {lineName !== 'HammersmithCity' && lineName !== 'WaterlooCity'
-                    ? lineName
-                    : ''}
-                </>
-              )} */}
               {
                 linesToggled[lineName] && (currentInstrument === 'orchestra' || currentInstrument === 'strings') ? (
                 instruments[lineName].displayName
@@ -159,18 +147,6 @@ const SideBarLeft = ({
                     : ''}
                 </>
               )}
-              {/* {
-                lineName === hoveredLineBtn && (currentInstrument === 'orchestra' || currentInstrument === 'strings') ? (
-                instruments[lineName].displayName
-              ) : (
-                <>
-                  {lineName === 'HammersmithCity' ? 'H&C' : ''}
-                  {lineName === 'WaterlooCity' ? 'Waterloo & City' : ''}
-                  {lineName !== 'HammersmithCity' && lineName !== 'WaterlooCity'
-                    ? lineName
-                    : ''}
-                </>
-              )} */}
             </button>
             <VolumeSlider
               lineName={lineName}

@@ -146,6 +146,17 @@ _Baker Street is an example of a multiple line station with a link between stati
 
 In the example above, the joining link is currently assigned to the Bakerloo line. It will fade with the Bakerloo line and not with the other lines though the mechanism for this is currently uncertain. It may use `className`s or have elements grouped in a certain way and using an `id`.
 
+# Ongoing map notes
+
+- East section of Jubiilee line is missing. 
+- Stratford station issue.
+- Odd station markers off place.
+
+- Many Circle line station tabs are in the wrong folder to fade, probably all from Great Portlamnd Street to Edgware Road (inner version). These are joined to District and Metropolitan lines.
+- Many H&C line station tabs are in the wrong folder to fade, Joined to western Circle line, District and Metropolitan lines.
+- 3 western Piccadilly station tabs are in the wrong folder to fade, joined to District line. Turnham Green, Barons Court and Gloucester Road.
+- 
+
 
 
 
