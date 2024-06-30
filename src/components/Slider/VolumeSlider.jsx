@@ -16,6 +16,7 @@ const VolumeSlider = ({
     const tracks = document.getElementById(`${elementId}Tracks`);
     const stations = document.getElementById(`${elementId}Stations`);
     const stationsFore = document.getElementById(`${elementId}StationsFore`);
+    console.log("fade:", `${elementId}Tracks`, `${elementId}Stations`, `${elementId}StationsFore`)
     tracks.style.opacity = opacity;
     stations.style.opacity = opacity;
     stationsFore.style.opacity = opacity;
