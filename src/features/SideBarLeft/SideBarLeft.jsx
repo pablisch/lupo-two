@@ -31,8 +31,6 @@ const SideBarLeft = ({
     }, {})
   );
 
-  console.log('instruments display name:', instruments?.Circle?.displayName, linesToggled['Circle']);
-
   const {
     isMuted,
     handleMuteToggle,
@@ -137,7 +135,7 @@ const SideBarLeft = ({
               onMouseLeave={handleLineBtnLeave}>
               {
                 linesToggled[lineName] && (currentInstrument === 'orchestra' || currentInstrument === 'strings') ? (
-                instruments[lineName].displayName
+                instruments[lineName]?.displayName
               ) : (
                 <>
                   {lineName === 'HammersmithCity' ? 'H&C' : ''}

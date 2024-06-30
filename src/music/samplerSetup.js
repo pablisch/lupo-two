@@ -30,8 +30,6 @@ const createSampler = (
 const createSamplers = async (instrumentSet) => {
   await Tone.start();
 
-  // console.log('Setting up samplers for the first time!');
-
   const reverb = new Tone.Reverb(2.5).toDestination(); // decay time as arg
   reverb.wet.value = 0.4; // 1 == 100% reverb. 0 == no reverb
 
